@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package view.employeeScreen;
+package view.customerScreen;
 
 /**
  *
- * @author akshb
+ * @author aishwaryanagaraj
  */
-public class employeeLoginScreen extends javax.swing.JPanel {
+public class customerLoginScreen extends javax.swing.JPanel {
 
     /**
-     * Creates new form employeeLoginScreen
+     * Creates new form customerLoginScreen
      */
-    public employeeLoginScreen() {
+    public customerLoginScreen() {
         initComponents();
     }
 
@@ -31,10 +31,12 @@ public class employeeLoginScreen extends javax.swing.JPanel {
         customerID_TF = new javax.swing.JTextField();
         customerLogin_BT = new javax.swing.JButton();
 
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel1.setText("Employee Login");
+        setPreferredSize(new java.awt.Dimension(860, 540));
 
-        jLabel2.setText("Enter ID:");
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel1.setText("Customer Login");
+
+        jLabel2.setText("Enter Customer ID:");
 
         customerID_TF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -59,28 +61,27 @@ public class employeeLoginScreen extends javax.swing.JPanel {
                         .addGap(341, 341, 341)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(278, 278, 278)
+                        .addComponent(jLabel2)
+                        .addGap(29, 29, 29)
+                        .addComponent(customerID_TF, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(362, 362, 362)
-                        .addComponent(customerLogin_BT)))
-                .addContainerGap(380, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(29, 29, 29)
-                .addComponent(customerID_TF, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(248, 248, 248))
+                        .addComponent(customerLogin_BT, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(248, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(jLabel1)
-                .addGap(73, 73, 73)
+                .addGap(74, 74, 74)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(customerID_TF, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
+                    .addComponent(customerID_TF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(36, 36, 36)
                 .addComponent(customerLogin_BT)
-                .addContainerGap(316, Short.MAX_VALUE))
+                .addContainerGap(327, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
