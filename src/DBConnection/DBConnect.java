@@ -18,7 +18,7 @@ public class DBConnect {
     ObjectContainer db;
     
     public DBConnect(JFrame frame) {
-        db = Db4o.openFile("./db.yap");
+        db = Db4o.openFile("./src/DBConnection/db.yap");
 //        if (db != null) {
 //            Car Obj = new Car();
 //            getListOf(Obj);
@@ -39,7 +39,7 @@ public class DBConnect {
         ObjectSet result = db.queryByExample(Obj);
 //        System.out.println(result.size());
 
-        ArrayList<T> list = new ArrayList<T>();
+        ArrayList<T> list = new ArrayList<>();
         for (Object o : result.toArray()) {
             T newObj = (T) o;
             list.add(newObj);
@@ -55,18 +55,9 @@ public class DBConnect {
      * @param Obj
      * @return
      */
-    public <T> ArrayList<T> addEntity(T Obj){
+    public <T> void addEntity(T Obj){
         
-        ObjectSet result = db.queryByExample(Obj);
-//        System.out.println(result.size());
-
-        ArrayList<T> list = new ArrayList<T>();
-        for (Object o : result.toArray()) {
-            T newObj = (T) o;
-            list.add(newObj);
-        }
-        System.out.println(list.toString());
-        return list;
+        db.store(Obj);
     }
 
 //    public static void storeFirstCar(ObjectContainer db) {
