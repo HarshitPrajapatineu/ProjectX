@@ -42,4 +42,19 @@ public class Enum {
         KITCHENER,
         VAUGHAN
     };
+    
+    public enum PackageType {
+        ENVELOPE,
+        DOCUMENT,
+        BOX,
+        POUCH
+    };
+    
+    public enum Status{
+        PENDING,
+        APPROVED,
+        SHIPPED,
+        DELIVERED,
+        CANCELLED
+    };
 }
