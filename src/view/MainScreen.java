@@ -8,13 +8,17 @@ package view;
  *
  * @author dell
  */
+import DBConnection.DBConnect;
+
 public class MainScreen extends javax.swing.JFrame {
 
     /**
      * Creates new form MainJFrame
      */
+    DBConnect dbConnect;
     public MainScreen() {
         initComponents();
+        dbConnect = new DBConnect(this);
     }
 
     /**
