@@ -26,30 +26,67 @@ public class customerMainScreen extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        existingCustomer_BT = new javax.swing.JButton();
+        newCustomer_BT = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
-        jLabel1.setText("this one is a split panel with options on left side and other panels switching on right side");
+        existingCustomer_BT.setText("Existing Customer");
+        existingCustomer_BT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                existingCustomer_BTActionPerformed(evt);
+            }
+        });
+
+        newCustomer_BT.setText("New Customer");
+        newCustomer_BT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newCustomer_BTActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel1.setText("Welcome to PACK-MAN");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(152, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 537, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(171, 171, 171))
+                .addContainerGap(340, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(newCustomer_BT, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(existingCustomer_BT, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(340, 340, 340))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(320, 320, 320)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(177, 177, 177)
+                .addGap(26, 26, 26)
                 .addComponent(jLabel1)
-                .addContainerGap(347, Short.MAX_VALUE))
+                .addGap(75, 75, 75)
+                .addComponent(existingCustomer_BT)
+                .addGap(55, 55, 55)
+                .addComponent(newCustomer_BT)
+                .addContainerGap(304, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void existingCustomer_BTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_existingCustomer_BTActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_existingCustomer_BTActionPerformed
+
+    private void newCustomer_BTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newCustomer_BTActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_newCustomer_BTActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton existingCustomer_BT;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton newCustomer_BT;
     // End of variables declaration//GEN-END:variables
 }
