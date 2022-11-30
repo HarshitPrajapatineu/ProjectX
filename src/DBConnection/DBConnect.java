@@ -55,11 +55,26 @@ public class DBConnect {
      * @param Obj
      * @return
      */
-    public <T> void addEntity(T Obj){
+    public <T> void setEntity(T Obj){
         
         db.store(Obj);
     }
-
+    
+//    public <T> void updateEntity(T Obj){
+//        db
+//    }
+    
+    public <T> ArrayList<T> deleteEntity(T Obj){
+        ObjectSet result = db.queryByExample(Obj);
+        T match=(T)result.next();
+            if (match != null) {
+            db.delete(match);
+            System.out.println("Deleted " + match);
+        }
+            T item = (T) new Object();
+            return getListOf(item); 
+    }
+        
 //    public static void storeFirstCar(ObjectContainer db) {
 //        Car car1 = new Car("Ferrari");
 //        db.store(car1);
@@ -93,5 +108,15 @@ public class DBConnect {
 //        public String getName() {
 //            return name;
 //        }
+//    }
+//    below are one time run functions
+//    private void addCity(){
+//        
+//    }
+//    private void addUserRole(){
+//        
+//    }
+//    private void addGender() {
+//        
 //    }
 }
