@@ -18,16 +18,16 @@ public class Enum {
         REGIONALMANAGER,
         CSASSOCIATE,
         CUSTOMER,
-        
+
     };
-    
+
     public enum Gender {
         MALE,
         FEMALE,
         PREFER_NOT_TO_SAY,
         OTHER
     };
-    
+
     public enum City {
         TORONTO,
         SCARBOROUGH,
@@ -41,5 +41,46 @@ public class Enum {
         WATERLOO,
         KITCHENER,
         VAUGHAN
+    };
+
+    public enum PackageType {
+        ENVELOPE,
+        DOCUMENT,
+        BOX,
+        POUCH
+    };
+
+    public enum Status {
+        PENDING,
+        APPROVED,
+        SHIPPED,
+        DELIVERED,
+        CANCELLED
+    };
+
+    public enum PackageService {
+        DHL,
+        PUROLATOR,
+        FEDEX
+    };
+
+    public enum PackageProvider {
+        EXPRESS,
+        GROUND,
+        INTERNATIONAL
+    };
+
+    public enum Enterprise {
+        CUSTOMERSERVICE,
+        PACKAGEMANAGEMENT,
+        TRANSPORTSERVICE,
+        EMPLOYEEMANAGEMENT
+    };
+
+    public enum Franchise {
+        QUEENSQUEY,
+        EASTERN,
+        DANFORTH,
+        PARLIAMENT
     };
 }
