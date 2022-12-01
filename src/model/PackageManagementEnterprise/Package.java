@@ -2,9 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package model;
+package model.PackageManagementEnterprise;
 
+import model.Customer;
 import common.Enum.City;
+import common.Enum.PackageProvider;
+import common.Enum.PackageService;
 import common.Enum.PackageType;
 import common.Enum.Status;
 
@@ -13,11 +16,14 @@ import common.Enum.Status;
  * @author akshb
  */
 public class Package {
+
     private String toAddress;
     private String fromAddress;
     private String toName;
     private String fromName;
     private PackageType type;
+    private PackageService service;
+    private PackageProvider provider;
     private City toCity;
     private City fromCity;
     private String toPostalCode;
@@ -28,6 +34,22 @@ public class Package {
     private Status status;
     private float cost;
     private Customer customer;
+
+    public PackageService getService() {
+        return service;
+    }
+
+    public void setService(PackageService service) {
+        this.service = service;
+    }
+
+    public PackageProvider getProvider() {
+        return provider;
+    }
+
+    public void setProvider(PackageProvider provider) {
+        this.provider = provider;
+    }
 
     public String getToAddress() {
         return toAddress;
@@ -148,6 +170,5 @@ public class Package {
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
-    
-    
+
 }
