@@ -13,11 +13,13 @@ import common.Enum.Gender;
  * @author akshb
  */
 public class Person {
+
     private String firstName;
     private String lastName;
     private String email;
     private Long personId;
-    private String address;
+    private String address1;
+    private String address2;
     private City city;
     private String postalCode;
     private Gender gender;
@@ -38,7 +40,7 @@ public class Person {
     public void setRole(Enum.UserRole role) {
         this.role = role;
     }
-    
+
     public String getFirstName() {
         return firstName;
     }
@@ -71,12 +73,20 @@ public class Person {
         this.personId = personId;
     }
 
-    public String getAddress() {
-        return address;
+    public String getAddress1() {
+        return address1;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setAddress1(String address1) {
+        this.address1 = address1;
+    }
+
+    public String getAddress2() {
+        return address2;
+    }
+
+    public void setAddress2(String address2) {
+        this.address2 = address2;
     }
 
     public City getCity() {
@@ -94,5 +104,5 @@ public class Person {
     public void setPostalCode(String postalCode) {
         this.postalCode = postalCode;
     }
-    
+
 }

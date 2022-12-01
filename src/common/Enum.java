@@ -69,11 +69,18 @@ public class Enum {
         GROUND,
         INTERNATIONAL
     };
-    
-    public enum Enterprise{
+
+    public enum Enterprise {
         CUSTOMERSERVICE,
         PACKAGEMANAGEMENT,
         TRANSPORTSERVICE,
         EMPLOYEEMANAGEMENT
+    };
+
+    public enum Franchise {
+        QUEENSQUEY,
+        EASTERN,
+        DANFORTH,
+        PARLIAMENT
     };
 }

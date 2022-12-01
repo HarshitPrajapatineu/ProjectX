@@ -5,6 +5,7 @@
 package model;
 
 import common.Enum.Enterprise;
+import common.Enum.Franchise;
 
 /**
  *
@@ -14,6 +15,7 @@ public class Employee extends Person {
 
     private long employeeId;
     private Enterprise enterprise;
+    private Franchise franchise;
 
     public long getEmployeeId() {
         return employeeId;
@@ -29,6 +31,14 @@ public class Employee extends Person {
 
     public void setEnterprise(Enterprise enterprise) {
         this.enterprise = enterprise;
+    }
+
+    public Franchise getFranchise() {
+        return franchise;
+    }
+
+    public void setFranchise(Franchise franchise) {
+        this.franchise = franchise;
     }
 
 }
