@@ -4,6 +4,9 @@
  */
 package view.employeeScreen;
 
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+
 /**
  *
  * @author akshb
@@ -13,8 +16,12 @@ public class employeeMainScreen extends javax.swing.JPanel {
     /**
      * Creates new form packageScreen
      */
-    public employeeMainScreen() {
+    JPanel userProcessPanel;
+
+    public employeeMainScreen(JPanel userProcessPanel) {
         initComponents();
+        this.userProcessPanel = userProcessPanel;
+
     }
 
     /**
@@ -36,8 +43,18 @@ public class employeeMainScreen extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(860, 540));
 
         createPackageButton.setText("Create package");
+        createPackageButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createPackageButtonActionPerformed(evt);
+            }
+        });
 
         retrievePackageButton.setText("Retrieve package");
+        retrievePackageButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                retrievePackageButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -45,9 +62,9 @@ public class employeeMainScreen extends javax.swing.JPanel {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(retrievePackageButton)
-                    .addComponent(createPackageButton))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(retrievePackageButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(createPackageButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -103,9 +120,23 @@ public class employeeMainScreen extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 540, Short.MAX_VALUE)
+            .addComponent(jSplitPane1)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void createPackageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createPackageButtonActionPerformed
+        // TODO add your handling code here:
+        packageDetailsScreen packageCreationScreen = new packageDetailsScreen(userProcessPanel);
+        jSplitPane1.setRightComponent(packageCreationScreen);
+
+    }//GEN-LAST:event_createPackageButtonActionPerformed
+
+    private void retrievePackageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_retrievePackageButtonActionPerformed
+        // TODO add your handling code here:
+        retrievePackagesScreen packageRetrievalScreen = new retrievePackagesScreen();
+        jSplitPane1.setRightComponent(packageRetrievalScreen);
+
+    }//GEN-LAST:event_retrievePackageButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

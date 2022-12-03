@@ -6,6 +6,7 @@ package view.customerScreen;
 
 import java.awt.CardLayout;
 import javax.swing.JPanel;
+import javax.swing.JSplitPane;
 
 /**
  *
@@ -13,10 +14,12 @@ import javax.swing.JPanel;
  */
 public class customerQueryScreen extends javax.swing.JPanel {
 
+    JSplitPane splitPane;
     JPanel userProcessPanel;
-    
-    public customerQueryScreen(JPanel userProcessPanel) {
+
+    public customerQueryScreen(JPanel userProcessPanel, JSplitPane splitPane) {
         initComponents();
+        this.splitPane = splitPane;
         this.userProcessPanel = userProcessPanel;
     }
 
@@ -36,8 +39,6 @@ public class customerQueryScreen extends javax.swing.JPanel {
         jTable1 = new javax.swing.JTable();
         jTextField1 = new javax.swing.JTextField();
         searchButton = new javax.swing.JButton();
-        jPanel5 = new javax.swing.JPanel();
-        backButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(860, 540));
@@ -87,30 +88,6 @@ public class customerQueryScreen extends javax.swing.JPanel {
 
         searchButton.setText("Search");
 
-        backButton2.setText("<< Back");
-        backButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backButton2ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(backButton2)
-                .addContainerGap())
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(backButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
         jLabel2.setText("Query still not answered?");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -131,8 +108,7 @@ public class customerQueryScreen extends javax.swing.JPanel {
                         .addGap(21, 21, 21)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 817, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(249, 249, 249)
+                        .addGap(335, 335, 335)
                         .addComponent(jLabel11))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(343, 343, 343)
@@ -144,17 +120,15 @@ public class customerQueryScreen extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel11)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(9, 9, 9)
+                .addComponent(jLabel11)
+                .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(searchButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(postQuery_BT)
@@ -163,29 +137,19 @@ public class customerQueryScreen extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void postQuery_BTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_postQuery_BTActionPerformed
-        postQueryScreen postQuerySc = new postQueryScreen(userProcessPanel);
-        userProcessPanel.add("postQueryScreen", postQuerySc);
-        CardLayout layout = (CardLayout) userProcessPanel.getLayout();
-        layout.next(userProcessPanel); 
+        postQueryScreen postQuerySc = new postQueryScreen(userProcessPanel, splitPane);
+        splitPane.setRightComponent(postQuerySc);;
     }//GEN-LAST:event_postQuery_BTActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
-    private void backButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButton2ActionPerformed
-        userProcessPanel.remove(this);
-        CardLayout layout = (CardLayout) userProcessPanel.getLayout();
-        layout.previous(userProcessPanel);
-    }//GEN-LAST:event_backButton2ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton backButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;

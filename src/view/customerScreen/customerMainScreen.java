@@ -14,7 +14,7 @@ import javax.swing.JPanel;
 public class customerMainScreen extends javax.swing.JPanel {
 
     JPanel userProcessPanel;
-    
+
     public customerMainScreen(JPanel userProcessPanel) {
         initComponents();
         this.userProcessPanel = userProcessPanel;
@@ -123,27 +123,32 @@ public class customerMainScreen extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void contactUsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contactUsButtonActionPerformed
-        customerQueryScreen customerQuerySc = new customerQueryScreen(userProcessPanel);
-        userProcessPanel.add("customerQueryScreen", customerQuerySc);
-        CardLayout layout = (CardLayout) userProcessPanel.getLayout();
-        layout.next(userProcessPanel);
+        customerQueryScreen customerQuerySc = new customerQueryScreen(userProcessPanel, jSplitPane1);
+        jSplitPane1.setRightComponent(customerQuerySc);
+
+//        userProcessPanel.add("customerQueryScreen", customerQuerySc);
+//        CardLayout layout = (CardLayout) userProcessPanel.getLayout();
+//        layout.next(userProcessPanel);
     }//GEN-LAST:event_contactUsButtonActionPerformed
 
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
         customerSearchScreen custSearchScreen = new customerSearchScreen(userProcessPanel);
-        userProcessPanel.add("customerSearchScreen", custSearchScreen);
-        CardLayout layout = (CardLayout) userProcessPanel.getLayout();
-        layout.next(userProcessPanel);
-        
+        jSplitPane1.setRightComponent(custSearchScreen);
+//        userProcessPanel.add("customerSearchScreen", custSearchScreen);
+//        CardLayout layout = (CardLayout) userProcessPanel.getLayout();
+//        layout.next(userProcessPanel);
+
         //customerSearchScreen custSearchScreen = new customerSearchScreen(userProcessPanel);
         //jSplitPane1.setRightComponent(custSearchScreen);
     }//GEN-LAST:event_searchButtonActionPerformed
 
     private void trackShipmentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trackShipmentButtonActionPerformed
         trackShipmentScreen trackShipScreen = new trackShipmentScreen(userProcessPanel);
-        userProcessPanel.add("trackShipmentScreen", trackShipScreen);
-        CardLayout layout = (CardLayout) userProcessPanel.getLayout();
-        layout.next(userProcessPanel);
+        jSplitPane1.setRightComponent(trackShipScreen);
+
+//        userProcessPanel.add("trackShipmentScreen", trackShipScreen);
+//        CardLayout layout = (CardLayout) userProcessPanel.getLayout();
+//        layout.next(userProcessPanel);
     }//GEN-LAST:event_trackShipmentButtonActionPerformed
 
 

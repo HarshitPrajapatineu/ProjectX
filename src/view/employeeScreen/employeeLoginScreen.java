@@ -4,6 +4,7 @@
  */
 package view.employeeScreen;
 
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 
 /**
@@ -94,6 +95,10 @@ public class employeeLoginScreen extends javax.swing.JPanel {
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         // TODO add your handling code here:
+        employeeMainScreen empMainScreen = new employeeMainScreen(userProcessPanel);
+        userProcessPanel.add("empMainScreen", empMainScreen);
+        CardLayout layout = (CardLayout) userProcessPanel.getLayout();
+        layout.next(userProcessPanel);
     }//GEN-LAST:event_loginButtonActionPerformed
 
 

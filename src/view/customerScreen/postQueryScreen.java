@@ -6,6 +6,7 @@ package view.customerScreen;
 
 import java.awt.CardLayout;
 import javax.swing.JPanel;
+import javax.swing.JSplitPane;
 
 /**
  *
@@ -13,11 +14,13 @@ import javax.swing.JPanel;
  */
 public class postQueryScreen extends javax.swing.JPanel {
 
-     JPanel userProcessPanel;
-    
-    public postQueryScreen(JPanel userProcessPanel) {
+    JPanel userProcessPanel;
+    JSplitPane splitPane;
+            
+    public postQueryScreen(JPanel userProcessPanel, JSplitPane splitPane) {
         initComponents();
         this.userProcessPanel = userProcessPanel;
+        this.splitPane = splitPane;
     }
 
     /**
@@ -119,9 +122,8 @@ public class postQueryScreen extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
-        userProcessPanel.remove(this);
-        CardLayout layout = (CardLayout) userProcessPanel.getLayout();
-        layout.previous(userProcessPanel);
+        customerQueryScreen customerQuerySc = new customerQueryScreen(userProcessPanel, splitPane);
+        splitPane.setRightComponent(customerQuerySc);
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void postButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_postButtonActionPerformed

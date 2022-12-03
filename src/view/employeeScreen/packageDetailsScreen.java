@@ -4,17 +4,24 @@
  */
 package view.employeeScreen;
 
+import common.Enum.PackageType;
+import javax.swing.JPanel;
+
 /**
  *
  * @author aishwaryanagaraj
  */
-public class pacakgeDetailsScreen extends javax.swing.JPanel {
+public class packageDetailsScreen extends javax.swing.JPanel {
 
     /**
      * Creates new form pacakgeDetailsScreen
      */
-    public pacakgeDetailsScreen() {
+    JPanel userProcessPanel;
+
+    public packageDetailsScreen(JPanel userProcessPanel) {
         initComponents();
+        this.userProcessPanel = userProcessPanel;
+        populateDropdowns();
     }
 
     /**
@@ -63,8 +70,6 @@ public class pacakgeDetailsScreen extends javax.swing.JPanel {
         toCityDropdown = new javax.swing.JComboBox<>();
         toLastNameTextField = new javax.swing.JTextField();
         toPostalCodeTextField = new javax.swing.JTextField();
-        jPanel5 = new javax.swing.JPanel();
-        jPanel6 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         weightTextField = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
@@ -281,34 +286,6 @@ public class pacakgeDetailsScreen extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 236, Short.MAX_VALUE)
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 53, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(297, Short.MAX_VALUE)
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(137, 137, 137))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(13, Short.MAX_VALUE)
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-
         weightTextField.setEditable(false);
 
         jLabel20.setText("OTHER DETAILS:");
@@ -405,12 +382,9 @@ public class pacakgeDetailsScreen extends javax.swing.JPanel {
                             .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(222, 222, 222)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(99, Short.MAX_VALUE))
+                .addContainerGap(132, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -423,9 +397,7 @@ public class pacakgeDetailsScreen extends javax.swing.JPanel {
                 .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(27, 27, 27)
-                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(99, 99, 99)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12))
         );
@@ -484,8 +456,6 @@ public class pacakgeDetailsScreen extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JComboBox<String> packageTypeDropdown;
     private javax.swing.JButton refuseButton;
     private javax.swing.JTextField toAddressL1TextField;
@@ -498,4 +468,15 @@ public class pacakgeDetailsScreen extends javax.swing.JPanel {
     private javax.swing.JTextField toPostalCodeTextField;
     private javax.swing.JTextField weightTextField;
     // End of variables declaration//GEN-END:variables
+
+    private void populateDropdowns() {
+        for (Object packages : PackageType.values()) {
+            packageTypeDropdown.addItem(packages.toString());
+
+        }
+        for (Object city : common.Enum.City.values()) {
+            toCityDropdown.addItem(city.toString());
+
+        }
+    }
 }
