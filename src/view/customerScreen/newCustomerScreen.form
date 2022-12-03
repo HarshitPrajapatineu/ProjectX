@@ -26,7 +26,7 @@
                   <Component id="jLabel3" alignment="1" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel2" alignment="1" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel9" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel4" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="phoneNumberLabel" alignment="1" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel5" alignment="1" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel6" alignment="1" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel7" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -37,36 +37,39 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="firstName_TF" max="32767" attributes="0"/>
-                      <Component id="phoneNumber_TF" pref="182" max="32767" attributes="0"/>
-                      <Component id="emailAddress_TF" pref="182" max="32767" attributes="0"/>
-                      <Component id="addrL1_TF" pref="182" max="32767" attributes="0"/>
-                      <Component id="addrL2_TF" pref="182" max="32767" attributes="0"/>
-                      <Component id="postalCode_TF" pref="182" max="32767" attributes="0"/>
-                      <Component id="DOB_DtCh" alignment="0" max="32767" attributes="0"/>
-                      <Component id="city_DD" alignment="0" max="32767" attributes="0"/>
+                      <Component id="phoneNumberTextField" pref="182" max="32767" attributes="0"/>
+                      <Component id="emailAddressTextField" pref="182" max="32767" attributes="0"/>
+                      <Component id="addressLine1TextField" pref="182" max="32767" attributes="0"/>
+                      <Component id="addressLine2TextField" pref="182" max="32767" attributes="0"/>
+                      <Component id="postalCodeTextField" pref="182" max="32767" attributes="0"/>
+                      <Component id="DOBDateChooser" alignment="0" max="32767" attributes="0"/>
+                      <Component id="cityDropdown" alignment="0" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="lastName_TF" min="-2" pref="182" max="-2" attributes="0"/>
+                  <Component id="lastNameTextField" min="-2" pref="182" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="0" pref="320" max="32767" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="304" max="-2" attributes="0"/>
+              <EmptySpace pref="227" max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
-              <Component id="newCustomer_BT1" min="-2" pref="172" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="303" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="265" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="createAccountButton" min="-2" pref="172" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="260" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="firstName_TF" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -74,7 +77,7 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lastName_TF" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lastNameTextField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -83,39 +86,39 @@
                       <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="phoneNumber_TF" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="phoneNumberLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="phoneNumberTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <Component id="DOB_DtCh" min="-2" max="-2" attributes="0"/>
+                  <Component id="DOBDateChooser" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="emailAddress_TF" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="emailAddressTextField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="addrL1_TF" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="addressLine1TextField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="addrL2_TF" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="addressLine2TextField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="postalCode_TF" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="postalCodeTextField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="city_DD" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cityDropdown" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-              <Component id="newCustomer_BT1" min="-2" max="-2" attributes="0"/>
+              <Component id="createAccountButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="120" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -140,7 +143,7 @@
         <Property name="text" type="java.lang.String" value="Last Name:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel4">
+    <Component class="javax.swing.JLabel" name="phoneNumberLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="Phone Number:"/>
       </Properties>
@@ -172,42 +175,49 @@
     </Component>
     <Component class="javax.swing.JTextField" name="firstName_TF">
     </Component>
-    <Component class="javax.swing.JTextField" name="lastName_TF">
+    <Component class="javax.swing.JTextField" name="lastNameTextField">
     </Component>
-    <Component class="javax.swing.JTextField" name="phoneNumber_TF">
-    </Component>
-    <Component class="javax.swing.JTextField" name="emailAddress_TF">
-    </Component>
-    <Component class="javax.swing.JTextField" name="addrL1_TF">
+    <Component class="javax.swing.JTextField" name="phoneNumberTextField">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addrL1_TFActionPerformed"/>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="phoneNumberTextFieldKeyReleased"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="phoneNumberTextFieldKeyTyped"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="addrL2_TF">
+    <Component class="javax.swing.JTextField" name="emailAddressTextField">
     </Component>
-    <Component class="javax.swing.JTextField" name="postalCode_TF">
+    <Component class="javax.swing.JTextField" name="addressLine1TextField">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addressLine1TextFieldActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="newCustomer_BT1">
+    <Component class="javax.swing.JTextField" name="addressLine2TextField">
+    </Component>
+    <Component class="javax.swing.JTextField" name="postalCodeTextField">
+    </Component>
+    <Component class="javax.swing.JButton" name="createAccountButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Create account"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="newCustomer_BT1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="createAccountButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="com.toedter.calendar.JDateChooser" name="DOB_DtCh">
+    <Component class="com.toedter.calendar.JDateChooser" name="DOBDateChooser">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel10">
       <Properties>
         <Property name="text" type="java.lang.String" value="City:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="city_DD">
+    <Component class="javax.swing.JComboBox" name="cityDropdown">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="0"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cityDropdownActionPerformed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>

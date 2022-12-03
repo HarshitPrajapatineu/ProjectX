@@ -11,14 +11,13 @@ import javax.swing.JPanel;
  *
  * @author aishwaryanagaraj
  */
-public class trackingInfoScreen extends javax.swing.JPanel {
+public class postQueryScreen extends javax.swing.JPanel {
 
-   
-   JPanel userProcessPanel; 
+     JPanel userProcessPanel;
     
-    public trackingInfoScreen(JPanel userProcessPanel) {
-        this.userProcessPanel=userProcessPanel;
+    public postQueryScreen(JPanel userProcessPanel) {
         initComponents();
+        this.userProcessPanel = userProcessPanel;
     }
 
     /**
@@ -31,28 +30,17 @@ public class trackingInfoScreen extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel11 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        shipmentDetailsTable = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         backButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        queryTextArea = new javax.swing.JTextArea();
+        postButton = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(860, 540));
 
         jLabel11.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel11.setText("Shipment Details");
-
-        shipmentDetailsTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(shipmentDetailsTable);
+        jLabel11.setText("Post Query");
 
         backButton.setText("<< Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
@@ -78,6 +66,19 @@ public class trackingInfoScreen extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
+        jLabel1.setText("Write your query here:");
+
+        queryTextArea.setColumns(20);
+        queryTextArea.setRows(5);
+        jScrollPane1.setViewportView(queryTextArea);
+
+        postButton.setText("Post");
+        postButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                postButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -86,24 +87,34 @@ public class trackingInfoScreen extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(261, 261, 261)
+                        .addGap(221, 221, 221)
                         .addComponent(jLabel11))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(77, 77, 77)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 726, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(57, Short.MAX_VALUE))
+                        .addGap(76, 76, 76)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 635, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(68, 68, 68)
+                        .addComponent(postButton)))
+                .addContainerGap(149, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(73, 73, 73)
+                        .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel11)))
-                .addGap(33, 33, 33)
+                .addGap(27, 27, 27)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(postButton)
+                .addContainerGap(264, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -113,12 +124,18 @@ public class trackingInfoScreen extends javax.swing.JPanel {
         layout.previous(userProcessPanel);
     }//GEN-LAST:event_backButtonActionPerformed
 
+    private void postButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_postButtonActionPerformed
+        
+    }//GEN-LAST:event_postButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable shipmentDetailsTable;
+    private javax.swing.JButton postButton;
+    private javax.swing.JTextArea queryTextArea;
     // End of variables declaration//GEN-END:variables
 }

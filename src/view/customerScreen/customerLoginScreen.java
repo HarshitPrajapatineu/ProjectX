@@ -4,17 +4,21 @@
  */
 package view.customerScreen;
 
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+
 /**
  *
  * @author aishwaryanagaraj
  */
 public class customerLoginScreen extends javax.swing.JPanel {
 
-    /**
-     * Creates new form customerLoginScreen
-     */
-    public customerLoginScreen() {
+    
+    JPanel userProcessPanel;
+    
+    public customerLoginScreen(JPanel userProcessPanel) {
         initComponents();
+        this.userProcessPanel = userProcessPanel;
     }
 
     /**
@@ -28,8 +32,8 @@ public class customerLoginScreen extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        customerID_TF = new javax.swing.JTextField();
-        customerLogin_BT = new javax.swing.JButton();
+        customerIDTextField = new javax.swing.JTextField();
+        customerLoginButton = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(860, 540));
 
@@ -38,16 +42,16 @@ public class customerLoginScreen extends javax.swing.JPanel {
 
         jLabel2.setText("Enter Customer ID:");
 
-        customerID_TF.addActionListener(new java.awt.event.ActionListener() {
+        customerIDTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                customerID_TFActionPerformed(evt);
+                customerIDTextFieldActionPerformed(evt);
             }
         });
 
-        customerLogin_BT.setText("Login");
-        customerLogin_BT.addActionListener(new java.awt.event.ActionListener() {
+        customerLoginButton.setText("Login");
+        customerLoginButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                customerLogin_BTActionPerformed(evt);
+                customerLoginButtonActionPerformed(evt);
             }
         });
 
@@ -64,39 +68,45 @@ public class customerLoginScreen extends javax.swing.JPanel {
                         .addGap(278, 278, 278)
                         .addComponent(jLabel2)
                         .addGap(29, 29, 29)
-                        .addComponent(customerID_TF, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(customerIDTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(362, 362, 362)
-                        .addComponent(customerLogin_BT, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(customerLoginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(248, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(74, 74, 74)
+                .addGap(94, 94, 94)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(customerID_TF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(customerIDTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(36, 36, 36)
-                .addComponent(customerLogin_BT)
+                .addComponent(customerLoginButton)
                 .addContainerGap(327, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void customerID_TFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerID_TFActionPerformed
+    private void customerIDTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerIDTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_customerID_TFActionPerformed
+    }//GEN-LAST:event_customerIDTextFieldActionPerformed
 
-    private void customerLogin_BTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerLogin_BTActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_customerLogin_BTActionPerformed
+    private void customerLoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerLoginButtonActionPerformed
+        customerMainScreen custMainScreen = new customerMainScreen(userProcessPanel);
+        userProcessPanel.add("customerMainScreen", custMainScreen);
+        CardLayout layout = (CardLayout) userProcessPanel.getLayout();
+        layout.next(userProcessPanel);
+        
+        
+        
+    }//GEN-LAST:event_customerLoginButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField customerID_TF;
-    private javax.swing.JButton customerLogin_BT;
+    private javax.swing.JTextField customerIDTextField;
+    private javax.swing.JButton customerLoginButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables

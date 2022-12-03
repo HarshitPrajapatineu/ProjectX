@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <Properties>
+    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[860, 540]"/>
+    </Property>
+  </Properties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -16,51 +21,50 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="324" max="-2" attributes="0"/>
+          </Group>
           <Group type="102" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="238" max="-2" attributes="0"/>
-                      <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jPanel4" max="32767" attributes="0"/>
+                          <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jPanel2" linkSize="1" max="32767" attributes="0"/>
-                          <Component id="jPanel1" linkSize="1" max="32767" attributes="0"/>
-                          <Component id="jPanel4" alignment="0" max="32767" attributes="0"/>
-                      </Group>
+                      <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="222" max="-2" attributes="0"/>
+                      <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="52" max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="createPackageButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="314" max="-2" attributes="0"/>
+              <EmptySpace pref="99" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jPanel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jPanel1" linkSize="2" min="-2" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel2" linkSize="2" min="-2" max="-2" attributes="0"/>
+              <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-              <Component id="createPackageButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="53" max="32767" attributes="0"/>
+              <Component id="jPanel3" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jPanel4" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jPanel2" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+              <Component id="jPanel5" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -71,18 +75,10 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial" size="18" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Package Creation"/>
+        <Property name="text" type="java.lang.String" value="Package Details"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="createPackageButton">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Create Package"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="createPackageButtonActionPerformed"/>
-      </Events>
-    </Component>
-    <Container class="javax.swing.JPanel" name="jPanel1">
+    <Container class="javax.swing.JPanel" name="jPanel3">
 
       <Layout>
         <DimensionLayout dim="0">
@@ -90,6 +86,7 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                      <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
@@ -105,44 +102,27 @@
                           </Group>
                           <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="fromAddressL1TextField" min="-2" pref="199" max="-2" attributes="0"/>
-                                  <EmptySpace pref="72" max="32767" attributes="0"/>
-                                  <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="fromAddressL2TextField" min="-2" pref="199" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="fromFirstNameTextField" min="-2" pref="199" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="fromLastNameTextField" min="-2" pref="199" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="fromPostalCodeTextField" alignment="0" min="-2" pref="199" max="-2" attributes="0"/>
-                                      <Component id="fromPhoneNumberTextField" alignment="0" min="-2" pref="199" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="fromCityDropdown" min="-2" pref="199" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="fromEmailTextField" min="-2" pref="199" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
+                              <Component id="fromPostalCodeTextField" alignment="0" min="-2" pref="199" max="-2" attributes="0"/>
+                              <Component id="fromAddressL1TextField" alignment="0" min="-2" pref="199" max="-2" attributes="0"/>
+                              <Component id="fromPhoneNumberTextField" alignment="0" min="-2" pref="199" max="-2" attributes="0"/>
+                              <Component id="fromFirstNameTextField" alignment="0" min="-2" pref="199" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <Group type="102" attributes="0">
-                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="361" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="jLabel5" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel8" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel9" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel3" alignment="1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="fromLastNameTextField" alignment="0" max="32767" attributes="0"/>
+                              <Component id="fromAddressL2TextField" alignment="0" max="32767" attributes="0"/>
+                              <Component id="fromCityDropdown" alignment="0" max="32767" attributes="0"/>
+                              <Component id="fromEmailTextField" alignment="0" min="-2" pref="199" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -190,28 +170,22 @@
       <SubComponents>
         <Component class="javax.swing.JTextField" name="fromEmailTextField">
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel3">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Last Name:"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="fromLastNameTextField">
-        </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
             <Property name="text" type="java.lang.String" value="Address line 1:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="fromPhoneNumberTextField">
+        <Component class="javax.swing.JLabel" name="jLabel5">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Address line 2:"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="fromAddressL1TextField">
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel7">
+        <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Phone Number:"/>
+            <Property name="text" type="java.lang.String" value="First Name:"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="fromFirstNameTextField">
         </Component>
         <Component class="javax.swing.JComboBox" name="fromCityDropdown">
           <Properties>
@@ -227,50 +201,56 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel6">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Postal Code:"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="FROM:"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="fromPostalCodeTextField">
+        <Component class="javax.swing.JTextField" name="fromLastNameTextField">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel9">
           <Properties>
             <Property name="text" type="java.lang.String" value="Email Address:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="fromAddressL2TextField">
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel2">
+        <Component class="javax.swing.JLabel" name="jLabel7">
           <Properties>
-            <Property name="text" type="java.lang.String" value="First Name:"/>
+            <Property name="text" type="java.lang.String" value="Phone Number:"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="fromFirstNameTextField">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel6">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Postal Code:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="fromPostalCodeTextField">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel3">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Last Name:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="fromPhoneNumberTextField">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel8">
           <Properties>
             <Property name="text" type="java.lang.String" value="City:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel5">
+        <Component class="javax.swing.JTextField" name="fromAddressL2TextField">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Address line 2:"/>
+            <Property name="text" type="java.lang.String" value="FROM:"/>
           </Properties>
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="jPanel2">
+    <Container class="javax.swing.JPanel" name="jPanel4">
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" alignment="0" groupAlignment="0" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -290,7 +270,7 @@
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="toFirstNameTextField" alignment="0" min="-2" pref="199" max="-2" attributes="0"/>
@@ -307,7 +287,7 @@
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="toLastNameTextField" alignment="0" max="32767" attributes="0"/>
                                       <Component id="toAddressL2TextField" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="toCity_Dropdown" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="toCityDropdown" alignment="0" max="32767" attributes="0"/>
                                       <Component id="toEmailTextField" alignment="0" min="-2" pref="199" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -344,7 +324,7 @@
                       <Component id="toPostalCodeTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel19" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="toCity_Dropdown" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="toCityDropdown" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -359,25 +339,9 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JTextField" name="toLastNameTextField">
-        </Component>
-        <Component class="javax.swing.JComboBox" name="toCity_Dropdown">
+        <Component class="javax.swing.JLabel" name="jLabel15">
           <Properties>
-            <Property name="editable" type="boolean" value="true"/>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="0"/>
-            </Property>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="toCity_DropdownActionPerformed"/>
-          </Events>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
-        </Component>
-        <Component class="javax.swing.JTextField" name="toAddressL2TextField">
-          <Properties>
-            <Property name="editable" type="boolean" value="false"/>
+            <Property name="text" type="java.lang.String" value="Postal Code:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel14">
@@ -385,11 +349,14 @@
             <Property name="text" type="java.lang.String" value="Address line 1:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="toFirstNameTextField">
-        </Component>
-        <Component class="javax.swing.JTextField" name="toAddressL1TextField">
+        <Component class="javax.swing.JLabel" name="jLabel10">
           <Properties>
-            <Property name="editable" type="boolean" value="false"/>
+            <Property name="text" type="java.lang.String" value="TO:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel13">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Last Name:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel18">
@@ -399,29 +366,28 @@
         </Component>
         <Component class="javax.swing.JTextField" name="toPhoneNumberTextField">
         </Component>
-        <Component class="javax.swing.JTextField" name="toPostalCodeTextField">
-          <Properties>
-            <Property name="editable" type="boolean" value="false"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel15">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Postal Code:"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="toEmailTextField">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="toEmailTextFieldActionPerformed"/>
-          </Events>
-        </Component>
         <Component class="javax.swing.JLabel" name="jLabel12">
           <Properties>
             <Property name="text" type="java.lang.String" value="First Name:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel10">
+        <Component class="javax.swing.JTextField" name="toAddressL1TextField">
           <Properties>
-            <Property name="text" type="java.lang.String" value="TO:"/>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="toAddressL2TextField">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="toFirstNameTextField">
+        </Component>
+        <Component class="javax.swing.JTextField" name="toEmailTextField">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel17">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Address line 2:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel19">
@@ -429,57 +395,75 @@
             <Property name="text" type="java.lang.String" value="City:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel13">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Last Name:"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JLabel" name="jLabel16">
           <Properties>
             <Property name="text" type="java.lang.String" value="Email Address:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel17">
+        <Component class="javax.swing.JComboBox" name="toCityDropdown">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Address line 2:"/>
+            <Property name="editable" type="boolean" value="true"/>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="0"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="toCityDropdownActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JTextField" name="toLastNameTextField">
+        </Component>
+        <Component class="javax.swing.JTextField" name="toPostalCodeTextField">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
           </Properties>
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="jPanel3">
+    <Container class="javax.swing.JPanel" name="jPanel5">
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="backButton" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace pref="297" max="32767" attributes="0"/>
+                  <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="137" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="backButton" min="-2" max="-2" attributes="0"/>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace pref="13" max="32767" attributes="0"/>
+                  <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="backButton">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="&lt;&lt; Back"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="backButtonActionPerformed"/>
-          </Events>
-        </Component>
+        <Container class="javax.swing.JPanel" name="jPanel6">
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <EmptySpace min="0" pref="236" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <EmptySpace min="0" pref="53" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+        </Container>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="jPanel4">
+    <Container class="javax.swing.JPanel" name="jPanel2">
 
       <Layout>
         <DimensionLayout dim="0">
@@ -495,7 +479,7 @@
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="jLabel22" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="weightTextField" min="-2" pref="199" max="-2" attributes="0"/>
+                  <Component id="weightTextField" min="-2" pref="198" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -518,16 +502,6 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="jLabel22">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Weight(in lb):"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel21">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Package Type:"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JTextField" name="weightTextField">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
@@ -551,6 +525,59 @@
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel21">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Package Type:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel22">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Weight(in lb):"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="jPanel1">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                  <Component id="approveButton" linkSize="1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="56" max="32767" attributes="0"/>
+                  <Component id="refuseButton" linkSize="1" min="-2" pref="135" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="refuseButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="approveButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JButton" name="approveButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Approve"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="refuseButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Refuse"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="refuseButtonActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
