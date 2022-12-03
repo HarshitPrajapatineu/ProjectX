@@ -53,7 +53,6 @@ public class DBConnect {
      *
      * @param <T>
      * @param Obj
-     * @return
      */
     public <T> void setEntity(T Obj) {
 

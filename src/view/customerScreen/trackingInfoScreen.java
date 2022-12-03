@@ -43,16 +43,33 @@ public class trackingInfoScreen extends javax.swing.JPanel {
 
         shipmentDetailsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Shipment ID", "Status", "Location"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(shipmentDetailsTable);
+        if (shipmentDetailsTable.getColumnModel().getColumnCount() > 0) {
+            shipmentDetailsTable.getColumnModel().getColumn(0).setResizable(false);
+            shipmentDetailsTable.getColumnModel().getColumn(1).setResizable(false);
+            shipmentDetailsTable.getColumnModel().getColumn(2).setResizable(false);
+        }
 
         backButton.setText("<< Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {

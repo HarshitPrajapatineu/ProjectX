@@ -4,8 +4,10 @@
  */
 package view.customerScreen;
 
+import common.Enum.City;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 import view.packageCreationScreen;
 
 /**
@@ -15,11 +17,13 @@ import view.packageCreationScreen;
 public class customerSearchScreen extends javax.swing.JPanel {
 
     JPanel userProcessPanel;
-    
+
     public customerSearchScreen(JPanel userProcessPanel) {
         initComponents();
         this.userProcessPanel = userProcessPanel;
-        
+        populateCityDropdown();
+        populateFranchiseTable();
+
     }
 
     /**
@@ -54,15 +58,20 @@ public class customerSearchScreen extends javax.swing.JPanel {
 
         nearbyServiesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Franchise Name", "Address", "Phone", "Email"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.String.class, java.lang.Long.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(nearbyServiesTable);
 
         searchButton.setText("Search");
@@ -175,7 +184,7 @@ public class customerSearchScreen extends javax.swing.JPanel {
         packageCreationScreen packCreateScreenScreen = new packageCreationScreen(userProcessPanel);
         userProcessPanel.add("packageCreationScreen", packCreateScreenScreen);
         CardLayout layout = (CardLayout) userProcessPanel.getLayout();
-        layout.next(userProcessPanel);   
+        layout.next(userProcessPanel);
     }//GEN-LAST:event_bookButtonActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
@@ -198,4 +207,27 @@ public class customerSearchScreen extends javax.swing.JPanel {
     private javax.swing.JTextField postalCodeTextField;
     private javax.swing.JButton searchButton;
     // End of variables declaration//GEN-END:variables
+
+    private void populateCityDropdown() {
+        for (Object city : common.Enum.City.values()) {
+            cityDropdown.addItem(city.toString());
+
+        }
+    }
+
+    private void populateFranchiseTable() {
+        DefaultTableModel model = (DefaultTableModel) nearbyServiesTable.getModel();
+        model.setRowCount(0);
+
+//        for (City c : rootDataObj.getRootCityDirectory()) {
+//            for (Community communityOption : c.getCommunityDirectory()) {
+//                Object[] row = new Object[4];
+//                row[0] = communityOption.getAreaName();
+//                row[1] = communityOption;
+//                row[2] = c;
+//                row[3] = c.getPinCode();
+//                model.addRow(row);
+//            }
+//        }
+    }
 }
