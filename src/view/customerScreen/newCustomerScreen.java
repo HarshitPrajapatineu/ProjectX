@@ -4,6 +4,12 @@
  */
 package view.customerScreen;
 
+import common.Enum.City;
+import java.awt.CardLayout;
+import java.awt.Color;
+import java.util.regex.Pattern;
+import javax.swing.JPanel;
+
 /**
  *
  * @author akshb
@@ -13,8 +19,14 @@ public class newCustomerScreen extends javax.swing.JPanel {
     /**
      * Creates new form newCustomerScreen
      */
-    public newCustomerScreen() {
+    JPanel userProcessPanel;
+    private static final String EMPTY_STRING = "";
+
+    public newCustomerScreen(JPanel userProcessPanel) {
         initComponents();
+        this.userProcessPanel = userProcessPanel;
+        populateCityDropdown();
+
     }
 
     /**
@@ -30,23 +42,23 @@ public class newCustomerScreen extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        phoneNumberLabel = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         firstName_TF = new javax.swing.JTextField();
-        lastName_TF = new javax.swing.JTextField();
-        phoneNumber_TF = new javax.swing.JTextField();
-        emailAddress_TF = new javax.swing.JTextField();
-        addrL1_TF = new javax.swing.JTextField();
-        addrL2_TF = new javax.swing.JTextField();
-        postalCode_TF = new javax.swing.JTextField();
-        newCustomer_BT1 = new javax.swing.JButton();
-        DOB_DtCh = new com.toedter.calendar.JDateChooser();
+        lastNameTextField = new javax.swing.JTextField();
+        phoneNumberTextField = new javax.swing.JTextField();
+        emailAddressTextField = new javax.swing.JTextField();
+        addressLine1TextField = new javax.swing.JTextField();
+        addressLine2TextField = new javax.swing.JTextField();
+        postalCodeTextField = new javax.swing.JTextField();
+        createAccountButton = new javax.swing.JButton();
+        DOBDateChooser = new com.toedter.calendar.JDateChooser();
         jLabel10 = new javax.swing.JLabel();
-        city_DD = new javax.swing.JComboBox<>();
+        cityDropdown = new javax.swing.JComboBox<>();
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel1.setText("Register new customer:");
@@ -55,7 +67,7 @@ public class newCustomerScreen extends javax.swing.JPanel {
 
         jLabel3.setText("Last Name:");
 
-        jLabel4.setText("Phone Number:");
+        phoneNumberLabel.setText("Phone Number:");
 
         jLabel5.setText("Email Address: ");
 
@@ -67,20 +79,35 @@ public class newCustomerScreen extends javax.swing.JPanel {
 
         jLabel9.setText("DOB:");
 
-        addrL1_TF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addrL1_TFActionPerformed(evt);
+        phoneNumberTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                phoneNumberTextFieldKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                phoneNumberTextFieldKeyTyped(evt);
             }
         });
 
-        newCustomer_BT1.setText("Create account");
-        newCustomer_BT1.addActionListener(new java.awt.event.ActionListener() {
+        addressLine1TextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                newCustomer_BT1ActionPerformed(evt);
+                addressLine1TextFieldActionPerformed(evt);
+            }
+        });
+
+        createAccountButton.setText("Create account");
+        createAccountButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createAccountButtonActionPerformed(evt);
             }
         });
 
         jLabel10.setText("City:");
+
+        cityDropdown.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cityDropdownActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -92,7 +119,7 @@ public class newCustomerScreen extends javax.swing.JPanel {
                     .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(phoneNumberLabel, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -102,37 +129,38 @@ public class newCustomerScreen extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(firstName_TF)
-                        .addComponent(phoneNumber_TF, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
-                        .addComponent(emailAddress_TF, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
-                        .addComponent(addrL1_TF, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
-                        .addComponent(addrL2_TF, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
-                        .addComponent(postalCode_TF, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
-                        .addComponent(DOB_DtCh, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(city_DD, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(lastName_TF, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 320, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(304, 304, 304))
+                        .addComponent(phoneNumberTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
+                        .addComponent(emailAddressTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
+                        .addComponent(addressLine1TextField, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
+                        .addComponent(addressLine2TextField, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
+                        .addComponent(postalCodeTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
+                        .addComponent(DOBDateChooser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(cityDropdown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lastNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(227, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(newCustomer_BT1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(303, 303, 303))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(265, 265, 265))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(createAccountButton, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(260, 260, 260))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(firstName_TF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(lastName_TF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lastNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(9, 9, 9)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -140,65 +168,109 @@ public class newCustomerScreen extends javax.swing.JPanel {
                         .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(phoneNumber_TF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(DOB_DtCh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(phoneNumberLabel)
+                            .addComponent(phoneNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(DOBDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(emailAddress_TF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(emailAddressTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(addrL1_TF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(addressLine1TextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(addrL2_TF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(addressLine2TextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(postalCode_TF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(postalCodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(city_DD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cityDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(45, 45, 45)
-                .addComponent(newCustomer_BT1)
+                .addComponent(createAccountButton)
                 .addContainerGap(120, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void addrL1_TFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addrL1_TFActionPerformed
+    private void addressLine1TextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addressLine1TextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_addrL1_TFActionPerformed
+    }//GEN-LAST:event_addressLine1TextFieldActionPerformed
 
-    private void newCustomer_BT1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newCustomer_BT1ActionPerformed
+    private void createAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createAccountButtonActionPerformed
+        customerLoginScreen custLoginScreen = new customerLoginScreen(userProcessPanel);
+        userProcessPanel.add("customerLoginScreen", custLoginScreen);
+        CardLayout layout = (CardLayout) userProcessPanel.getLayout();
+        layout.next(userProcessPanel);
+    }//GEN-LAST:event_createAccountButtonActionPerformed
+
+    private void cityDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cityDropdownActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_newCustomer_BT1ActionPerformed
+    }//GEN-LAST:event_cityDropdownActionPerformed
 
+    private void phoneNumberTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_phoneNumberTextFieldKeyTyped
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_phoneNumberTextFieldKeyTyped
+
+    private void phoneNumberTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_phoneNumberTextFieldKeyReleased
+        validatePhone();
+    }//GEN-LAST:event_phoneNumberTextFieldKeyReleased
+
+    private void validatePhone() {
+        boolean validationStatus = false;
+        if (phoneNumberTextField.getText() != null && !EMPTY_STRING.equals(phoneNumberTextField.getText().trim())) {
+            if (Pattern.matches("^(\\d{3}[- .]?){2}\\d{4}$", phoneNumberTextField.getText())) {
+                validationStatus = true;
+               
+            } else {    
+               validationStatus = false;
+            }
+
+        }
+        
+        if(validationStatus == false)
+        {
+            phoneNumberTextField.setForeground(Color.red);
+            phoneNumberLabel.setForeground(Color.red);
+        } else {
+            phoneNumberTextField.setForeground(Color.black);
+            phoneNumberLabel.setForeground(Color.black);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.toedter.calendar.JDateChooser DOB_DtCh;
-    private javax.swing.JTextField addrL1_TF;
-    private javax.swing.JTextField addrL2_TF;
-    private javax.swing.JComboBox<String> city_DD;
-    private javax.swing.JTextField emailAddress_TF;
+    private com.toedter.calendar.JDateChooser DOBDateChooser;
+    private javax.swing.JTextField addressLine1TextField;
+    private javax.swing.JTextField addressLine2TextField;
+    private javax.swing.JComboBox<String> cityDropdown;
+    private javax.swing.JButton createAccountButton;
+    private javax.swing.JTextField emailAddressTextField;
     private javax.swing.JTextField firstName_TF;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private com.toedter.calendar.JYearChooser jYearChooser1;
-    private javax.swing.JTextField lastName_TF;
-    private javax.swing.JButton newCustomer_BT1;
-    private javax.swing.JTextField phoneNumber_TF;
-    private javax.swing.JTextField postalCode_TF;
+    private javax.swing.JTextField lastNameTextField;
+    private javax.swing.JLabel phoneNumberLabel;
+    private javax.swing.JTextField phoneNumberTextField;
+    private javax.swing.JTextField postalCodeTextField;
     // End of variables declaration//GEN-END:variables
+
+    private void populateCityDropdown() {
+        for (Object city : City.values()) {
+            cityDropdown.addItem(city.toString());
+
+        }
+    }
 }

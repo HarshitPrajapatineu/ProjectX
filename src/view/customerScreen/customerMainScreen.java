@@ -4,17 +4,20 @@
  */
 package view.customerScreen;
 
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+
 /**
  *
- * @author akshb
+ * @author aishwaryanagaraj
  */
 public class customerMainScreen extends javax.swing.JPanel {
 
-    /**
-     * Creates new form customerMainScreen
-     */
-    public customerMainScreen() {
+    JPanel userProcessPanel;
+    
+    public customerMainScreen(JPanel userProcessPanel) {
         initComponents();
+        this.userProcessPanel = userProcessPanel;
     }
 
     /**
@@ -26,67 +29,132 @@ public class customerMainScreen extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        existingCustomer_BT = new javax.swing.JButton();
-        newCustomer_BT = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
+        jSplitPane1 = new javax.swing.JSplitPane();
+        jPanel1 = new javax.swing.JPanel();
+        searchButton = new javax.swing.JButton();
+        trackShipmentButton = new javax.swing.JButton();
+        contactUsButton = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
 
-        existingCustomer_BT.setText("Existing Customer");
-        existingCustomer_BT.addActionListener(new java.awt.event.ActionListener() {
+        setPreferredSize(new java.awt.Dimension(860, 540));
+
+        searchButton.setText("Search");
+        searchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                existingCustomer_BTActionPerformed(evt);
+                searchButtonActionPerformed(evt);
             }
         });
 
-        newCustomer_BT.setText("New Customer");
-        newCustomer_BT.addActionListener(new java.awt.event.ActionListener() {
+        trackShipmentButton.setText("Track shipment");
+        trackShipmentButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                newCustomer_BTActionPerformed(evt);
+                trackShipmentButtonActionPerformed(evt);
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel1.setText("Welcome to PACK-MAN");
+        contactUsButton.setText("Contact Us");
+        contactUsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                contactUsButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(contactUsButton)
+                .addGap(19, 19, 19))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(trackShipmentButton)
+                    .addComponent(searchButton))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {contactUsButton, searchButton, trackShipmentButton});
+
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(226, 226, 226)
+                .addComponent(searchButton)
+                .addGap(18, 18, 18)
+                .addComponent(trackShipmentButton)
+                .addGap(18, 18, 18)
+                .addComponent(contactUsButton)
+                .addContainerGap(181, Short.MAX_VALUE))
+        );
+
+        jSplitPane1.setLeftComponent(jPanel1);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 687, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 530, Short.MAX_VALUE)
+        );
+
+        jSplitPane1.setRightComponent(jPanel2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(340, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(newCustomer_BT, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(existingCustomer_BT, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(340, 340, 340))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(320, 320, 320)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 854, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jLabel1)
-                .addGap(75, 75, 75)
-                .addComponent(existingCustomer_BT)
-                .addGap(55, 55, 55)
-                .addComponent(newCustomer_BT)
-                .addContainerGap(304, Short.MAX_VALUE))
+                .addComponent(jSplitPane1)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void existingCustomer_BTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_existingCustomer_BTActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_existingCustomer_BTActionPerformed
+    private void contactUsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contactUsButtonActionPerformed
+        customerQueryScreen customerQuerySc = new customerQueryScreen(userProcessPanel);
+        userProcessPanel.add("customerQueryScreen", customerQuerySc);
+        CardLayout layout = (CardLayout) userProcessPanel.getLayout();
+        layout.next(userProcessPanel);
+    }//GEN-LAST:event_contactUsButtonActionPerformed
 
-    private void newCustomer_BTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newCustomer_BTActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_newCustomer_BTActionPerformed
+    private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
+        customerSearchScreen custSearchScreen = new customerSearchScreen(userProcessPanel);
+        userProcessPanel.add("customerSearchScreen", custSearchScreen);
+        CardLayout layout = (CardLayout) userProcessPanel.getLayout();
+        layout.next(userProcessPanel);
+        
+        //customerSearchScreen custSearchScreen = new customerSearchScreen(userProcessPanel);
+        //jSplitPane1.setRightComponent(custSearchScreen);
+    }//GEN-LAST:event_searchButtonActionPerformed
+
+    private void trackShipmentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trackShipmentButtonActionPerformed
+        trackShipmentScreen trackShipScreen = new trackShipmentScreen(userProcessPanel);
+        userProcessPanel.add("trackShipmentScreen", trackShipScreen);
+        CardLayout layout = (CardLayout) userProcessPanel.getLayout();
+        layout.next(userProcessPanel);
+    }//GEN-LAST:event_trackShipmentButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton existingCustomer_BT;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JButton newCustomer_BT;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.JButton contactUsButton;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JSplitPane jSplitPane1;
+    private javax.swing.JButton searchButton;
+    private javax.swing.JButton trackShipmentButton;
     // End of variables declaration//GEN-END:variables
 }

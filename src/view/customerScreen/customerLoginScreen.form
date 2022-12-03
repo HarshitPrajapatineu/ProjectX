@@ -31,11 +31,11 @@
                       <EmptySpace min="-2" pref="278" max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                      <Component id="customerID_TF" min="-2" pref="186" max="-2" attributes="0"/>
+                      <Component id="customerIDTextField" min="-2" pref="186" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="362" max="-2" attributes="0"/>
-                      <Component id="customerLogin_BT" min="-2" pref="120" max="-2" attributes="0"/>
+                      <Component id="customerLoginButton" min="-2" pref="120" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="248" max="32767" attributes="0"/>
@@ -45,15 +45,15 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="customerID_TF" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="customerIDTextField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-              <Component id="customerLogin_BT" min="-2" max="-2" attributes="0"/>
+              <Component id="customerLoginButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="327" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -73,17 +73,17 @@
         <Property name="text" type="java.lang.String" value="Enter Customer ID:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="customerID_TF">
+    <Component class="javax.swing.JTextField" name="customerIDTextField">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="customerID_TFActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="customerIDTextFieldActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="customerLogin_BT">
+    <Component class="javax.swing.JButton" name="customerLoginButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Login"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="customerLogin_BTActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="customerLoginButtonActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

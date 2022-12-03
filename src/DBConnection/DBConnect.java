@@ -16,26 +16,27 @@ import javax.swing.JFrame;
 public class DBConnect {
 
     ObjectContainer db;
-    
-    public DBConnect(JFrame frame) {
+
+    public DBConnect() {
         db = Db4o.openFile("./src/DBConnection/db.yap");
 //        if (db != null) {
 //            Car Obj = new Car();
 //            getListOf(Obj);
 //        }
 
-    
-
     }
-    
+    public void close(){
+        db.close();
+    }
+
     /**
      *
      * @param <T>
      * @param Obj
      * @return
      */
-    public <T> ArrayList<T> getListOf(T Obj){
-        
+    public <T> ArrayList<T> getListOf(T Obj) {
+
         ObjectSet result = db.queryByExample(Obj);
 //        System.out.println(result.size());
 
@@ -47,34 +48,32 @@ public class DBConnect {
         System.out.println(list.toString());
         return list;
     }
-    
-    
+
     /**
      *
      * @param <T>
      * @param Obj
      * @return
      */
-    public <T> void setEntity(T Obj){
-        
+    public <T> void setEntity(T Obj) {
+
         db.store(Obj);
     }
-    
+
 //    public <T> void updateEntity(T Obj){
 //        db
 //    }
-    
-    public <T> ArrayList<T> deleteEntity(T Obj){
+    public <T> ArrayList<T> deleteEntity(T Obj) {
         ObjectSet result = db.queryByExample(Obj);
-        T match=(T)result.next();
-            if (match != null) {
+        T match = (T) result.next();
+        if (match != null) {
             db.delete(match);
             System.out.println("Deleted " + match);
         }
-            T item = (T) new Object();
-            return getListOf(item); 
+        T item = (T) new Object();
+        return getListOf(item);
     }
-        
+
 //    public static void storeFirstCar(ObjectContainer db) {
 //        Car car1 = new Car("Ferrari");
 //        db.store(car1);
@@ -93,7 +92,6 @@ public class DBConnect {
 //            list.add(newCar);
 //        }
 //    }
-
 //    private static class Car {
 //
 //        public Car(String name) {
