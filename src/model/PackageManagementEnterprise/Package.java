@@ -5,11 +5,7 @@
 package model.PackageManagementEnterprise;
 
 import model.Customer;
-import common.Enum.City;
-import common.Enum.PackageProvider;
-import common.Enum.PackageService;
-import common.Enum.PackageType;
-import common.Enum.Status;
+import common.Enum.*;
 
 /**
  *
@@ -34,6 +30,15 @@ public class Package {
     private Status status;
     private float cost;
     private Customer customer;
+    private Franchise franchise;
+
+    public Franchise getFranchise() {
+        return franchise;
+    }
+
+    public void setFranchise(Franchise franchise) {
+        this.franchise = franchise;
+    }
 
     public PackageService getService() {
         return service;

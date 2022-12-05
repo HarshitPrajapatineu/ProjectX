@@ -58,13 +58,13 @@ public class Enum {
         CANCELLED
     };
 
-    public enum PackageService {
+    public enum PackageProvider {
         DHL,
         PUROLATOR,
         FEDEX
     };
 
-    public enum PackageProvider {
+    public enum PackageService {
         EXPRESS,
         GROUND,
         INTERNATIONAL

@@ -15,6 +15,7 @@ public class createUserRoleScreen extends javax.swing.JPanel {
      */
     public createUserRoleScreen() {
         initComponents();
+//        populateCityDropdown();
     }
 
     /**
