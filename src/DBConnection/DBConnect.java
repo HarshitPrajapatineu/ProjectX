@@ -18,7 +18,7 @@ public class DBConnect {
     ObjectContainer db;
 
     public DBConnect() {
-        db = Db4o.openFile("./src/DBConnection/db.yap");
+        
 //        if (db != null) {
 //            Car Obj = new Car();
 //            getListOf(Obj);
@@ -37,15 +37,26 @@ public class DBConnect {
      */
     public <T> ArrayList<T> getListOf(T Obj) {
 
-        ObjectSet result = db.queryByExample(Obj);
-//        System.out.println(result.size());
-
         ArrayList<T> list = new ArrayList<>();
-        for (Object o : result.toArray()) {
-            T newObj = (T) o;
-            list.add(newObj);
+        try {
+            db = Db4o.openFile("./src/DBConnection/db.yap");
+            ObjectSet result = db.queryByExample(Obj);
+    //        System.out.println(result.size());
+
+            list = new ArrayList<>();
+            for (Object o : result.toArray()) {
+                T newObj = (T) o;
+                list.add(newObj);
+            }
+            System.out.println(list.toString());
+
+            db.close();
+           
+        } catch (Exception e) {
+            System.err.println("Exception:" + e.getMessage());
+            System.err.println("Exception:" + e.getStackTrace());
+            db.close();
         }
-        System.out.println(list.toString());
         return list;
     }
 
@@ -55,14 +66,17 @@ public class DBConnect {
      * @param Obj
      */
     public <T> void setEntity(T Obj) {
-
+        db = Db4o.openFile("./src/DBConnection/db.yap");
         db.store(Obj);
+        
+        db.close();
     }
 
 //    public <T> void updateEntity(T Obj){
 //        db
 //    }
     public <T> ArrayList<T> deleteEntity(T Obj) {
+        db = Db4o.openFile("./src/DBConnection/db.yap");
         ObjectSet result = db.queryByExample(Obj);
         T match = (T) result.next();
         if (match != null) {
@@ -70,7 +84,9 @@ public class DBConnect {
             System.out.println("Deleted " + match);
         }
         T item = (T) new Object();
+        db.close();
         return getListOf(item);
+        
     }
 
 //    public static void storeFirstCar(ObjectContainer db) {

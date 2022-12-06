@@ -4,8 +4,13 @@
  */
 package view.employeeScreen;
 
+import DBConnection.DBConnect;
+import common.Enum.UserRole;
 import java.awt.CardLayout;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import model.Employee;
 
 /**
  *
@@ -17,10 +22,12 @@ public class employeeLoginScreen extends javax.swing.JPanel {
      * Creates new form employeeLoginScreen
      */
     JPanel userProcessPanel;
+    DBConnect dbConnect;
 
     public employeeLoginScreen(JPanel userProcessPanel) {
         initComponents();
         this.userProcessPanel = userProcessPanel;
+        this.dbConnect = new DBConnect();
     }
 
     /**
@@ -95,12 +102,47 @@ public class employeeLoginScreen extends javax.swing.JPanel {
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         // TODO add your handling code here:
-        employeeMainScreen empMainScreen = new employeeMainScreen(userProcessPanel);
-        userProcessPanel.add("empMainScreen", empMainScreen);
-        CardLayout layout = (CardLayout) userProcessPanel.getLayout();
-        layout.next(userProcessPanel);
+        try {
+            int empId = Integer.parseInt(employeeIDTextField.getText());
+            Employee emp = getEmployeeDetailById(empId);
+            UserRole role = emp.getRole() == null ? UserRole.CUSTOMER : emp.getRole();
+            
+            switch (role) {
+                case CSASSOCIATE:
+                    showEmpScreen();
+                    break;
+                case SYSADMIN:
+                    showSysAdminScreen();
+                    break;
+                case CSADMIN:
+                    showCSAdminScreen();
+                    break;
+                case EMSADMIN:
+                    showEMSAdminScreen();
+                    break;
+                case REGIONALMANAGER:
+                    showRMScreen();
+                    break;
+                case TRANSPORTADMIN:
+                    showTAdminScreen();
+                    break;
+                default:
+                    JOptionPane.showMessageDialog(userProcessPanel, "Please try logging with correct credentials", "Error while logging", 0);
+            }
+            
+        }
+        catch (Exception e) {
+            System.err.println("Exception:" + e.getMessage());
+            System.err.println("Exception:" + e.getStackTrace());
+        }
     }//GEN-LAST:event_loginButtonActionPerformed
 
+    public Employee getEmployeeDetailById(int empId){
+        Employee proto = new Employee();
+        proto.setEmployeeId(empId);
+        ArrayList<Employee> empList = dbConnect.getListOf(proto);
+        return empList.size()==0 ? new Employee() : empList.get(1);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField employeeIDTextField;
@@ -108,4 +150,46 @@ public class employeeLoginScreen extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JButton loginButton;
     // End of variables declaration//GEN-END:variables
+
+    private void showEmpScreen() {
+        employeeMainScreen empMainScreen = new employeeMainScreen(userProcessPanel);
+        userProcessPanel.add("empMainScreen", empMainScreen);
+        CardLayout layout = (CardLayout) userProcessPanel.getLayout();
+        layout.next(userProcessPanel);
+    }
+
+    private void showSysAdminScreen() {
+        employeeMainScreen empMainScreen = new employeeMainScreen(userProcessPanel);
+        userProcessPanel.add("empMainScreen", empMainScreen);
+        CardLayout layout = (CardLayout) userProcessPanel.getLayout();
+        layout.next(userProcessPanel);
+    }
+
+    private void showCSAdminScreen() {
+        employeeMainScreen empMainScreen = new employeeMainScreen(userProcessPanel);
+        userProcessPanel.add("empMainScreen", empMainScreen);
+        CardLayout layout = (CardLayout) userProcessPanel.getLayout();
+        layout.next(userProcessPanel);
+    }
+
+    private void showEMSAdminScreen() {
+        employeeMainScreen empMainScreen = new employeeMainScreen(userProcessPanel);
+        userProcessPanel.add("empMainScreen", empMainScreen);
+        CardLayout layout = (CardLayout) userProcessPanel.getLayout();
+        layout.next(userProcessPanel);
+    }
+
+    private void showRMScreen() {
+        employeeMainScreen empMainScreen = new employeeMainScreen(userProcessPanel);
+        userProcessPanel.add("empMainScreen", empMainScreen);
+        CardLayout layout = (CardLayout) userProcessPanel.getLayout();
+        layout.next(userProcessPanel);
+    }
+
+    private void showTAdminScreen() {
+        employeeMainScreen empMainScreen = new employeeMainScreen(userProcessPanel);
+        userProcessPanel.add("empMainScreen", empMainScreen);
+        CardLayout layout = (CardLayout) userProcessPanel.getLayout();
+        layout.next(userProcessPanel);
+    }
 }
