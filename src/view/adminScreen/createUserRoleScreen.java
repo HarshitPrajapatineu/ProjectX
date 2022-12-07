@@ -4,6 +4,8 @@
  */
 package view.adminScreen;
 
+import javax.swing.JPanel;
+
 /**
  *
  * @author aishwaryanagaraj
@@ -13,9 +15,12 @@ public class createUserRoleScreen extends javax.swing.JPanel {
     /**
      * Creates new form createAdminScreen
      */
-    public createUserRoleScreen() {
+    JPanel userProcessPanel;
+    public createUserRoleScreen(JPanel userProcessPanel) {
         initComponents();
-//        populateCityDropdown();
+        this.userProcessPanel = userProcessPanel;
+        populateUserRoleDropdown();
+        populateCityDropdown();
     }
 
     /**
@@ -77,6 +82,12 @@ public class createUserRoleScreen extends javax.swing.JPanel {
         jLabel4.setText("User Role:");
 
         jLabel1.setText("First Name:");
+
+        userRoleDropdown.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userRoleDropdownActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -244,6 +255,10 @@ public class createUserRoleScreen extends javax.swing.JPanel {
         //layout.previous(userProcessPanel);
     }//GEN-LAST:event_backButtonActionPerformed
 
+    private void userRoleDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userRoleDropdownActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_userRoleDropdownActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
@@ -264,4 +279,20 @@ public class createUserRoleScreen extends javax.swing.JPanel {
     private javax.swing.JTextField lastNameTextField;
     private javax.swing.JComboBox<String> userRoleDropdown;
     // End of variables declaration//GEN-END:variables
+
+    private void populateUserRoleDropdown() {
+        for (Object role : common.Enum.UserRole.values()) {
+            userRoleDropdown.addItem(role.toString());
+
+        }
+    }
+    
+    private void populateCityDropdown() {
+        for (Object city : common.Enum.City.values()) {
+            cityDropdown.addItem(city.toString());
+
+        }
+    }
+
+    
 }
