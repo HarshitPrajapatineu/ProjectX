@@ -4,9 +4,15 @@
  */
 package view.adminScreen;
 
+import DBConnection.DBConnect;
+import com.db4o.ObjectSet;
 import java.awt.CardLayout;
+import java.util.ArrayList;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 import model.Employee;
+import common.Enum;
+import model.PackageManagementEnterprise.Franchise;
 
 /**
  *
@@ -19,14 +25,16 @@ public class AdminMainScreen extends javax.swing.JPanel {
      */
     JPanel userProcessPanel;
     Employee sessionUser;
-
+    DBConnect dbConnect;
     public AdminMainScreen(JPanel userProcessPanel, Employee sessionUser) {
         initComponents();
 
         this.userProcessPanel = userProcessPanel;
         this.sessionUser = sessionUser;
+        dbConnect = new DBConnect();
         populateCityDropdown();
         populateUserRoleDropdown();
+        populateTable();
     }
 
     /**
@@ -39,7 +47,7 @@ public class AdminMainScreen extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        details_TB = new javax.swing.JTable();
+        employeeDetailsTable = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         addButton = new javax.swing.JButton();
         viewButton = new javax.swing.JButton();
@@ -69,7 +77,7 @@ public class AdminMainScreen extends javax.swing.JPanel {
         setMinimumSize(new java.awt.Dimension(866, 510));
         setPreferredSize(new java.awt.Dimension(866, 510));
 
-        details_TB.setModel(new javax.swing.table.DefaultTableModel(
+        employeeDetailsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -77,7 +85,7 @@ public class AdminMainScreen extends javax.swing.JPanel {
                 "ID", "User Role", "First Name", "Last Name"
             }
         ));
-        jScrollPane1.setViewportView(details_TB);
+        jScrollPane1.setViewportView(employeeDetailsTable);
 
         addButton.setText("Add Details");
         addButton.addActionListener(new java.awt.event.ActionListener() {
@@ -404,9 +412,9 @@ public class AdminMainScreen extends javax.swing.JPanel {
     private javax.swing.JButton backButton;
     private javax.swing.JComboBox<String> cityDropdown;
     private javax.swing.JButton deleteButton;
-    private javax.swing.JTable details_TB;
     private javax.swing.JButton editButton;
     private javax.swing.JTextField emailTextField;
+    private javax.swing.JTable employeeDetailsTable;
     private javax.swing.JTextField firstNameTextField;
     private javax.swing.JLabel heading_LB;
     private javax.swing.JTextField idTextField;
@@ -440,5 +448,40 @@ public class AdminMainScreen extends javax.swing.JPanel {
             userRoleDropdown.addItem(role.toString());
 
         }
+    }
+
+    private void populateTable() {
+        DefaultTableModel model = (DefaultTableModel) employeeDetailsTable.getModel();
+//        model.setRowCount(0);
+//        int selectedIndex = cityDropdown.getSelectedIndex();
+        Employee emp = new Employee();
+//        emp.setRole(1);
+        ArrayList<Employee> list = getAllRoleEmployee();
+        
+        for (Employee empl : list) {
+            Object[] row = new Object[4];
+            row[0] = empl.getEmployeeId();
+            row[1] = userRoleDropdown.getSelectedItem();
+            row[2] = empl.getFirstName();
+            row[3] = empl.getLastName();
+            model.addRow(row);
+        }
+    }
+
+    private ArrayList<Employee> getAllRoleEmployee() {
+        dbConnect.open();
+        Employee emp = new Employee();
+        ObjectSet result = dbConnect.queryByExample(emp.getClass());
+        ArrayList<Employee> list = new ArrayList<Employee>();
+        Object[] arr = result.toArray();
+        for (Object o : arr) {
+            Employee f = (Employee) o;
+            if(f.role != 1)
+            {
+                list.add(f);
+            }
+        }
+        dbConnect.close();
+        return list;
     }
 }
