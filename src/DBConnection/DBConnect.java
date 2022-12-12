@@ -10,6 +10,7 @@ package DBConnection;
  */
 /*import java.util.*;*/
 import com.db4o.*;
+import com.db4o.ext.ExtObjectSet;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 
@@ -64,12 +65,45 @@ public class DBConnect {
      *
      * @param <T>
      * @param Obj
+     * @return
+     */
+    public <T> ObjectSet queryByExample(T Obj) {
+
+        ObjectSet result;
+        try {
+            db = Db4o.openFile("./src/DBConnection/db.yap");
+            result = db.queryByExample(Obj);
+
+            db.close();
+            return result;
+           
+        } catch (Exception e) {
+            System.err.println("Exception:" + e.getMessage());
+            System.err.println("Exception:" + e.getStackTrace());
+            db.close();
+            return null;
+        }
+    }
+
+    /**
+     *
+     * @param <T>
+     * @param Obj
      */
     public <T> void setEntity(T Obj) {
+        try {
         db = Db4o.openFile("./src/DBConnection/db.yap");
+        System.out.println(Obj);
         db.store(Obj);
         
         db.close();
+        }
+        catch (Exception e) 
+        {
+            
+            System.err.println("Exception:" + e.getMessage());
+            System.err.println("Exception:" + e.getStackTrace());
+        }
     }
 
 //    public <T> void updateEntity(T Obj){

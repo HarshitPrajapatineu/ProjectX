@@ -14,16 +14,16 @@ import common.Enum.Gender;
  */
 public class Person {
 
-    private String firstName;
-    private String lastName;
-    private String email;
-    private Long personId;
-    private String address1;
-    private String address2;
-    private City city;
-    private String postalCode;
-    private Gender gender;
-    private common.Enum.UserRole role;
+    public String firstName;
+    public String lastName;
+    public String email;
+    public Long personId;
+    public String address1;
+    public String address2;
+    public City city;
+    public String postalCode;
+    public Gender gender;
+    public common.Enum.UserRole role;
 
     public Gender getGender() {
         return gender;

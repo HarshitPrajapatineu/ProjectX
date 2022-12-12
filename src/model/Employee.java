@@ -13,9 +13,9 @@ import common.Enum.Franchise;
  */
 public class Employee extends Person {
 
-    private long employeeId;
-    private Enterprise enterprise;
-    private Franchise franchise;
+    public long employeeId;
+    public Enterprise enterprise;
+    public Franchise franchise;
 
     public long getEmployeeId() {
         return employeeId;

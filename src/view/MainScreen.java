@@ -9,7 +9,11 @@ package view;
  * @author dell
  */
 import DBConnection.DBConnect;
+import com.db4o.Db4o;
+import com.db4o.ObjectContainer;
+import com.db4o.ObjectSet;
 import java.awt.CardLayout;
+import model.Employee;
 import view.customerScreen.customerLoginScreen;
 import view.customerScreen.customerMainScreen;
 import view.customerScreen.customerRegisterScreen;
@@ -21,17 +25,13 @@ public class MainScreen extends javax.swing.JFrame {
      * Creates new form MainJFrame
      */
     DBConnect dbConnect;
-
+    ObjectContainer db;
     public MainScreen() {
         initComponents();
-        dbConnect = new DBConnect();
+        setSystemAdmin();
+
     }
 
-    @Override
-    public void dispose() {
-        dbConnect.close();
-        super.dispose();
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -190,4 +190,29 @@ public class MainScreen extends javax.swing.JFrame {
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JPanel userProcessPanel;
     // End of variables declaration//GEN-END:variables
+
+    private void setSystemAdmin() {
+        dbConnect = new DBConnect();
+        Employee sysAdmin = new Employee();
+        sysAdmin.setEmployeeId(1);
+        sysAdmin.setFirstName("SYSTEM");
+        sysAdmin.setLastName("ADMIN");
+        sysAdmin.setRole(common.Enum.UserRole.SYSADMIN);
+
+        ObjectSet result = dbConnect.queryByExample(sysAdmin);
+        if (result == null) {
+            try {
+                db = Db4o.openFile("./src/DBConnection/db.yap");
+                System.out.println(sysAdmin);
+                db.store(sysAdmin);
+
+                db.close();
+//                dbConnect.setEntity(sysAdmin);
+            } catch (Exception e) {
+                System.err.println(e.getMessage());
+                System.err.println("Exception:" + e.getMessage());
+                System.err.println("Exception:" + e.getStackTrace());
+            }
+        }
+    }
 }
