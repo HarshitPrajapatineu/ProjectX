@@ -13,6 +13,7 @@ import com.db4o.Db4o;
 import com.db4o.ObjectContainer;
 import com.db4o.ObjectSet;
 import java.awt.CardLayout;
+import java.util.ArrayList;
 import model.Employee;
 import view.customerScreen.customerLoginScreen;
 import view.customerScreen.customerMainScreen;
@@ -25,7 +26,6 @@ public class MainScreen extends javax.swing.JFrame {
      * Creates new form MainJFrame
      */
     DBConnect dbConnect;
-    ObjectContainer db;
     public MainScreen() {
         initComponents();
         setSystemAdmin();
@@ -197,22 +197,22 @@ public class MainScreen extends javax.swing.JFrame {
         sysAdmin.setEmployeeId(1);
         sysAdmin.setFirstName("SYSTEM");
         sysAdmin.setLastName("ADMIN");
-        sysAdmin.setRole(common.Enum.UserRole.SYSADMIN);
-
-        ObjectSet result = dbConnect.queryByExample(sysAdmin);
-        if (result == null) {
-            try {
-                db = Db4o.openFile("./src/DBConnection/db.yap");
-                System.out.println(sysAdmin);
-                db.store(sysAdmin);
-
-                db.close();
-//                dbConnect.setEntity(sysAdmin);
-            } catch (Exception e) {
-                System.err.println(e.getMessage());
-                System.err.println("Exception:" + e.getMessage());
-                System.err.println("Exception:" + e.getStackTrace());
+        sysAdmin.setRole(1);
+        try {
+            ObjectSet result = dbConnect.queryByExample(sysAdmin);
+            Employee employee = new Employee();
+            Object[] arr = result.toArray();
+                for (Object o : arr) {
+                    employee = (Employee) o;
+                }
+            if (result == null) {
+         
+                dbConnect.setEntity(sysAdmin);
             }
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+            System.err.println("Exception:" + e.getMessage());
+            System.err.println("Exception:" + e.getStackTrace());
         }
     }
 }

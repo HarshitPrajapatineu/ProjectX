@@ -14,8 +14,8 @@ import common.Enum.Franchise;
 public class Employee extends Person {
 
     public long employeeId;
-    public Enterprise enterprise;
-    public Franchise franchise;
+    public int enterprise;
+    public int franchise;
 
     public long getEmployeeId() {
         return employeeId;
@@ -25,19 +25,19 @@ public class Employee extends Person {
         this.employeeId = employeeId;
     }
 
-    public Enterprise getEnterprise() {
+    public int getEnterprise() {
         return enterprise;
     }
 
-    public void setEnterprise(Enterprise enterprise) {
+    public void setEnterprise(int enterprise) {
         this.enterprise = enterprise;
     }
 
-    public Franchise getFranchise() {
+    public int getFranchise() {
         return franchise;
     }
 
-    public void setFranchise(Franchise franchise) {
+    public void setFranchise(int franchise) {
         this.franchise = franchise;
     }
 

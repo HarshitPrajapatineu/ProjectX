@@ -19,16 +19,14 @@ public class DBConnect {
     ObjectContainer db;
 
     public DBConnect() {
-        
+        db = Db4o.openFile("./src/DBConnection/db.yap");
 //        if (db != null) {
 //            Car Obj = new Car();
 //            getListOf(Obj);
 //        }
 
     }
-    public void close(){
-        db.close();
-    }
+    
 
     /**
      *
@@ -40,7 +38,7 @@ public class DBConnect {
 
         ArrayList<T> list = new ArrayList<>();
         try {
-            db = Db4o.openFile("./src/DBConnection/db.yap");
+//            db = Db4o.openFile("./src/DBConnection/db.yap");
             ObjectSet result = db.queryByExample(Obj);
     //        System.out.println(result.size());
 
@@ -51,12 +49,12 @@ public class DBConnect {
             }
             System.out.println(list.toString());
 
-            db.close();
+//            db.close();
            
         } catch (Exception e) {
             System.err.println("Exception:" + e.getMessage());
             System.err.println("Exception:" + e.getStackTrace());
-            db.close();
+//            db.close();
         }
         return list;
     }
@@ -71,16 +69,16 @@ public class DBConnect {
 
         ObjectSet result;
         try {
-            db = Db4o.openFile("./src/DBConnection/db.yap");
+//            db = Db4o.openFile("./src/DBConnection/db.yap");
             result = db.queryByExample(Obj);
 
-            db.close();
+//            db.close();
             return result;
            
         } catch (Exception e) {
             System.err.println("Exception:" + e.getMessage());
             System.err.println("Exception:" + e.getStackTrace());
-            db.close();
+//            db.close();
             return null;
         }
     }
@@ -92,11 +90,11 @@ public class DBConnect {
      */
     public <T> void setEntity(T Obj) {
         try {
-        db = Db4o.openFile("./src/DBConnection/db.yap");
+//        db = Db4o.openFile("./src/DBConnection/db.yap");
         System.out.println(Obj);
         db.store(Obj);
         
-        db.close();
+//        db.close();
         }
         catch (Exception e) 
         {
@@ -110,7 +108,7 @@ public class DBConnect {
 //        db
 //    }
     public <T> ArrayList<T> deleteEntity(T Obj) {
-        db = Db4o.openFile("./src/DBConnection/db.yap");
+//        db = Db4o.openFile("./src/DBConnection/db.yap");
         ObjectSet result = db.queryByExample(Obj);
         T match = (T) result.next();
         if (match != null) {
@@ -118,7 +116,7 @@ public class DBConnect {
             System.out.println("Deleted " + match);
         }
         T item = (T) new Object();
-        db.close();
+//        db.close();
         return getListOf(item);
         
     }

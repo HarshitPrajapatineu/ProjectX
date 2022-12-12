@@ -4,9 +4,6 @@
  */
 package model;
 
-import common.Enum;
-import common.Enum.City;
-import common.Enum.Gender;
 
 /**
  *
@@ -20,24 +17,24 @@ public class Person {
     public Long personId;
     public String address1;
     public String address2;
-    public City city;
+    public int city;
     public String postalCode;
-    public Gender gender;
-    public common.Enum.UserRole role;
+    public int gender;
+    public int role;
 
-    public Gender getGender() {
+    public int getGender() {
         return gender;
     }
 
-    public void setGender(Gender gender) {
+    public void setGender(int gender) {
         this.gender = gender;
     }
 
-    public Enum.UserRole getRole() {
+    public int getRole() {
         return role;
     }
 
-    public void setRole(Enum.UserRole role) {
+    public void setRole(int role) {
         this.role = role;
     }
 
@@ -89,11 +86,11 @@ public class Person {
         this.address2 = address2;
     }
 
-    public City getCity() {
+    public int getCity() {
         return city;
     }
 
-    public void setCity(City city) {
+    public void setCity(int city) {
         this.city = city;
     }
 

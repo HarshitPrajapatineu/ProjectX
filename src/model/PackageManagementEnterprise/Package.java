@@ -17,11 +17,11 @@ public class Package {
     private String fromAddress;
     private String toName;
     private String fromName;
-    private PackageType type;
-    private PackageService service;
-    private PackageProvider provider;
-    private City toCity;
-    private City fromCity;
+    private int type;
+    private int service;
+    private int provider;
+    private int toCity;
+    private int fromCity;
     private String toPostalCode;
     private String fromPostalCode;
     private Long packageId;
@@ -30,29 +30,29 @@ public class Package {
     private Status status;
     private float cost;
     private Customer customer;
-    private Franchise franchise;
+    private int franchise;
 
-    public Franchise getFranchise() {
+    public int getFranchise() {
         return franchise;
     }
 
-    public void setFranchise(Franchise franchise) {
+    public void setFranchise(int franchise) {
         this.franchise = franchise;
     }
 
-    public PackageService getService() {
+    public int getService() {
         return service;
     }
 
-    public void setService(PackageService service) {
+    public void setService(int service) {
         this.service = service;
     }
 
-    public PackageProvider getProvider() {
+    public int getProvider() {
         return provider;
     }
 
-    public void setProvider(PackageProvider provider) {
+    public void setProvider(int provider) {
         this.provider = provider;
     }
 
@@ -88,27 +88,27 @@ public class Package {
         this.fromName = fromName;
     }
 
-    public PackageType getType() {
+    public int getType() {
         return type;
     }
 
-    public void setType(PackageType type) {
+    public void setType(int type) {
         this.type = type;
     }
 
-    public City getToCity() {
+    public int getToCity() {
         return toCity;
     }
 
-    public void setToCity(City toCity) {
+    public void setToCity(int toCity) {
         this.toCity = toCity;
     }
 
-    public City getFromCity() {
+    public int getFromCity() {
         return fromCity;
     }
 
-    public void setFromCity(City fromCity) {
+    public void setFromCity(int fromCity) {
         this.fromCity = fromCity;
     }
 

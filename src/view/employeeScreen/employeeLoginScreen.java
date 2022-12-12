@@ -106,25 +106,25 @@ public class employeeLoginScreen extends javax.swing.JPanel {
         try {
             int empId = Integer.parseInt(employeeIDTextField.getText());
             Employee emp = getEmployeeDetailById(empId);
-            UserRole role = emp.getRole() == null ? UserRole.CUSTOMER : emp.getRole();
+            int role = emp.getRole() == 0 ? 5 : emp.getRole();
             
             switch (role) {
-                case CSASSOCIATE:
+                case 1:
                     showEmpScreen();
                     break;
-                case SYSADMIN:
+                case 2:
                     showSysAdminScreen();
                     break;
-                case CSADMIN:
+                case 3:
                     showCSAdminScreen();
                     break;
-                case EMSADMIN:
+                case 4:
                     showEMSAdminScreen();
                     break;
-                case REGIONALMANAGER:
+                case 5:
                     showRMScreen();
                     break;
-                case TRANSPORTADMIN:
+                case 6:
                     showTAdminScreen();
                     break;
                 default:
