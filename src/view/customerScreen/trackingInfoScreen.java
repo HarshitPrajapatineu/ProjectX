@@ -6,6 +6,13 @@ package view.customerScreen;
 
 import java.awt.CardLayout;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+import DBConnection.DBConnect;
+import com.db4o.ObjectSet;
+import common.Enum.Status;
+import java.util.ArrayList;
+import model.PackageManagementEnterprise.Franchise;
+import model.PackageManagementEnterprise.Package;
 
 /**
  *
@@ -13,12 +20,16 @@ import javax.swing.JPanel;
  */
 public class trackingInfoScreen extends javax.swing.JPanel {
 
-   
-   JPanel userProcessPanel; 
-    
-    public trackingInfoScreen(JPanel userProcessPanel) {
-        this.userProcessPanel=userProcessPanel;
+    JPanel userProcessPanel;
+    long trackingNumber;
+    DBConnect dbConnect;
+
+    public trackingInfoScreen(JPanel userProcessPanel, long trackingNumber) {
+        this.userProcessPanel = userProcessPanel;
+        this.trackingNumber = trackingNumber;
         initComponents();
+        dbConnect = new DBConnect();
+        populalateTrackingTable(trackingNumber);
     }
 
     /**
@@ -138,4 +149,26 @@ public class trackingInfoScreen extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable shipmentDetailsTable;
     // End of variables declaration//GEN-END:variables
+
+    private void populalateTrackingTable(long trackingNumber) {
+        DefaultTableModel model = (DefaultTableModel) shipmentDetailsTable.getModel();
+        model.setRowCount(0);
+        Package pkg = new Package();
+        pkg.setTrackingId(trackingNumber);
+        try {
+            dbConnect.open();
+            ObjectSet result = this.dbConnect.queryByExample(pkg);
+            Package data = (Package) result.toArray()[0];
+            dbConnect.close();
+            for (Status s : data.getStatusHistory()) {
+                // here
+                Object[] row = new Object[3];
+                row[0] = trackingNumber;
+                row[1] = s.toString();
+                row[2] = data.getCurrentLocationCity();
+                model.addRow(row);
+            }
+        } catch (Exception e) {
+        }
+    }
 }
