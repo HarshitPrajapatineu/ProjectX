@@ -208,7 +208,7 @@ public class MainScreen extends javax.swing.JFrame {
                 for (Object o : arr) {
                     employee = (Employee) o;
                 }
-            dbConnect.setEntity(employee);
+//            dbConnect.setEntity(employee);
             dbConnect.close();
             if (employee == null) {
                 dbConnect.open();
