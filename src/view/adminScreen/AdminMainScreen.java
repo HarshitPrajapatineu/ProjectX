@@ -6,6 +6,7 @@ package view.adminScreen;
 
 import java.awt.CardLayout;
 import javax.swing.JPanel;
+import model.Employee;
 
 /**
  *
@@ -17,11 +18,13 @@ public class AdminMainScreen extends javax.swing.JPanel {
      * Creates new form systemAdminMainScreen
      */
     JPanel userProcessPanel;
+    Employee sessionUser;
 
-    public AdminMainScreen(JPanel userProcessPanel) {
+    public AdminMainScreen(JPanel userProcessPanel, Employee sessionUser) {
         initComponents();
 
         this.userProcessPanel = userProcessPanel;
+        this.sessionUser = sessionUser;
         populateCityDropdown();
         populateUserRoleDropdown();
     }
@@ -62,7 +65,9 @@ public class AdminMainScreen extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         userRoleDropdown = new javax.swing.JComboBox<>();
 
-        setPreferredSize(new java.awt.Dimension(860, 540));
+        setMaximumSize(new java.awt.Dimension(866, 510));
+        setMinimumSize(new java.awt.Dimension(866, 510));
+        setPreferredSize(new java.awt.Dimension(866, 510));
 
         details_TB.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -209,6 +214,12 @@ public class AdminMainScreen extends javax.swing.JPanel {
 
         jLabel1.setText("First Name:");
 
+        cityDropdown.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cityDropdownActionPerformed(evt);
+            }
+        });
+
         jLabel4.setText("User Role:");
 
         lastNameTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -236,8 +247,8 @@ public class AdminMainScreen extends javax.swing.JPanel {
                     .addComponent(jLabel1)
                     .addComponent(jLabel3)
                     .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(16, 16, 16)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(idTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -255,7 +266,7 @@ public class AdminMainScreen extends javax.swing.JPanel {
                                 .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(cityDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(111, 111, 111)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lastNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -300,7 +311,7 @@ public class AdminMainScreen extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(15, 15, 15)
@@ -314,8 +325,7 @@ public class AdminMainScreen extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(197, 197, 197)
-                        .addComponent(heading_LB)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(heading_LB))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -334,7 +344,7 @@ public class AdminMainScreen extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(39, 39, 39)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(30, 30, 30)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -345,7 +355,7 @@ public class AdminMainScreen extends javax.swing.JPanel {
     }//GEN-LAST:event_searchButtonActionPerformed
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-        createUserRoleScreen createUserScreen = new createUserRoleScreen(userProcessPanel);
+        createUserRoleScreen createUserScreen = new createUserRoleScreen(userProcessPanel, this.sessionUser);
         userProcessPanel.add("createUserRoleScreen", createUserScreen);
         CardLayout layout = (CardLayout) userProcessPanel.getLayout();
         layout.next(userProcessPanel);
@@ -383,6 +393,10 @@ public class AdminMainScreen extends javax.swing.JPanel {
     private void emailTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_emailTextFieldActionPerformed
+
+    private void cityDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cityDropdownActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cityDropdownActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

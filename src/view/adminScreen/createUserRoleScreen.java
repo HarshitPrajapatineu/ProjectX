@@ -5,6 +5,7 @@
 package view.adminScreen;
 
 import javax.swing.JPanel;
+import model.Employee;
 
 /**
  *
@@ -16,9 +17,12 @@ public class createUserRoleScreen extends javax.swing.JPanel {
      * Creates new form createAdminScreen
      */
     JPanel userProcessPanel;
-    public createUserRoleScreen(JPanel userProcessPanel) {
+    Employee sessionUser;
+    
+    public createUserRoleScreen(JPanel userProcessPanel, Employee sessionUser) {
         initComponents();
         this.userProcessPanel = userProcessPanel;
+        this.sessionUser = sessionUser;
         populateUserRoleDropdown();
         populateCityDropdown();
     }
@@ -50,7 +54,9 @@ public class createUserRoleScreen extends javax.swing.JPanel {
         jPanel3 = new javax.swing.JPanel();
         backButton = new javax.swing.JButton();
 
-        setPreferredSize(new java.awt.Dimension(860, 540));
+        setMaximumSize(new java.awt.Dimension(866, 510));
+        setMinimumSize(new java.awt.Dimension(866, 510));
+        setPreferredSize(new java.awt.Dimension(866, 510));
 
         heading_LB.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         heading_LB.setText("New User Role");
@@ -202,7 +208,7 @@ public class createUserRoleScreen extends javax.swing.JPanel {
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(223, Short.MAX_VALUE))
+                .addContainerGap(254, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(createButton, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -225,7 +231,7 @@ public class createUserRoleScreen extends javax.swing.JPanel {
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(40, 40, 40)
                 .addComponent(createButton)
-                .addContainerGap(209, Short.MAX_VALUE))
+                .addContainerGap(212, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
