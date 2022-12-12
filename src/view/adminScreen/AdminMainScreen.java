@@ -17,10 +17,13 @@ public class AdminMainScreen extends javax.swing.JPanel {
      * Creates new form systemAdminMainScreen
      */
     JPanel userProcessPanel;
+
     public AdminMainScreen(JPanel userProcessPanel) {
         initComponents();
-        
+
         this.userProcessPanel = userProcessPanel;
+        populateCityDropdown();
+        populateUserRoleDropdown();
     }
 
     /**
@@ -51,22 +54,19 @@ public class AdminMainScreen extends javax.swing.JPanel {
         firstNameTextField = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        userRoleDropdown = new javax.swing.JComboBox<>();
+        cityDropdown = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         lastNameTextField = new javax.swing.JTextField();
         emailTextField = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        city_DD = new javax.swing.JComboBox<>();
+        userRoleDropdown = new javax.swing.JComboBox<>();
 
         setPreferredSize(new java.awt.Dimension(860, 540));
 
         details_TB.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "ID", "User Role", "First Name", "Last Name"
@@ -247,14 +247,14 @@ public class AdminMainScreen extends javax.swing.JPanel {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(city_DD, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(userRoleDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(userRoleDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cityDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(111, 111, 111)
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -262,7 +262,7 @@ public class AdminMainScreen extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel4Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {city_DD, emailTextField, firstNameTextField, idTextField, lastNameTextField, userRoleDropdown});
+        jPanel4Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {cityDropdown, emailTextField, firstNameTextField, idTextField, lastNameTextField, userRoleDropdown});
 
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -277,7 +277,7 @@ public class AdminMainScreen extends javax.swing.JPanel {
                         .addContainerGap()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
-                            .addComponent(city_DD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(userRoleDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(13, 13, 13)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(idTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -287,13 +287,13 @@ public class AdminMainScreen extends javax.swing.JPanel {
                 .addGap(15, 15, 15)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(userRoleDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cityDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
                     .addComponent(lastNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(73, 73, 73))
         );
 
-        jPanel4Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {city_DD, lastNameTextField});
+        jPanel4Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lastNameTextField, userRoleDropdown});
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -341,7 +341,7 @@ public class AdminMainScreen extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
-        
+
     }//GEN-LAST:event_searchButtonActionPerformed
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
@@ -353,7 +353,7 @@ public class AdminMainScreen extends javax.swing.JPanel {
 
     private void viewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewButtonActionPerformed
 
-        
+
     }//GEN-LAST:event_viewButtonActionPerformed
 
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
@@ -361,11 +361,11 @@ public class AdminMainScreen extends javax.swing.JPanel {
     }//GEN-LAST:event_editButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-        
+
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
-        
+
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void idTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idTextFieldActionPerformed
@@ -388,7 +388,7 @@ public class AdminMainScreen extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButton;
     private javax.swing.JButton backButton;
-    private javax.swing.JComboBox<String> city_DD;
+    private javax.swing.JComboBox<String> cityDropdown;
     private javax.swing.JButton deleteButton;
     private javax.swing.JTable details_TB;
     private javax.swing.JButton editButton;
@@ -413,4 +413,18 @@ public class AdminMainScreen extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> userRoleDropdown;
     private javax.swing.JButton viewButton;
     // End of variables declaration//GEN-END:variables
+
+    private void populateCityDropdown() {
+        for (Object city : common.Enum.City.values()) {
+            cityDropdown.addItem(city.toString());
+
+        }
+    }
+    
+    private void populateUserRoleDropdown() {
+        for (Object role : common.Enum.UserRole.values()) {
+            userRoleDropdown.addItem(role.toString());
+
+        }
+    }
 }
