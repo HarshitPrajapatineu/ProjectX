@@ -60,6 +60,8 @@ public class newCustomerScreen extends javax.swing.JPanel {
         jLabel10 = new javax.swing.JLabel();
         cityDropdown = new javax.swing.JComboBox<>();
 
+        setPreferredSize(new java.awt.Dimension(860, 540));
+
         jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel1.setText("Register new customer:");
 
