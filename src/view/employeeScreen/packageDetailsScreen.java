@@ -7,6 +7,7 @@ package view.employeeScreen;
 import common.Enum.PackageProvider;
 import common.Enum.PackageService;
 import common.Enum.PackageType;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -82,6 +83,8 @@ public class packageDetailsScreen extends javax.swing.JPanel {
         packageServiceDropdown = new javax.swing.JComboBox<>();
         jLabel24 = new javax.swing.JLabel();
         packageProviderDropdown = new javax.swing.JComboBox<>();
+        franchiseLabel = new javax.swing.JLabel();
+        franchiseField = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         approveButton = new javax.swing.JButton();
         refuseButton = new javax.swing.JButton();
@@ -292,8 +295,6 @@ public class packageDetailsScreen extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        weightTextField.setEditable(false);
-
         jLabel20.setText("OTHER DETAILS:");
 
         packageTypeDropdown.setEditable(true);
@@ -325,6 +326,8 @@ public class packageDetailsScreen extends javax.swing.JPanel {
             }
         });
 
+        franchiseLabel.setText("Franchise");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -344,9 +347,15 @@ public class packageDetailsScreen extends javax.swing.JPanel {
                         .addComponent(weightTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel23)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(packageServiceDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(franchiseLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(franchiseField, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel23)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(packageServiceDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(66, 66, 66)
                         .addComponent(jLabel24)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -370,10 +379,19 @@ public class packageDetailsScreen extends javax.swing.JPanel {
                     .addComponent(packageServiceDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel24)
                     .addComponent(packageProviderDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(franchiseLabel)
+                    .addComponent(franchiseField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         approveButton.setText("Approve");
+        approveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                approveButtonActionPerformed(evt);
+            }
+        });
 
         refuseButton.setText("Refuse");
         refuseButton.addActionListener(new java.awt.event.ActionListener() {
@@ -438,7 +456,7 @@ public class packageDetailsScreen extends javax.swing.JPanel {
                 .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(58, 58, 58)
+                .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12))
         );
@@ -458,6 +476,8 @@ public class packageDetailsScreen extends javax.swing.JPanel {
 
     private void refuseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refuseButtonActionPerformed
         // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, "Your order was refused and cancelled successfully", "ORDER CANCELLED SUCCESSFULLY", 2);
+
     }//GEN-LAST:event_refuseButtonActionPerformed
 
     private void packageServiceDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_packageServiceDropdownActionPerformed
@@ -468,9 +488,16 @@ public class packageDetailsScreen extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_packageProviderDropdownActionPerformed
 
+    private void approveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_approveButtonActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, "Your order was created successfully. The tracking number is:");
+    }//GEN-LAST:event_approveButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton approveButton;
+    private javax.swing.JTextField franchiseField;
+    private javax.swing.JLabel franchiseLabel;
     private javax.swing.JTextField fromAddressL1TextField;
     private javax.swing.JTextField fromAddressL2TextField;
     private javax.swing.JComboBox<String> fromCityDropdown;
@@ -528,6 +555,9 @@ public class packageDetailsScreen extends javax.swing.JPanel {
         }
         for (Object city : common.Enum.City.values()) {
             toCityDropdown.addItem(city.toString());
+        }
+        for (Object city : common.Enum.City.values()) {
+            fromCityDropdown.addItem(city.toString());
         }
         for (Object service : PackageService.values()) {
             packageServiceDropdown.addItem(service.toString());

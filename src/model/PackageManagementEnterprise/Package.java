@@ -34,7 +34,7 @@ public class Package {
     private Status status;
     private float cost;
     private Customer customer;
-    private int franchise;
+    private String franchise;
     private String currentLocationCity;
 
     public String getCurrentLocationCity() {
@@ -54,11 +54,11 @@ public class Package {
         this.statusHistory = statusHistory;
     }
 
-    public int getFranchise() {
+    public String getFranchise() {
         return franchise;
     }
 
-    public void setFranchise(int franchise) {
+    public void setFranchise(String franchise) {
         this.franchise = franchise;
     }
 
