@@ -12,6 +12,18 @@ public class Franchise {
 
     public int city;
     public String name;
+    public String address;
+    public Long phoneNumber;
+    public String email;
+    public String postalCode;
+
+    public String getPostalCode() {
+        return postalCode;
+    }
+
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
+    }
 
     @Override
     public String toString() {
@@ -25,9 +37,6 @@ public class Franchise {
     public void setName(String name) {
         this.name = name;
     }
-    public String address;
-    public Long phoneNumber;
-    public String email;
 
     public int getCity() {
         return city;

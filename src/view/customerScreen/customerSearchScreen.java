@@ -10,8 +10,8 @@ import java.awt.CardLayout;
 import java.util.ArrayList;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
-import model.Employee;
 import view.packageCreationScreen;
+import DBConnection.DBConnect;
 
 /**
  *
@@ -20,10 +20,12 @@ import view.packageCreationScreen;
 public class customerSearchScreen extends javax.swing.JPanel {
 
     JPanel userProcessPanel;
+    DBConnect dbConnect;
 
     public customerSearchScreen(JPanel userProcessPanel) {
         initComponents();
         this.userProcessPanel = userProcessPanel;
+        dbConnect = new DBConnect();
         populateCityDropdown();
         populateFranchiseTable();
 
@@ -209,9 +211,11 @@ public class customerSearchScreen extends javax.swing.JPanel {
         model.setRowCount(0);
 //        int selectedIndex = cityDropdown.getSelectedIndex();
         Franchise franchiseExample = new Franchise();
+        dbConnect.open();
         ObjectSet result = dbConnect.queryByExample(franchiseExample);
         ArrayList<Franchise> list = new ArrayList<>();
         Object[] arr = result.toArray();
+        dbConnect.close();
         for (Object o : arr) {
             Franchise f = (Franchise) o;
             list.add(f);
