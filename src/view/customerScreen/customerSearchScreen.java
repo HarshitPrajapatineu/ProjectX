@@ -4,10 +4,13 @@
  */
 package view.customerScreen;
 
-import common.Enum.City;
+import com.db4o.ObjectSet;
+import model.PackageManagementEnterprise.Franchise;
 import java.awt.CardLayout;
+import java.util.ArrayList;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import model.Employee;
 import view.packageCreationScreen;
 
 /**
@@ -150,6 +153,28 @@ public class customerSearchScreen extends javax.swing.JPanel {
 
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
         // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) nearbyServiesTable.getModel();
+        model.setRowCount(0);
+        int selectedIndex = cityDropdown.getSelectedIndex();
+        Franchise franchiseExample = new Franchise();
+        ObjectSet result = dbConnect.queryByExample(franchiseExample);
+        ArrayList<Franchise> list = new ArrayList<>();
+        Object[] arr = result.toArray();
+        for (Object o : arr) {
+            Franchise f = (Franchise) o;
+            if (f.getCity() == selectedIndex) {
+                list.add(f);
+            }
+        }
+        for (Franchise franchise : list) {
+            Object[] row = new Object[4];
+            row[0] = franchise;
+            row[1] = franchise.getAddress();
+            row[2] = franchise.getPhoneNumber();
+            row[3] = franchise.getEmail();
+            model.addRow(row);
+        }
+
     }//GEN-LAST:event_searchButtonActionPerformed
 
     private void bookButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookButtonActionPerformed
@@ -182,16 +207,23 @@ public class customerSearchScreen extends javax.swing.JPanel {
     private void populateFranchiseTable() {
         DefaultTableModel model = (DefaultTableModel) nearbyServiesTable.getModel();
         model.setRowCount(0);
+//        int selectedIndex = cityDropdown.getSelectedIndex();
+        Franchise franchiseExample = new Franchise();
+        ObjectSet result = dbConnect.queryByExample(franchiseExample);
+        ArrayList<Franchise> list = new ArrayList<>();
+        Object[] arr = result.toArray();
+        for (Object o : arr) {
+            Franchise f = (Franchise) o;
+            list.add(f);
+        }
+        for (Franchise franchise : list) {
+            Object[] row = new Object[4];
+            row[0] = franchise;
+            row[1] = franchise.getAddress();
+            row[2] = franchise.getPhoneNumber();
+            row[3] = franchise.getEmail();
+            model.addRow(row);
+        }
 
-//        for (City c : rootDataObj.getRootCityDirectory()) {
-//            for (Community communityOption : c.getCommunityDirectory()) {
-//                Object[] row = new Object[4];
-//                row[0] = communityOption.getAreaName();
-//                row[1] = communityOption;
-//                row[2] = c;
-//                row[3] = c.getPinCode();
-//                model.addRow(row);
-//            }
-//        }
     }
 }
