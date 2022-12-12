@@ -40,7 +40,9 @@ public class postQueryScreen extends javax.swing.JPanel {
         queryTextArea = new javax.swing.JTextArea();
         postButton = new javax.swing.JButton();
 
-        setPreferredSize(new java.awt.Dimension(860, 540));
+        setMaximumSize(new java.awt.Dimension(866, 510));
+        setMinimumSize(new java.awt.Dimension(866, 510));
+        setPreferredSize(new java.awt.Dimension(866, 510));
 
         jLabel11.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel11.setText("Post Query");
@@ -100,7 +102,7 @@ public class postQueryScreen extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(68, 68, 68)
                         .addComponent(postButton)))
-                .addContainerGap(149, Short.MAX_VALUE))
+                .addContainerGap(155, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -117,7 +119,7 @@ public class postQueryScreen extends javax.swing.JPanel {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(postButton)
-                .addContainerGap(264, Short.MAX_VALUE))
+                .addContainerGap(258, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

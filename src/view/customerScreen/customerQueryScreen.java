@@ -41,6 +41,8 @@ public class customerQueryScreen extends javax.swing.JPanel {
         searchButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
+        setMaximumSize(new java.awt.Dimension(866, 510));
+        setMinimumSize(new java.awt.Dimension(866, 510));
         setPreferredSize(new java.awt.Dimension(860, 540));
 
         jLabel11.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -115,7 +117,7 @@ public class customerQueryScreen extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addComponent(postQuery_BT, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(8, 22, Short.MAX_VALUE))
+                .addGap(8, 28, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -128,7 +130,7 @@ public class customerQueryScreen extends javax.swing.JPanel {
                     .addComponent(searchButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(postQuery_BT)

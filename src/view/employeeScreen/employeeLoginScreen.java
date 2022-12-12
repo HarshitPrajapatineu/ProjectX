@@ -24,6 +24,7 @@ public class employeeLoginScreen extends javax.swing.JPanel {
      */
     JPanel userProcessPanel;
     DBConnect dbConnect;
+    Employee sessionUser;
 
     public employeeLoginScreen(JPanel userProcessPanel) {
         initComponents();
@@ -105,32 +106,31 @@ public class employeeLoginScreen extends javax.swing.JPanel {
         // TODO add your handling code here:
         try {
             int empId = Integer.parseInt(employeeIDTextField.getText());
-            Employee emp = getEmployeeDetailById(empId);
-            int role = emp.getRole() == 0 ? 5 : emp.getRole();
+            sessionUser = getEmployeeDetailById(empId);
+            int role = sessionUser.getRole() == 0 ? 7 : sessionUser.getRole();
             
             switch (role) {
                 case 1:
-                    showEmpScreen();
+                    showSysAdminScreen();
                     break;
                 case 2:
-                    showSysAdminScreen();
+                    showEMSAdminScreen();
                     break;
                 case 3:
                     showCSAdminScreen();
                     break;
                 case 4:
-                    showEMSAdminScreen();
+                    showTAdminScreen();
                     break;
                 case 5:
                     showRMScreen();
                     break;
                 case 6:
-                    showTAdminScreen();
+                    showEmpScreen();
                     break;
                 default:
-                    
-                    showSysAdminScreen();
-//                    JOptionPane.showMessageDialog(userProcessPanel, "Please try logging with correct credentials", "Error while logging", 0);
+//                    showSysAdminScreen();
+                    JOptionPane.showMessageDialog(userProcessPanel, "Please try logging with correct credentials", "Error while logging", 0);
             }
             
         }
@@ -143,8 +143,10 @@ public class employeeLoginScreen extends javax.swing.JPanel {
     public Employee getEmployeeDetailById(int empId){
         Employee proto = new Employee();
         proto.setEmployeeId(empId);
+        dbConnect.open();
         ArrayList<Employee> empList = dbConnect.getListOf(proto);
-        return empList.size()==0 ? new Employee() : empList.get(1);
+        dbConnect.close();
+        return empList.size()==0 ? new Employee() : empList.get(0);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -162,7 +164,7 @@ public class employeeLoginScreen extends javax.swing.JPanel {
     }
 
     private void showSysAdminScreen() {
-        AdminMainScreen adminMainScreen = new AdminMainScreen(userProcessPanel);
+        AdminMainScreen adminMainScreen = new AdminMainScreen(userProcessPanel, sessionUser);
         userProcessPanel.add("AdminMainScreen", adminMainScreen);
         CardLayout layout = (CardLayout) userProcessPanel.getLayout();
         layout.next(userProcessPanel);

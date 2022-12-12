@@ -19,12 +19,17 @@ public class DBConnect {
     ObjectContainer db;
 
     public DBConnect() {
-        db = Db4o.openFile("./src/DBConnection/db.yap");
+//        db = Db4o.openFile("./src/DBConnection/db.yap");
 //        if (db != null) {
 //            Car Obj = new Car();
 //            getListOf(Obj);
 //        }
 
+    }
+    
+    public void open()
+    {
+        db = Db4o.openFile("./src/DBConnection/db.yap");
     }
     
 
@@ -119,6 +124,10 @@ public class DBConnect {
 //        db.close();
         return getListOf(item);
         
+    }
+    public void close()
+    {
+        db.close();
     }
 
 //    public static void storeFirstCar(ObjectContainer db) {

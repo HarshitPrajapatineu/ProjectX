@@ -35,6 +35,8 @@ public class customerLoginScreen extends javax.swing.JPanel {
         customerIDTextField = new javax.swing.JTextField();
         customerLoginButton = new javax.swing.JButton();
 
+        setMaximumSize(new java.awt.Dimension(866, 510));
+        setMinimumSize(new java.awt.Dimension(866, 510));
         setPreferredSize(new java.awt.Dimension(860, 540));
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -72,7 +74,7 @@ public class customerLoginScreen extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(362, 362, 362)
                         .addComponent(customerLoginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(248, Short.MAX_VALUE))
+                .addContainerGap(285, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -85,7 +87,7 @@ public class customerLoginScreen extends javax.swing.JPanel {
                     .addComponent(customerIDTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(36, 36, 36)
                 .addComponent(customerLoginButton)
-                .addContainerGap(327, Short.MAX_VALUE))
+                .addContainerGap(308, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

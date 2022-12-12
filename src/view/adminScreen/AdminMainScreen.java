@@ -4,8 +4,15 @@
  */
 package view.adminScreen;
 
+import DBConnection.DBConnect;
+import com.db4o.ObjectSet;
 import java.awt.CardLayout;
+import java.util.ArrayList;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+import model.Employee;
+import common.Enum;
+import model.PackageManagementEnterprise.Franchise;
 
 /**
  *
@@ -17,13 +24,17 @@ public class AdminMainScreen extends javax.swing.JPanel {
      * Creates new form systemAdminMainScreen
      */
     JPanel userProcessPanel;
-
-    public AdminMainScreen(JPanel userProcessPanel) {
+    Employee sessionUser;
+    DBConnect dbConnect;
+    public AdminMainScreen(JPanel userProcessPanel, Employee sessionUser) {
         initComponents();
 
         this.userProcessPanel = userProcessPanel;
+        this.sessionUser = sessionUser;
+        dbConnect = new DBConnect();
         populateCityDropdown();
         populateUserRoleDropdown();
+        populateTable();
     }
 
     /**
@@ -36,7 +47,7 @@ public class AdminMainScreen extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        details_TB = new javax.swing.JTable();
+        employeeDetailsTable = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         addButton = new javax.swing.JButton();
         viewButton = new javax.swing.JButton();
@@ -62,9 +73,11 @@ public class AdminMainScreen extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         userRoleDropdown = new javax.swing.JComboBox<>();
 
-        setPreferredSize(new java.awt.Dimension(860, 540));
+        setMaximumSize(new java.awt.Dimension(866, 510));
+        setMinimumSize(new java.awt.Dimension(866, 510));
+        setPreferredSize(new java.awt.Dimension(866, 510));
 
-        details_TB.setModel(new javax.swing.table.DefaultTableModel(
+        employeeDetailsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -72,7 +85,7 @@ public class AdminMainScreen extends javax.swing.JPanel {
                 "ID", "User Role", "First Name", "Last Name"
             }
         ));
-        jScrollPane1.setViewportView(details_TB);
+        jScrollPane1.setViewportView(employeeDetailsTable);
 
         addButton.setText("Add Details");
         addButton.addActionListener(new java.awt.event.ActionListener() {
@@ -209,6 +222,12 @@ public class AdminMainScreen extends javax.swing.JPanel {
 
         jLabel1.setText("First Name:");
 
+        cityDropdown.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cityDropdownActionPerformed(evt);
+            }
+        });
+
         jLabel4.setText("User Role:");
 
         lastNameTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -236,8 +255,8 @@ public class AdminMainScreen extends javax.swing.JPanel {
                     .addComponent(jLabel1)
                     .addComponent(jLabel3)
                     .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(16, 16, 16)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(idTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -255,7 +274,7 @@ public class AdminMainScreen extends javax.swing.JPanel {
                                 .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(cityDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(111, 111, 111)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lastNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -300,7 +319,7 @@ public class AdminMainScreen extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(15, 15, 15)
@@ -314,8 +333,7 @@ public class AdminMainScreen extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(197, 197, 197)
-                        .addComponent(heading_LB)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(heading_LB))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -334,7 +352,7 @@ public class AdminMainScreen extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(39, 39, 39)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(30, 30, 30)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -345,7 +363,7 @@ public class AdminMainScreen extends javax.swing.JPanel {
     }//GEN-LAST:event_searchButtonActionPerformed
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-        createUserRoleScreen createUserScreen = new createUserRoleScreen(userProcessPanel);
+        createUserRoleScreen createUserScreen = new createUserRoleScreen(userProcessPanel, this.sessionUser);
         userProcessPanel.add("createUserRoleScreen", createUserScreen);
         CardLayout layout = (CardLayout) userProcessPanel.getLayout();
         layout.next(userProcessPanel);
@@ -384,15 +402,19 @@ public class AdminMainScreen extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_emailTextFieldActionPerformed
 
+    private void cityDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cityDropdownActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cityDropdownActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButton;
     private javax.swing.JButton backButton;
     private javax.swing.JComboBox<String> cityDropdown;
     private javax.swing.JButton deleteButton;
-    private javax.swing.JTable details_TB;
     private javax.swing.JButton editButton;
     private javax.swing.JTextField emailTextField;
+    private javax.swing.JTable employeeDetailsTable;
     private javax.swing.JTextField firstNameTextField;
     private javax.swing.JLabel heading_LB;
     private javax.swing.JTextField idTextField;
@@ -426,5 +448,40 @@ public class AdminMainScreen extends javax.swing.JPanel {
             userRoleDropdown.addItem(role.toString());
 
         }
+    }
+
+    private void populateTable() {
+        DefaultTableModel model = (DefaultTableModel) employeeDetailsTable.getModel();
+//        model.setRowCount(0);
+//        int selectedIndex = cityDropdown.getSelectedIndex();
+        Employee emp = new Employee();
+//        emp.setRole(1);
+        ArrayList<Employee> list = getAllRoleEmployee();
+        
+        for (Employee empl : list) {
+            Object[] row = new Object[4];
+            row[0] = empl.getEmployeeId();
+            row[1] = userRoleDropdown.getSelectedItem();
+            row[2] = empl.getFirstName();
+            row[3] = empl.getLastName();
+            model.addRow(row);
+        }
+    }
+
+    private ArrayList<Employee> getAllRoleEmployee() {
+        dbConnect.open();
+        Employee emp = new Employee();
+        ObjectSet result = dbConnect.queryByExample(emp.getClass());
+        ArrayList<Employee> list = new ArrayList<Employee>();
+        Object[] arr = result.toArray();
+        for (Object o : arr) {
+            Employee f = (Employee) o;
+            if(f.role != 1)
+            {
+                list.add(f);
+            }
+        }
+        dbConnect.close();
+        return list;
     }
 }

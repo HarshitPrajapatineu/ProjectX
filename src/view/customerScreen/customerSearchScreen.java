@@ -4,11 +4,14 @@
  */
 package view.customerScreen;
 
-import common.Enum.City;
+import com.db4o.ObjectSet;
+import model.PackageManagementEnterprise.Franchise;
 import java.awt.CardLayout;
+import java.util.ArrayList;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import view.packageCreationScreen;
+import DBConnection.DBConnect;
 
 /**
  *
@@ -17,10 +20,12 @@ import view.packageCreationScreen;
 public class customerSearchScreen extends javax.swing.JPanel {
 
     JPanel userProcessPanel;
+    DBConnect dbConnect;
 
     public customerSearchScreen(JPanel userProcessPanel) {
         initComponents();
         this.userProcessPanel = userProcessPanel;
+        dbConnect = new DBConnect();
         populateCityDropdown();
         populateFranchiseTable();
 
@@ -45,7 +50,9 @@ public class customerSearchScreen extends javax.swing.JPanel {
         searchButton = new javax.swing.JButton();
         bookButton = new javax.swing.JButton();
 
-        setPreferredSize(new java.awt.Dimension(860, 540));
+        setMaximumSize(new java.awt.Dimension(866, 510));
+        setMinimumSize(new java.awt.Dimension(866, 510));
+        setPreferredSize(new java.awt.Dimension(866, 510));
 
         jLabel11.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel11.setText("Search nearby services");
@@ -111,9 +118,9 @@ public class customerSearchScreen extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(44, 44, 44)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 770, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(52, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 349, Short.MAX_VALUE)
+                .addGap(0, 355, Short.MAX_VALUE)
                 .addComponent(bookButton, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(339, 339, 339))
         );
@@ -135,7 +142,7 @@ public class customerSearchScreen extends javax.swing.JPanel {
                     .addComponent(cityDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(searchButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(bookButton)
@@ -148,6 +155,28 @@ public class customerSearchScreen extends javax.swing.JPanel {
 
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
         // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) nearbyServiesTable.getModel();
+        model.setRowCount(0);
+        int selectedIndex = cityDropdown.getSelectedIndex();
+        Franchise franchiseExample = new Franchise();
+        ObjectSet result = dbConnect.queryByExample(franchiseExample);
+        ArrayList<Franchise> list = new ArrayList<>();
+        Object[] arr = result.toArray();
+        for (Object o : arr) {
+            Franchise f = (Franchise) o;
+            if (f.getCity() == selectedIndex) {
+                list.add(f);
+            }
+        }
+        for (Franchise franchise : list) {
+            Object[] row = new Object[4];
+            row[0] = franchise;
+            row[1] = franchise.getAddress();
+            row[2] = franchise.getPhoneNumber();
+            row[3] = franchise.getEmail();
+            model.addRow(row);
+        }
+
     }//GEN-LAST:event_searchButtonActionPerformed
 
     private void bookButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookButtonActionPerformed
@@ -180,16 +209,25 @@ public class customerSearchScreen extends javax.swing.JPanel {
     private void populateFranchiseTable() {
         DefaultTableModel model = (DefaultTableModel) nearbyServiesTable.getModel();
         model.setRowCount(0);
+//        int selectedIndex = cityDropdown.getSelectedIndex();
+        Franchise franchiseExample = new Franchise();
+        dbConnect.open();
+        ObjectSet result = dbConnect.queryByExample(franchiseExample);
+        ArrayList<Franchise> list = new ArrayList<>();
+        Object[] arr = result.toArray();
+        dbConnect.close();
+        for (Object o : arr) {
+            Franchise f = (Franchise) o;
+            list.add(f);
+        }
+        for (Franchise franchise : list) {
+            Object[] row = new Object[4];
+            row[0] = franchise;
+            row[1] = franchise.getAddress();
+            row[2] = franchise.getPhoneNumber();
+            row[3] = franchise.getEmail();
+            model.addRow(row);
+        }
 
-//        for (City c : rootDataObj.getRootCityDirectory()) {
-//            for (Community communityOption : c.getCommunityDirectory()) {
-//                Object[] row = new Object[4];
-//                row[0] = communityOption.getAreaName();
-//                row[1] = communityOption;
-//                row[2] = c;
-//                row[3] = c.getPinCode();
-//                model.addRow(row);
-//            }
-//        }
     }
 }

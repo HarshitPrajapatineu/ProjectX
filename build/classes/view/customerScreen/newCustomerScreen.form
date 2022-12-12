@@ -6,8 +6,11 @@
     </Component>
   </NonVisualComponents>
   <Properties>
-    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[860, 540]"/>
+    <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[866, 510]"/>
+    </Property>
+    <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[866, 510]"/>
     </Property>
   </Properties>
   <AuxValues>
@@ -25,7 +28,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="265" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="304" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel3" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -40,6 +48,7 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="createAccountButton" min="-2" pref="172" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="firstName_TF" max="32767" attributes="0"/>
                       <Component id="phoneNumberTextField" pref="182" max="32767" attributes="0"/>
@@ -52,20 +61,7 @@
                   </Group>
                   <Component id="lastNameTextField" min="-2" pref="182" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="227" max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="265" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="createAccountButton" min="-2" pref="172" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="260" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
+              <EmptySpace pref="290" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -122,9 +118,9 @@
                   <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="cityDropdown" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
               <Component id="createAccountButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="120" max="32767" attributes="0"/>
+              <EmptySpace pref="77" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
