@@ -27,6 +27,7 @@ public class MainScreen extends javax.swing.JFrame {
      */
     DBConnect dbConnect;
     public MainScreen() {
+        this.dbConnect = new DBConnect();
         initComponents();
         setSystemAdmin();
 
@@ -50,6 +51,8 @@ public class MainScreen extends javax.swing.JFrame {
         userProcessPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(888, 595));
+        setMinimumSize(new java.awt.Dimension(888, 595));
 
         jSplitPane1.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
 
@@ -95,7 +98,7 @@ public class MainScreen extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(177, 177, 177)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(193, Short.MAX_VALUE))
+                .addContainerGap(270, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -116,15 +119,14 @@ public class MainScreen extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jSplitPane1)
-                .addContainerGap())
+                .addComponent(jSplitPane1))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 517, Short.MAX_VALUE)
-                .addGap(17, 17, 17))
+                .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 568, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -192,22 +194,26 @@ public class MainScreen extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void setSystemAdmin() {
-        dbConnect = new DBConnect();
         Employee sysAdmin = new Employee();
         sysAdmin.setEmployeeId(1);
         sysAdmin.setFirstName("SYSTEM");
         sysAdmin.setLastName("ADMIN");
         sysAdmin.setRole(1);
+
         try {
-            ObjectSet result = dbConnect.queryByExample(sysAdmin);
+            dbConnect.open();
+            ObjectSet result = this.dbConnect.queryByExample(sysAdmin);
             Employee employee = new Employee();
             Object[] arr = result.toArray();
                 for (Object o : arr) {
                     employee = (Employee) o;
                 }
-            if (result == null) {
-         
+            dbConnect.setEntity(employee);
+            dbConnect.close();
+            if (employee == null) {
+                dbConnect.open();
                 dbConnect.setEntity(sysAdmin);
+                dbConnect.close();
             }
         } catch (Exception e) {
             System.err.println(e.getMessage());

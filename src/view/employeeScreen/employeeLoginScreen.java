@@ -143,7 +143,9 @@ public class employeeLoginScreen extends javax.swing.JPanel {
     public Employee getEmployeeDetailById(int empId){
         Employee proto = new Employee();
         proto.setEmployeeId(empId);
+        dbConnect.open();
         ArrayList<Employee> empList = dbConnect.getListOf(proto);
+        dbConnect.close();
         return empList.size()==0 ? new Employee() : empList.get(0);
     }
 
