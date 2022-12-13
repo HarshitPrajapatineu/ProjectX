@@ -414,7 +414,21 @@ public class AdminMainScreen extends javax.swing.JPanel {
     }//GEN-LAST:event_editButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-
+        Employee emp = new Employee();
+        int selectedRow = employeeDetailsTable.getSelectedRow();
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(this, "Please select a row.");
+            return;
+        }
+        DefaultTableModel model = (DefaultTableModel) employeeDetailsTable.getModel();
+        long adminId = (long) model.getValueAt(selectedRow, 0);
+        Employee dltEmployee = new Employee();
+        dltEmployee.setEmployeeId(adminId);
+        dbConnect.open();
+        dbConnect.deleteEntity(dltEmployee);
+        dbConnect.close();
+        
+        populateTable();
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
@@ -499,7 +513,7 @@ public class AdminMainScreen extends javax.swing.JPanel {
 
     private void populateTable() {
         DefaultTableModel model = (DefaultTableModel) employeeDetailsTable.getModel();
-//        model.setRowCount(0);
+        model.setRowCount(0);
 //        int selectedIndex = cityDropdown.getSelectedIndex();
         Employee emp = new Employee();
 //        emp.setRole(1);
