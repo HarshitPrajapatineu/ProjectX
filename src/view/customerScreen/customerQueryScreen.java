@@ -4,9 +4,16 @@
  */
 package view.customerScreen;
 
+import DBConnection.DBConnect;
+import com.db4o.ObjectSet;
 import java.awt.CardLayout;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
+import javax.swing.table.DefaultTableModel;
+import model.customerServiceEnterprise.CustomerService;
 
 /**
  *
@@ -16,11 +23,14 @@ public class customerQueryScreen extends javax.swing.JPanel {
 
     JSplitPane splitPane;
     JPanel userProcessPanel;
+    DBConnect dbConnect;
 
     public customerQueryScreen(JPanel userProcessPanel, JSplitPane splitPane) {
         initComponents();
         this.splitPane = splitPane;
         this.userProcessPanel = userProcessPanel;
+        dbConnect = new DBConnect();
+        populatetable();
     }
 
     /**
@@ -36,7 +46,7 @@ public class customerQueryScreen extends javax.swing.JPanel {
         postQuery_BT = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        queriesTable = new javax.swing.JTable();
         jTextField1 = new javax.swing.JTextField();
         searchButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -57,7 +67,7 @@ public class customerQueryScreen extends javax.swing.JPanel {
 
         jLabel1.setText("FAQs");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        queriesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -80,7 +90,7 @@ public class customerQueryScreen extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane3.setViewportView(jTable1);
+        jScrollPane3.setViewportView(queriesTable);
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,9 +163,48 @@ public class customerQueryScreen extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JButton postQuery_BT;
+    private javax.swing.JTable queriesTable;
     private javax.swing.JButton searchButton;
     // End of variables declaration//GEN-END:variables
+
+    private void populatetable(){
+    
+        DefaultTableModel model = (DefaultTableModel) queriesTable.getModel();
+        
+        CustomerService custService = new CustomerService();
+        
+        try {
+            dbConnect.open();
+            CustomerService CS = new CustomerService();
+            ObjectSet result = dbConnect.queryByExample(CS.getClass());
+            ArrayList<CustomerService> list = new ArrayList<CustomerService>();
+            Object[] arr = result.toArray();
+            for (Object o : arr) {
+                CustomerService f = (CustomerService) o;
+                list.add(f);
+            }
+            
+            dbConnect.close();
+            
+            
+            for(CustomerService cs : list){
+                
+                Object[] row = new Object[2];
+                if (cs.getAnswer()!=""){
+                row[0] = cs.getQuestion();
+                row[1] = cs.getAnswer();
+                model.addRow(row);
+                }
+            }
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+            System.err.println("Exception:" + e.getMessage());
+            System.err.println("Exception:" + e.getStackTrace());
+        }
+        
+    }
 }
+
+

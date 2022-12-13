@@ -14,22 +14,25 @@ import java.util.Map;
  */
 public class CustomerService {
 
-    private Map<String, String> queriesWithAnswers;
-    private ArrayList<String> queries;
-    private ArrayList<String> answers;
+    private String question;
+    private String answer;
 
-    public Map<String, String> getQueriesWithAnswers() {
-        return queriesWithAnswers;
+    public String getQuestion() {
+        return question;
     }
 
-    public void setQueriesWithAnswers(Map<String, String> queriesWithAnswers) {
-        this.queriesWithAnswers = queriesWithAnswers;
+    public void setQuestion(String question) {
+        this.question = question;
     }
 
-    public CustomerService() {
-        this.queriesWithAnswers = new HashMap<>();
-        this.queries = new ArrayList<>();
-        this.answers = new ArrayList<>();
+    public String getAnswer() {
+        return answer;
     }
 
-}
+    public void setAnswer(String answer) {
+        this.answer = answer;
+    }
+
+    }
+    
+   

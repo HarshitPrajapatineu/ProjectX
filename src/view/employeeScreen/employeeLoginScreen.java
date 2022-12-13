@@ -130,8 +130,10 @@ public class employeeLoginScreen extends javax.swing.JPanel {
                     break;
                 default:
                     showEmpScreen();
+                    //showSysAdminScreen();
 //                    JOptionPane.showMessageDialog(userProcessPanel, "Please try logging with correct credentials", "Error while logging", 0);
             }
+
 
         } catch (Exception e) {
             System.err.println("Exception:" + e.getMessage());
@@ -170,8 +172,8 @@ public class employeeLoginScreen extends javax.swing.JPanel {
     }
 
     private void showCSAdminScreen() {
-        employeeMainScreen empMainScreen = new employeeMainScreen(userProcessPanel);
-        userProcessPanel.add("empMainScreen", empMainScreen);
+        customerServiceScreen customerServiceSc = new customerServiceScreen(userProcessPanel);
+        userProcessPanel.add("customerServiceScreen", customerServiceSc);
         CardLayout layout = (CardLayout) userProcessPanel.getLayout();
         layout.next(userProcessPanel);
     }
