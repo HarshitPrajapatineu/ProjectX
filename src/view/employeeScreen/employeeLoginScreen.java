@@ -108,7 +108,7 @@ public class employeeLoginScreen extends javax.swing.JPanel {
             int empId = Integer.parseInt(employeeIDTextField.getText());
             sessionUser = getEmployeeDetailById(empId);
             int role = sessionUser.getRole();
-            
+
             switch (role) {
                 case 0:
                     showSysAdminScreen();
@@ -129,24 +129,23 @@ public class employeeLoginScreen extends javax.swing.JPanel {
                     showEmpScreen();
                     break;
                 default:
-//                    showSysAdminScreen();
-                    JOptionPane.showMessageDialog(userProcessPanel, "Please try logging with correct credentials", "Error while logging", 0);
+                    showEmpScreen();
+//                    JOptionPane.showMessageDialog(userProcessPanel, "Please try logging with correct credentials", "Error while logging", 0);
             }
-            
-        }
-        catch (Exception e) {
+
+        } catch (Exception e) {
             System.err.println("Exception:" + e.getMessage());
             System.err.println("Exception:" + e.getStackTrace());
         }
     }//GEN-LAST:event_loginButtonActionPerformed
 
-    public Employee getEmployeeDetailById(int empId){
+    public Employee getEmployeeDetailById(int empId) {
         Employee proto = new Employee();
         proto.setEmployeeId(empId);
         dbConnect.open();
         ArrayList<Employee> empList = dbConnect.getListOf(proto);
         dbConnect.close();
-        return empList.size()==0 ? new Employee() : empList.get(0);
+        return empList.size() == 0 ? new Employee() : empList.get(0);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

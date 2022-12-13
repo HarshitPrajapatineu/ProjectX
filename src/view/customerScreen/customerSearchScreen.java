@@ -159,22 +159,25 @@ public class customerSearchScreen extends javax.swing.JPanel {
         model.setRowCount(0);
         int selectedIndex = cityDropdown.getSelectedIndex();
         Franchise franchiseExample = new Franchise();
-        ObjectSet result = dbConnect.queryByExample(franchiseExample);
-        ArrayList<Franchise> list = new ArrayList<>();
-        Object[] arr = result.toArray();
-        for (Object o : arr) {
-            Franchise f = (Franchise) o;
-            if (f.getCity() == selectedIndex) {
-                list.add(f);
+        try {
+            ObjectSet result = dbConnect.queryByExample(franchiseExample);
+            ArrayList<Franchise> list = new ArrayList<>();
+            Object[] arr = result.toArray();
+            for (Object o : arr) {
+                Franchise f = (Franchise) o;
+                if (f.getCity() == selectedIndex) {
+                    list.add(f);
+                }
             }
-        }
-        for (Franchise franchise : list) {
-            Object[] row = new Object[4];
-            row[0] = franchise;
-            row[1] = franchise.getAddress();
-            row[2] = franchise.getPhoneNumber();
-            row[3] = franchise.getEmail();
-            model.addRow(row);
+            for (Franchise franchise : list) {
+                Object[] row = new Object[4];
+                row[0] = franchise;
+                row[1] = franchise.getAddress();
+                row[2] = franchise.getPhoneNumber();
+                row[3] = franchise.getEmail();
+                model.addRow(row);
+            }
+        } catch (Exception e) {
         }
 
     }//GEN-LAST:event_searchButtonActionPerformed
@@ -211,22 +214,26 @@ public class customerSearchScreen extends javax.swing.JPanel {
         model.setRowCount(0);
 //        int selectedIndex = cityDropdown.getSelectedIndex();
         Franchise franchiseExample = new Franchise();
-        dbConnect.open();
-        ObjectSet result = dbConnect.queryByExample(franchiseExample);
-        ArrayList<Franchise> list = new ArrayList<>();
-        Object[] arr = result.toArray();
-        dbConnect.close();
-        for (Object o : arr) {
-            Franchise f = (Franchise) o;
-            list.add(f);
-        }
-        for (Franchise franchise : list) {
-            Object[] row = new Object[4];
-            row[0] = franchise;
-            row[1] = franchise.getAddress();
-            row[2] = franchise.getPhoneNumber();
-            row[3] = franchise.getEmail();
-            model.addRow(row);
+        try {
+            dbConnect.open();
+            ObjectSet result = dbConnect.queryByExample(franchiseExample);
+            ArrayList<Franchise> list = new ArrayList<>();
+            Object[] arr = result.toArray();
+            dbConnect.close();
+            for (Object o : arr) {
+                Franchise f = (Franchise) o;
+                list.add(f);
+            }
+            for (Franchise franchise : list) {
+                Object[] row = new Object[4];
+                row[0] = franchise;
+                row[1] = franchise.getAddress();
+                row[2] = franchise.getPhoneNumber();
+                row[3] = franchise.getEmail();
+                model.addRow(row);
+            }
+        } catch (Exception e) {
+
         }
 
     }

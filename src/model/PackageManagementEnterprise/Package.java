@@ -6,12 +6,16 @@ package model.PackageManagementEnterprise;
 
 import model.Customer;
 import common.Enum.*;
+import java.util.ArrayList;
 
 /**
  *
  * @author akshb
  */
 public class Package {
+
+    public Package() {
+    }
 
     private String toAddress;
     private String fromAddress;
@@ -30,13 +34,31 @@ public class Package {
     private Status status;
     private float cost;
     private Customer customer;
-    private int franchise;
+    private String franchise;
+    private String currentLocationCity;
 
-    public int getFranchise() {
+    public String getCurrentLocationCity() {
+        return currentLocationCity;
+    }
+
+    public void setCurrentLocationCity(String currentLocationCity) {
+        this.currentLocationCity = currentLocationCity;
+    }
+    private ArrayList<Status> statusHistory;
+
+    public ArrayList<Status> getStatusHistory() {
+        return statusHistory;
+    }
+
+    public void setStatusHistory(ArrayList<Status> statusHistory) {
+        this.statusHistory = statusHistory;
+    }
+
+    public String getFranchise() {
         return franchise;
     }
 
-    public void setFranchise(int franchise) {
+    public void setFranchise(String franchise) {
         this.franchise = franchise;
     }
 

@@ -5,6 +5,7 @@
 package view.customerScreen;
 
 import java.awt.CardLayout;
+import java.awt.Color;
 import javax.swing.JPanel;
 
 /**
@@ -14,7 +15,7 @@ import javax.swing.JPanel;
 public class trackShipmentScreen extends javax.swing.JPanel {
 
     JPanel userProcessPanel;
-    
+
     public trackShipmentScreen(JPanel userProcessPanel) {
         initComponents();
         this.userProcessPanel = userProcessPanel;
@@ -33,7 +34,7 @@ public class trackShipmentScreen extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         trackButton = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        enterLabel = new javax.swing.JLabel();
         shipmentIdTextField = new javax.swing.JTextField();
 
         setMaximumSize(new java.awt.Dimension(866, 510));
@@ -67,7 +68,7 @@ public class trackShipmentScreen extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabel1.setText("Enter Tracking ID:");
+        enterLabel.setText("Enter Tracking ID:");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -75,7 +76,7 @@ public class trackShipmentScreen extends javax.swing.JPanel {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(enterLabel)
                 .addGap(18, 18, 18)
                 .addComponent(shipmentIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -85,7 +86,7 @@ public class trackShipmentScreen extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
+                    .addComponent(enterLabel)
                     .addComponent(shipmentIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
@@ -122,15 +123,23 @@ public class trackShipmentScreen extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void trackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trackButtonActionPerformed
-        trackingInfoScreen trackInfoScreen = new trackingInfoScreen(userProcessPanel);
-        userProcessPanel.add("trackingInfoScreen", trackInfoScreen);
-        CardLayout layout = (CardLayout) userProcessPanel.getLayout();
-        layout.next(userProcessPanel);
+        long enteredTrackingNumber;
+        try {
+            enteredTrackingNumber = Long.parseLong(shipmentIdTextField.getText());
+            trackingInfoScreen trackInfoScreen = new trackingInfoScreen(userProcessPanel, enteredTrackingNumber);
+            userProcessPanel.add("trackingInfoScreen", trackInfoScreen);
+            CardLayout layout = (CardLayout) userProcessPanel.getLayout();
+            layout.next(userProcessPanel);
+        } catch (Exception e) {
+            shipmentIdTextField.setForeground(Color.red);
+            enterLabel.setForeground(Color.red);
+        }
+
     }//GEN-LAST:event_trackButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel enterLabel;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
