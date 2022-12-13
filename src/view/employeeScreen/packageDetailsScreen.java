@@ -554,7 +554,7 @@ public class packageDetailsScreen extends javax.swing.JPanel {
             dBConnect.setEntity(newCustomer);
             dBConnect.close();
             JOptionPane.showMessageDialog(this, "Your order was created successfully. The tracking number is:" + newPackage.getPackageId().toString());
-            JOptionPane.showMessageDialog(this, "The newly created customer ID is:" + newCustomer.getCustomerId().toString());
+            JOptionPane.showMessageDialog(this, "The newly created customer ID is:" + newCustomer.getCustomerId());
         } catch (Exception e) {
         }
     }//GEN-LAST:event_approveButtonActionPerformed

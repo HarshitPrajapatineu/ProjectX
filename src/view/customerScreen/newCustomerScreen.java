@@ -4,11 +4,15 @@
  */
 package view.customerScreen;
 
+import DBConnection.DBConnect;
 import common.Enum.City;
+import common.RandomGen;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.util.regex.Pattern;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import model.Customer;
 
 /**
  *
@@ -21,11 +25,13 @@ public class newCustomerScreen extends javax.swing.JPanel {
      */
     JPanel userProcessPanel;
     private static final String EMPTY_STRING = "";
+    DBConnect dbConnect;
 
     public newCustomerScreen(JPanel userProcessPanel) {
         initComponents();
         this.userProcessPanel = userProcessPanel;
         populateCityDropdown();
+        dbConnect = new DBConnect();
 
     }
 
@@ -201,10 +207,34 @@ public class newCustomerScreen extends javax.swing.JPanel {
     }//GEN-LAST:event_addressLine1TextFieldActionPerformed
 
     private void createAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createAccountButtonActionPerformed
-        customerLoginScreen custLoginScreen = new customerLoginScreen(userProcessPanel);
-        userProcessPanel.add("customerLoginScreen", custLoginScreen);
-        CardLayout layout = (CardLayout) userProcessPanel.getLayout();
-        layout.next(userProcessPanel);
+        try {
+
+            Customer newCustomer = new Customer();
+            newCustomer.setFirstName(firstName_TF.getText());
+            newCustomer.setLastName(lastNameTextField.getText());
+            newCustomer.setEmail(emailAddressTextField.getText());
+            long random = new RandomGen().getRandomEmployeeId();
+            newCustomer.setPersonId(random);
+            newCustomer.setCustomerId(random);
+            newCustomer.setAddress1(addressLine1TextField.getText());
+            newCustomer.setAddress2(addressLine2TextField.getText());
+            newCustomer.setCity(cityDropdown.getSelectedIndex());
+            newCustomer.setPostalCode(postalCodeTextField.getText());
+//        newCustomer.setGender();
+            newCustomer.setRole(6);
+            dbConnect.open();
+            dbConnect.setEntity(newCustomer);
+            dbConnect.close();
+
+            JOptionPane.showMessageDialog(this, "Account created successfully. The Account number is: " + newCustomer.getCustomerId(), "ACCOUNT CREATION SUCCESSFUL", JOptionPane.INFORMATION_MESSAGE);
+            customerLoginScreen custLoginScreen = new customerLoginScreen(userProcessPanel);
+            userProcessPanel.add("customerLoginScreen", custLoginScreen);
+            CardLayout layout = (CardLayout) userProcessPanel.getLayout();
+            layout.next(userProcessPanel);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Please enter the details correctly", "ACCOUNT CREATION FAILED", JOptionPane.ERROR_MESSAGE);
+
+        }
     }//GEN-LAST:event_createAccountButtonActionPerformed
 
     private void cityDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cityDropdownActionPerformed
@@ -213,7 +243,7 @@ public class newCustomerScreen extends javax.swing.JPanel {
 
     private void phoneNumberTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_phoneNumberTextFieldKeyTyped
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_phoneNumberTextFieldKeyTyped
 
     private void phoneNumberTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_phoneNumberTextFieldKeyReleased
@@ -225,15 +255,14 @@ public class newCustomerScreen extends javax.swing.JPanel {
         if (phoneNumberTextField.getText() != null && !EMPTY_STRING.equals(phoneNumberTextField.getText().trim())) {
             if (Pattern.matches("^(\\d{3}[- .]?){2}\\d{4}$", phoneNumberTextField.getText())) {
                 validationStatus = true;
-               
-            } else {    
-               validationStatus = false;
+
+            } else {
+                validationStatus = false;
             }
 
         }
-        
-        if(validationStatus == false)
-        {
+
+        if (validationStatus == false) {
             phoneNumberTextField.setForeground(Color.red);
             phoneNumberLabel.setForeground(Color.red);
         } else {

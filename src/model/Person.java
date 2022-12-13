@@ -14,7 +14,7 @@ public class Person {
     public String firstName;
     public String lastName;
     public String email;
-    public Long personId;
+    public long personId;
     public String address1;
     public String address2;
     public int city;
@@ -62,11 +62,11 @@ public class Person {
         this.email = email;
     }
 
-    public Long getPersonId() {
+    public long getPersonId() {
         return personId;
     }
 
-    public void setPersonId(Long personId) {
+    public void setPersonId(long personId) {
         this.personId = personId;
     }
 

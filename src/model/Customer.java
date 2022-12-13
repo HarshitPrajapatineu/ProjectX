@@ -11,13 +11,13 @@ import model.Person;
  * @author akshb
  */
 public class Customer extends Person {
-    private Long customerId;
+    private long customerId;
 
-    public Long getCustomerId() {
+    public long getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerId(Long customerId) {
+    public void setCustomerId(long customerId) {
         this.customerId = customerId;
     }
     

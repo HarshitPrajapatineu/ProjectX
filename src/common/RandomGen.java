@@ -27,7 +27,7 @@ public class RandomGen {
      
     public long getRandomEmployeeId()
     {
-        Long newID;
+        long newID;
         boolean isNotUnique = true;
         DBConnect dbConnect = new DBConnect();
         dbConnect.open();

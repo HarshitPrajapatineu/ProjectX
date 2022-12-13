@@ -5,8 +5,10 @@
 package view.customerScreen;
 
 import DBConnection.DBConnect;
+import com.db4o.ObjectSet;
 import java.awt.CardLayout;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import model.Customer;
 
@@ -104,13 +106,17 @@ public class customerLoginScreen extends javax.swing.JPanel {
     private void customerLoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerLoginButtonActionPerformed
 
         try {
-            int customerId = Integer.parseInt(customerIDTextField.getText());
+            long customerId = Long.parseLong(customerIDTextField.getText());
             sessionUser = getCustomerDetailById(customerId);
-            customerMainScreen custMainScreen = new customerMainScreen(userProcessPanel,sessionUser);
-            userProcessPanel.add("customerMainScreen", custMainScreen);
-            CardLayout layout = (CardLayout) userProcessPanel.getLayout();
-            layout.next(userProcessPanel);
+//            System.err.println(sessionUser);
+            if (sessionUser != null) {
+                customerMainScreen custMainScreen = new customerMainScreen(userProcessPanel, sessionUser);
+                userProcessPanel.add("customerMainScreen", custMainScreen);
+                CardLayout layout = (CardLayout) userProcessPanel.getLayout();
+                layout.next(userProcessPanel);
+            }
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Please enter correct customer Id", "LOGIN FAILED", JOptionPane.ERROR_MESSAGE);
 
         }
 
@@ -125,12 +131,24 @@ public class customerLoginScreen extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 
-    private Customer getCustomerDetailById(int customerId) {
+    private Customer getCustomerDetailById(long customerId) {
+//        broken
         Customer proto = new Customer();
-        proto.setCustomerId((long) customerId);
+        proto.setCustomerId(customerId);
         dbConnect.open();
-        ArrayList<Customer> lst = dbConnect.getListOf(proto);
+        ArrayList<Customer> lst = new ArrayList<>();
+        ObjectSet result = dbConnect.queryByExample(proto.getClass());
+//        ObjectSet result = dbConnect.queryByExample(proto);
+        Object[] arr = result.toArray();
+        Customer cust = (Customer) dbConnect.queryByExample(proto.getClass()).next();
+        //for (Object o : dbConnect.queryByExample(proto).toArray()) {
+        for (Object o : arr) {
+            lst.add((Customer) o);
+        }
         dbConnect.close();
-        return lst.isEmpty() ? new Customer() : lst.get(0);
+        System.out.println(lst.toString());
+
+        return lst.isEmpty() ? null : (Customer) lst.get(0);
+//        return lst.isEmpty() ? new Customer() : (Customer) lst.get(0);
     }
 }
