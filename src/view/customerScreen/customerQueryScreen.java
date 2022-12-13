@@ -10,9 +10,13 @@ import java.awt.CardLayout;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 import model.customerServiceEnterprise.CustomerService;
 
 /**
@@ -47,13 +51,14 @@ public class customerQueryScreen extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         queriesTable = new javax.swing.JTable();
-        jTextField1 = new javax.swing.JTextField();
+        searchTextField = new javax.swing.JTextField();
         searchButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        viewButton = new javax.swing.JButton();
 
         setMaximumSize(new java.awt.Dimension(866, 510));
         setMinimumSize(new java.awt.Dimension(866, 510));
-        setPreferredSize(new java.awt.Dimension(860, 540));
+        setPreferredSize(new java.awt.Dimension(866, 510));
 
         jLabel11.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel11.setText("Contact Us");
@@ -92,15 +97,27 @@ public class customerQueryScreen extends javax.swing.JPanel {
         });
         jScrollPane3.setViewportView(queriesTable);
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        searchTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                searchTextFieldActionPerformed(evt);
             }
         });
 
         searchButton.setText("Search");
+        searchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchButtonActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Query still not answered?");
+
+        viewButton.setText("View");
+        viewButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -109,11 +126,11 @@ public class customerQueryScreen extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(181, 181, 181)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(61, 61, 61)
+                .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19))
+                .addGap(149, 149, 149))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -126,7 +143,11 @@ public class customerQueryScreen extends javax.swing.JPanel {
                         .addGap(343, 343, 343)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
-                            .addComponent(postQuery_BT, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(postQuery_BT, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(viewButton)
+                        .addGap(148, 148, 148)))
                 .addGap(8, 28, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -136,11 +157,13 @@ public class customerQueryScreen extends javax.swing.JPanel {
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(searchButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(viewButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(postQuery_BT)
@@ -153,9 +176,35 @@ public class customerQueryScreen extends javax.swing.JPanel {
         splitPane.setRightComponent(postQuerySc);;
     }//GEN-LAST:event_postQuery_BTActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void searchTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_searchTextFieldActionPerformed
+
+    private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
+        
+        TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(queriesTable.getModel());
+        queriesTable.setRowSorter(sorter);
+        String text = searchTextField.getText();
+        if (text.length() == 0) {
+            sorter.setRowFilter(null);
+        } else {
+            sorter.setRowFilter(RowFilter.regexFilter(text));
+        }
+          
+    }//GEN-LAST:event_searchButtonActionPerformed
+
+    private void viewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewButtonActionPerformed
+        DefaultTableModel model = (DefaultTableModel) queriesTable.getModel();
+        int selectedRow = queriesTable.getSelectedRow();
+        if (selectedRow < 0) {
+            showMessageDialog(this, "Please select a row.");
+            return;
+        }
+        
+        String question = model.getValueAt(selectedRow,0).toString();
+        String answer = model.getValueAt(selectedRow,1).toString();
+        showMessageDialog(this, question+" : "+answer);
+    }//GEN-LAST:event_viewButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -163,10 +212,11 @@ public class customerQueryScreen extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JButton postQuery_BT;
     private javax.swing.JTable queriesTable;
     private javax.swing.JButton searchButton;
+    private javax.swing.JTextField searchTextField;
+    private javax.swing.JButton viewButton;
     // End of variables declaration//GEN-END:variables
 
     private void populatetable(){

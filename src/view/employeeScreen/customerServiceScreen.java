@@ -48,8 +48,6 @@ public class customerServiceScreen extends javax.swing.JPanel {
         queriesTable = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        searchButton = new javax.swing.JButton();
-        searchTextField = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         resolutionTextArea = new javax.swing.JTextArea();
@@ -95,36 +93,15 @@ public class customerServiceScreen extends javax.swing.JPanel {
             .addGap(0, 82, Short.MAX_VALUE)
         );
 
-        searchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/search.png"))); // NOI18N
-        searchButton.setText(" Search");
-        searchButton.setMaximumSize(new java.awt.Dimension(53, 25));
-        searchButton.setMinimumSize(new java.awt.Dimension(53, 25));
-        searchButton.setPreferredSize(new java.awt.Dimension(53, 25));
-        searchButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchButtonActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addGap(0, 459, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+            .addGap(0, 37, Short.MAX_VALUE)
         );
 
         jLabel1.setText("Query:");
@@ -216,7 +193,7 @@ public class customerServiceScreen extends javax.swing.JPanel {
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(resolveButton)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -261,10 +238,6 @@ public class customerServiceScreen extends javax.swing.JPanel {
             System.err.println("Exception:" + e.getStackTrace());
         }
     }//GEN-LAST:event_answerQueryButtonActionPerformed
-
-    private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
-
-    }//GEN-LAST:event_searchButtonActionPerformed
 
     private void resolveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resolveButtonActionPerformed
         DefaultTableModel model = (DefaultTableModel) queriesTable.getModel();
@@ -343,8 +316,6 @@ public class customerServiceScreen extends javax.swing.JPanel {
     private javax.swing.JTextArea queryTextArea;
     private javax.swing.JTextArea resolutionTextArea;
     private javax.swing.JButton resolveButton;
-    private javax.swing.JButton searchButton;
-    private javax.swing.JTextField searchTextField;
     // End of variables declaration//GEN-END:variables
 
 
