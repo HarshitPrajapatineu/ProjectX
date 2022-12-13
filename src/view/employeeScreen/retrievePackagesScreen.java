@@ -151,6 +151,8 @@ public class retrievePackagesScreen extends javax.swing.JPanel {
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
         // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) packagesTable.getModel();
+//        model.getValueAt(ERROR, WIDTH)
     }//GEN-LAST:event_updateButtonActionPerformed
 
 
