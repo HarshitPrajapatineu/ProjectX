@@ -4,6 +4,11 @@
  */
 package view.employeeScreen;
 
+import DBConnection.DBConnect;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import model.PackageManagementEnterprise.Package;
+
 /**
  *
  * @author akshb
@@ -13,8 +18,12 @@ public class retrievePackagesScreen extends javax.swing.JPanel {
     /**
      * Creates new form existingPackageApprovalScreen
      */
+    DBConnection.DBConnect dbConnect;
+
     public retrievePackagesScreen() {
         initComponents();
+        populatePackageTable();
+        dbConnect = new DBConnect();
     }
 
     /**
@@ -153,4 +162,22 @@ public class retrievePackagesScreen extends javax.swing.JPanel {
     private javax.swing.JTable packagesTable;
     private javax.swing.JButton updateButton;
     // End of variables declaration//GEN-END:variables
+
+    private void populatePackageTable() {
+        DefaultTableModel model = (DefaultTableModel) packagesTable.getModel();
+        model.setRowCount(0);
+
+        Package p = new Package();
+        dbConnect.open();
+        ArrayList<Package> result = dbConnect.getListOf(p);
+        dbConnect.close();
+        for (Package pkg : result) {
+            Object[] row = new Object[4];
+            row[0] = pkg;
+            row[1] = pkg.getFromName();
+            row[2] = pkg.getCurrentLocationCity();
+            row[3] = common.Enum.PackageProvider.values()[pkg.getProvider()];
+            model.addRow(row);
+        }
+    }
 }
