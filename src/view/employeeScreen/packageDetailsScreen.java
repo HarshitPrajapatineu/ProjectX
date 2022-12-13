@@ -7,8 +7,10 @@ package view.employeeScreen;
 import common.Enum.PackageProvider;
 import common.Enum.PackageService;
 import common.Enum.PackageType;
+import common.RandomGen;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import model.Customer;
 import model.PackageManagementEnterprise.Package;
 
 /**
@@ -385,12 +387,13 @@ public class packageDetailsScreen extends javax.swing.JPanel {
                     .addComponent(jLabel24)
                     .addComponent(packageProviderDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(franchiseLabel)
-                    .addComponent(franchiseField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(costLabel)
-                        .addComponent(costField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(costField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(franchiseLabel)
+                        .addComponent(franchiseField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
@@ -501,9 +504,13 @@ public class packageDetailsScreen extends javax.swing.JPanel {
         Package newPackage = new Package();
         newPackage.setCost(Float.parseFloat(costField.getText()));
         newPackage.setCurrentLocationCity(fromCityDropdown.getSelectedItem().toString());
-//        newPackage.setCustomer();
+        Customer newCustomer = new Customer();
+        newCustomer.setCustomerId(new RandomGen().getRandomEmployeeId());
+//        newCustomer.set
+        // assign details to newly created cust and store in db4o
+        newPackage.setCustomer(newCustomer);
 //        newPackage.setFranchise();
-//        newPackage.setPackageId(Long.MAX_VALUE);
+        newPackage.setPackageId(new RandomGen().getRandomEmployeeId());
         newPackage.setFromAddressLine1(fromAddressL1TextField.getText());
         newPackage.setFromAddressLine2(fromAddressL2TextField.getText());
         newPackage.setFromCity(fromCityDropdown.getSelectedIndex());
@@ -511,7 +518,7 @@ public class packageDetailsScreen extends javax.swing.JPanel {
         newPackage.setFromPostalCode(fromPostalCodeTextField.getText());
         newPackage.setProvider(packageProviderDropdown.getSelectedIndex());
         newPackage.setService(packageServiceDropdown.getSelectedIndex());
-        //franchise customer packageId 
+        //franchise ~customer 
         newPackage.setWeight(Long.parseLong(weightTextField.getText()));
         newPackage.setStatus(common.Enum.Status.APPROVED);
         newPackage.setFromPhoneNumber(Long.valueOf(fromPhoneNumberTextField.getText()));
