@@ -90,6 +90,7 @@ public class AdminMainScreen extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(employeeDetailsTable);
 
+        addButton.setBackground(new java.awt.Color(255, 153, 102));
         addButton.setText("Add Details");
         addButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,6 +98,7 @@ public class AdminMainScreen extends javax.swing.JPanel {
             }
         });
 
+        viewButton.setBackground(new java.awt.Color(255, 153, 102));
         viewButton.setText("View Details");
         viewButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,6 +106,7 @@ public class AdminMainScreen extends javax.swing.JPanel {
             }
         });
 
+        editButton.setBackground(new java.awt.Color(255, 153, 102));
         editButton.setText("Edit Details");
         editButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,6 +114,7 @@ public class AdminMainScreen extends javax.swing.JPanel {
             }
         });
 
+        deleteButton.setBackground(new java.awt.Color(255, 153, 102));
         deleteButton.setText("Delete");
         deleteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -180,6 +184,7 @@ public class AdminMainScreen extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
+        heading_LB.setBackground(new java.awt.Color(255, 153, 102));
         heading_LB.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         heading_LB.setText("ADMIN CONSOLE");
 
@@ -213,6 +218,7 @@ public class AdminMainScreen extends javax.swing.JPanel {
             }
         });
 
+        jLabel3.setBackground(new java.awt.Color(255, 153, 102));
         jLabel3.setText("ID:");
 
         firstNameTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -221,8 +227,10 @@ public class AdminMainScreen extends javax.swing.JPanel {
             }
         });
 
+        jLabel2.setBackground(new java.awt.Color(255, 153, 102));
         jLabel2.setText("Last Name:");
 
+        jLabel1.setBackground(new java.awt.Color(255, 153, 102));
         jLabel1.setText("First Name:");
 
         cityDropdown.addActionListener(new java.awt.event.ActionListener() {
@@ -231,6 +239,7 @@ public class AdminMainScreen extends javax.swing.JPanel {
             }
         });
 
+        jLabel4.setBackground(new java.awt.Color(255, 153, 102));
         jLabel4.setText("User Role:");
 
         lastNameTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -245,8 +254,10 @@ public class AdminMainScreen extends javax.swing.JPanel {
             }
         });
 
+        jLabel6.setBackground(new java.awt.Color(255, 153, 102));
         jLabel6.setText("Email:");
 
+        jLabel5.setBackground(new java.awt.Color(255, 153, 102));
         jLabel5.setText("City:");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);

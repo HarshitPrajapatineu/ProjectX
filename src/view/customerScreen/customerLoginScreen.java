@@ -47,9 +47,11 @@ public class customerLoginScreen extends javax.swing.JPanel {
         setMinimumSize(new java.awt.Dimension(866, 510));
         setPreferredSize(new java.awt.Dimension(860, 540));
 
+        jLabel1.setBackground(new java.awt.Color(255, 153, 102));
         jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel1.setText("Customer Login");
 
+        jLabel2.setBackground(new java.awt.Color(255, 153, 102));
         jLabel2.setText("Enter Customer ID:");
 
         customerIDTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -58,6 +60,7 @@ public class customerLoginScreen extends javax.swing.JPanel {
             }
         });
 
+        customerLoginButton.setBackground(new java.awt.Color(255, 153, 102));
         customerLoginButton.setText("Login");
         customerLoginButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

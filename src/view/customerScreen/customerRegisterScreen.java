@@ -36,6 +36,7 @@ public class customerRegisterScreen extends javax.swing.JPanel {
         setMaximumSize(new java.awt.Dimension(866, 510));
         setMinimumSize(new java.awt.Dimension(866, 510));
 
+        existingCustomerButton.setBackground(new java.awt.Color(255, 153, 102));
         existingCustomerButton.setText("Existing Customer");
         existingCustomerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -43,6 +44,7 @@ public class customerRegisterScreen extends javax.swing.JPanel {
             }
         });
 
+        newCustomerButton.setBackground(new java.awt.Color(255, 153, 102));
         newCustomerButton.setText("New Customer");
         newCustomerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -50,6 +52,7 @@ public class customerRegisterScreen extends javax.swing.JPanel {
             }
         });
 
+        jLabel1.setBackground(new java.awt.Color(255, 153, 102));
         jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel1.setText("Welcome to PACK-MAN");
 

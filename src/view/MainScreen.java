@@ -51,11 +51,16 @@ public class MainScreen extends javax.swing.JFrame {
         userProcessPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(888, 595));
         setMinimumSize(new java.awt.Dimension(888, 595));
 
+        jSplitPane1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jSplitPane1.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
+        employeeButton.setBackground(new java.awt.Color(255, 153, 102));
         employeeButton.setText("Employee");
         employeeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -63,6 +68,7 @@ public class MainScreen extends javax.swing.JFrame {
             }
         });
 
+        customerButton.setBackground(new java.awt.Color(255, 153, 102));
         customerButton.setText("Customer");
         customerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,6 +116,7 @@ public class MainScreen extends javax.swing.JFrame {
 
         jSplitPane1.setTopComponent(jPanel1);
 
+        userProcessPanel.setBackground(new java.awt.Color(255, 255, 255));
         userProcessPanel.setLayout(new java.awt.CardLayout());
         jSplitPane1.setRightComponent(userProcessPanel);
 

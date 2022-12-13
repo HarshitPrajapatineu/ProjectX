@@ -41,9 +41,11 @@ public class trackShipmentScreen extends javax.swing.JPanel {
         setMinimumSize(new java.awt.Dimension(866, 510));
         setPreferredSize(new java.awt.Dimension(866, 510));
 
+        jLabel11.setBackground(new java.awt.Color(255, 153, 102));
         jLabel11.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel11.setText("Track shipment");
 
+        trackButton.setBackground(new java.awt.Color(255, 153, 102));
         trackButton.setText("Track");
         trackButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -68,6 +70,7 @@ public class trackShipmentScreen extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        enterLabel.setBackground(new java.awt.Color(255, 153, 102));
         enterLabel.setText("Enter Tracking ID:");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);

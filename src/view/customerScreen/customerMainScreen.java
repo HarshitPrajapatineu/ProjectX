@@ -45,6 +45,7 @@ public class customerMainScreen extends javax.swing.JPanel {
         setMinimumSize(new java.awt.Dimension(866, 510));
         setPreferredSize(new java.awt.Dimension(860, 540));
 
+        searchButton.setBackground(new java.awt.Color(255, 153, 102));
         searchButton.setText("Search");
         searchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -52,6 +53,7 @@ public class customerMainScreen extends javax.swing.JPanel {
             }
         });
 
+        trackShipmentButton.setBackground(new java.awt.Color(255, 153, 102));
         trackShipmentButton.setText("Track shipment");
         trackShipmentButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -59,6 +61,7 @@ public class customerMainScreen extends javax.swing.JPanel {
             }
         });
 
+        contactUsButton.setBackground(new java.awt.Color(255, 153, 102));
         contactUsButton.setText("Contact Us");
         contactUsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

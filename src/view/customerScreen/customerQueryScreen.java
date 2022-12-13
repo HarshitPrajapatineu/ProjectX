@@ -60,6 +60,7 @@ public class customerQueryScreen extends javax.swing.JPanel {
         setMinimumSize(new java.awt.Dimension(866, 510));
         setPreferredSize(new java.awt.Dimension(866, 510));
 
+        jLabel11.setBackground(new java.awt.Color(255, 153, 102));
         jLabel11.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel11.setText("Contact Us");
 
@@ -70,6 +71,7 @@ public class customerQueryScreen extends javax.swing.JPanel {
             }
         });
 
+        jLabel1.setBackground(new java.awt.Color(255, 153, 102));
         jLabel1.setText("FAQs");
 
         queriesTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -103,6 +105,7 @@ public class customerQueryScreen extends javax.swing.JPanel {
             }
         });
 
+        searchButton.setBackground(new java.awt.Color(255, 153, 102));
         searchButton.setText("Search");
         searchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,6 +115,7 @@ public class customerQueryScreen extends javax.swing.JPanel {
 
         jLabel2.setText("Query still not answered?");
 
+        viewButton.setBackground(new java.awt.Color(255, 153, 102));
         viewButton.setText("View");
         viewButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

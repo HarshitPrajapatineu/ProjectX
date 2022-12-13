@@ -49,6 +49,7 @@ public class trackingInfoScreen extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(860, 540));
 
+        jLabel11.setBackground(new java.awt.Color(255, 153, 102));
         jLabel11.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel11.setText("Shipment Details");
 
@@ -82,6 +83,7 @@ public class trackingInfoScreen extends javax.swing.JPanel {
             shipmentDetailsTable.getColumnModel().getColumn(2).setResizable(false);
         }
 
+        backButton.setBackground(new java.awt.Color(255, 153, 102));
         backButton.setText("<< Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

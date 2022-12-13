@@ -45,9 +45,11 @@ public class transportAdminScreen extends javax.swing.JPanel {
 
         jPanel1.setPreferredSize(new java.awt.Dimension(866, 510));
 
+        jLabel12.setBackground(new java.awt.Color(255, 153, 102));
         jLabel12.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel12.setText("Transport Admin");
 
+        jLabel2.setBackground(new java.awt.Color(255, 153, 102));
         jLabel2.setText("Enter Tracking ID:");
 
         trackingIdTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -56,6 +58,7 @@ public class transportAdminScreen extends javax.swing.JPanel {
             }
         });
 
+        updateButton.setBackground(new java.awt.Color(255, 153, 102));
         updateButton.setText("Update");
         updateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -63,6 +66,7 @@ public class transportAdminScreen extends javax.swing.JPanel {
             }
         });
 
+        jLabel3.setBackground(new java.awt.Color(255, 153, 102));
         jLabel3.setText("Status:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -101,7 +105,7 @@ public class transportAdminScreen extends javax.swing.JPanel {
                     .addComponent(statusDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(63, 63, 63)
                 .addComponent(updateButton)
-                .addGap(0, 281, Short.MAX_VALUE))
+                .addGap(0, 287, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

@@ -99,13 +99,17 @@ public class packageDetailsScreen extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(860, 540));
 
+        jLabel11.setBackground(new java.awt.Color(255, 153, 102));
         jLabel11.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel11.setText("Package Details");
 
+        jLabel4.setBackground(new java.awt.Color(255, 153, 102));
         jLabel4.setText("Address line 1:");
 
+        jLabel5.setBackground(new java.awt.Color(255, 153, 102));
         jLabel5.setText("Address line 2:");
 
+        jLabel2.setBackground(new java.awt.Color(255, 153, 102));
         jLabel2.setText("First Name:");
 
         fromCityDropdown.setEditable(true);
@@ -115,14 +119,19 @@ public class packageDetailsScreen extends javax.swing.JPanel {
             }
         });
 
+        jLabel9.setBackground(new java.awt.Color(255, 153, 102));
         jLabel9.setText("Email Address:");
 
+        jLabel7.setBackground(new java.awt.Color(255, 153, 102));
         jLabel7.setText("Phone Number:");
 
+        jLabel6.setBackground(new java.awt.Color(255, 153, 102));
         jLabel6.setText("Postal Code:");
 
+        jLabel3.setBackground(new java.awt.Color(255, 153, 102));
         jLabel3.setText("Last Name:");
 
+        jLabel8.setBackground(new java.awt.Color(255, 153, 102));
         jLabel8.setText("City:");
 
         jLabel1.setText("FROM:");
@@ -198,22 +207,30 @@ public class packageDetailsScreen extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
+        jLabel15.setBackground(new java.awt.Color(255, 153, 102));
         jLabel15.setText("Postal Code:");
 
+        jLabel14.setBackground(new java.awt.Color(255, 153, 102));
         jLabel14.setText("Address line 1:");
 
         jLabel10.setText("TO:");
 
+        jLabel13.setBackground(new java.awt.Color(255, 153, 102));
         jLabel13.setText("Last Name:");
 
+        jLabel18.setBackground(new java.awt.Color(255, 153, 102));
         jLabel18.setText("Phone Number:");
 
+        jLabel12.setBackground(new java.awt.Color(255, 153, 102));
         jLabel12.setText("First Name:");
 
+        jLabel17.setBackground(new java.awt.Color(255, 153, 102));
         jLabel17.setText("Address line 2:");
 
+        jLabel19.setBackground(new java.awt.Color(255, 153, 102));
         jLabel19.setText("City:");
 
+        jLabel16.setBackground(new java.awt.Color(255, 153, 102));
         jLabel16.setText("Email Address:");
 
         toCityDropdown.setEditable(true);
@@ -306,10 +323,13 @@ public class packageDetailsScreen extends javax.swing.JPanel {
             }
         });
 
+        jLabel21.setBackground(new java.awt.Color(255, 153, 102));
         jLabel21.setText("Package Type:");
 
+        jLabel22.setBackground(new java.awt.Color(255, 153, 102));
         jLabel22.setText("Weight(in lb):");
 
+        jLabel23.setBackground(new java.awt.Color(255, 153, 102));
         jLabel23.setText("Package Service:");
 
         packageServiceDropdown.setEditable(true);
@@ -319,6 +339,7 @@ public class packageDetailsScreen extends javax.swing.JPanel {
             }
         });
 
+        jLabel24.setBackground(new java.awt.Color(255, 153, 102));
         jLabel24.setText("Package Provider:");
 
         packageProviderDropdown.setEditable(true);
@@ -328,8 +349,10 @@ public class packageDetailsScreen extends javax.swing.JPanel {
             }
         });
 
+        franchiseLabel.setBackground(new java.awt.Color(255, 153, 102));
         franchiseLabel.setText("Franchise");
 
+        costLabel.setBackground(new java.awt.Color(255, 153, 102));
         costLabel.setText("Cost");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -399,6 +422,7 @@ public class packageDetailsScreen extends javax.swing.JPanel {
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
+        approveButton.setBackground(new java.awt.Color(255, 153, 102));
         approveButton.setText("Approve");
         approveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -406,6 +430,7 @@ public class packageDetailsScreen extends javax.swing.JPanel {
             }
         });
 
+        refuseButton.setBackground(new java.awt.Color(255, 153, 102));
         refuseButton.setText("Refuse");
         refuseButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

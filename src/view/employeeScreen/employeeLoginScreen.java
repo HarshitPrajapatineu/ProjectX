@@ -47,9 +47,11 @@ public class employeeLoginScreen extends javax.swing.JPanel {
         employeeIDTextField = new javax.swing.JTextField();
         loginButton = new javax.swing.JButton();
 
+        jLabel1.setBackground(new java.awt.Color(255, 153, 102));
         jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel1.setText("Employee Login");
 
+        jLabel2.setBackground(new java.awt.Color(255, 153, 102));
         jLabel2.setText("Enter ID:");
 
         employeeIDTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -58,6 +60,7 @@ public class employeeLoginScreen extends javax.swing.JPanel {
             }
         });
 
+        loginButton.setBackground(new java.awt.Color(255, 153, 102));
         loginButton.setText("Login");
         loginButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

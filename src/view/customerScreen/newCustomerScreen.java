@@ -69,23 +69,32 @@ public class newCustomerScreen extends javax.swing.JPanel {
         setMaximumSize(new java.awt.Dimension(866, 510));
         setMinimumSize(new java.awt.Dimension(866, 510));
 
+        jLabel1.setBackground(new java.awt.Color(255, 153, 102));
         jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel1.setText("Register new customer:");
 
+        jLabel2.setBackground(new java.awt.Color(255, 153, 102));
         jLabel2.setText("First Name:");
 
+        jLabel3.setBackground(new java.awt.Color(255, 153, 102));
         jLabel3.setText("Last Name:");
 
+        phoneNumberLabel.setBackground(new java.awt.Color(255, 153, 102));
         phoneNumberLabel.setText("Phone Number:");
 
+        jLabel5.setBackground(new java.awt.Color(255, 153, 102));
         jLabel5.setText("Email Address: ");
 
+        jLabel6.setBackground(new java.awt.Color(255, 153, 102));
         jLabel6.setText("Address line 1:");
 
+        jLabel7.setBackground(new java.awt.Color(255, 153, 102));
         jLabel7.setText("Address line 2:");
 
+        jLabel8.setBackground(new java.awt.Color(255, 153, 102));
         jLabel8.setText("Postal Code:");
 
+        jLabel9.setBackground(new java.awt.Color(255, 153, 102));
         jLabel9.setText("DOB:");
 
         phoneNumberTextField.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -103,6 +112,7 @@ public class newCustomerScreen extends javax.swing.JPanel {
             }
         });
 
+        createAccountButton.setBackground(new java.awt.Color(255, 153, 102));
         createAccountButton.setText("Create account");
         createAccountButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,6 +120,7 @@ public class newCustomerScreen extends javax.swing.JPanel {
             }
         });
 
+        jLabel10.setBackground(new java.awt.Color(255, 153, 102));
         jLabel10.setText("City:");
 
         cityDropdown.addActionListener(new java.awt.event.ActionListener() {
