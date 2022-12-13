@@ -108,7 +108,7 @@ public class employeeLoginScreen extends javax.swing.JPanel {
             int empId = Integer.parseInt(employeeIDTextField.getText());
             sessionUser = getEmployeeDetailById(empId);
             int role = sessionUser.getRole() == 0 ? 7 : sessionUser.getRole();
-            
+
             switch (role) {
                 case 1:
                     showSysAdminScreen();
@@ -129,24 +129,25 @@ public class employeeLoginScreen extends javax.swing.JPanel {
                     showEmpScreen();
                     break;
                 default:
-//                    showSysAdminScreen();
-                    JOptionPane.showMessageDialog(userProcessPanel, "Please try logging with correct credentials", "Error while logging", 0);
+                    //showSysAdminScreen();
+                    showCSAdminScreen();
+
+                    //JOptionPane.showMessageDialog(userProcessPanel, "Please try logging with correct credentials", "Error while logging", 0);
             }
-            
-        }
-        catch (Exception e) {
+
+        } catch (Exception e) {
             System.err.println("Exception:" + e.getMessage());
             System.err.println("Exception:" + e.getStackTrace());
         }
     }//GEN-LAST:event_loginButtonActionPerformed
 
-    public Employee getEmployeeDetailById(int empId){
+    public Employee getEmployeeDetailById(int empId) {
         Employee proto = new Employee();
         proto.setEmployeeId(empId);
         dbConnect.open();
         ArrayList<Employee> empList = dbConnect.getListOf(proto);
         dbConnect.close();
-        return empList.size()==0 ? new Employee() : empList.get(0);
+        return empList.size() == 0 ? new Employee() : empList.get(0);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -171,8 +172,8 @@ public class employeeLoginScreen extends javax.swing.JPanel {
     }
 
     private void showCSAdminScreen() {
-        employeeMainScreen empMainScreen = new employeeMainScreen(userProcessPanel);
-        userProcessPanel.add("empMainScreen", empMainScreen);
+        customerServiceScreen customerServiceSc = new customerServiceScreen(userProcessPanel);
+        userProcessPanel.add("customerServiceScreen", customerServiceSc);
         CardLayout layout = (CardLayout) userProcessPanel.getLayout();
         layout.next(userProcessPanel);
     }

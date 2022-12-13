@@ -215,10 +215,10 @@ public class MainScreen extends javax.swing.JFrame {
                 dbConnect.setEntity(sysAdmin);
                 dbConnect.close();
             }
-        } catch (Exception e) {
-            System.err.println(e.getMessage());
-            System.err.println("Exception:" + e.getMessage());
-            System.err.println("Exception:" + e.getStackTrace());
-        }
+            } catch (Exception e) {
+                System.err.println(e.getMessage());
+                System.err.println("Exception:" + e.getMessage());
+                System.err.println("Exception:" + e.getStackTrace());
+            }
     }
 }

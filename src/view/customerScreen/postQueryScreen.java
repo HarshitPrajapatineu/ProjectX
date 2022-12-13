@@ -4,9 +4,16 @@
  */
 package view.customerScreen;
 
+import DBConnection.DBConnect;
+import com.db4o.ObjectSet;
 import java.awt.CardLayout;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
+import javax.swing.table.DefaultTableModel;
+import model.customerServiceEnterprise.CustomerService;
 
 /**
  *
@@ -16,11 +23,13 @@ public class postQueryScreen extends javax.swing.JPanel {
 
     JPanel userProcessPanel;
     JSplitPane splitPane;
+    DBConnect dbConnect;
             
     public postQueryScreen(JPanel userProcessPanel, JSplitPane splitPane) {
         initComponents();
         this.userProcessPanel = userProcessPanel;
         this.splitPane = splitPane;
+        dbConnect = new DBConnect();
     }
 
     /**
@@ -129,7 +138,47 @@ public class postQueryScreen extends javax.swing.JPanel {
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void postButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_postButtonActionPerformed
+        CustomerService custService = new CustomerService();
+        //DefaultTableModel model = (DefaultTableModel) queriesTable.getModel();
         
+        try {
+            dbConnect.open();
+            CustomerService CS = new CustomerService();
+            ObjectSet result = dbConnect.queryByExample(CS.getClass());
+            ArrayList<CustomerService> list = new ArrayList<CustomerService>();
+            Object[] arr = result.toArray();
+            for (Object o : arr) {
+                CustomerService f = (CustomerService) o;
+                list.add(f);
+            }
+            
+            dbConnect.close();
+            
+            
+            String query = queryTextArea.getText();
+            String answer = "";
+            
+            if(query == ""){
+                return;
+            }
+            
+            custService.setQuestion(query);
+            custService.setAnswer(answer);
+            
+            //UPDATE BACK TO DB
+            dbConnect.open();
+            dbConnect.setEntity(custService);
+            dbConnect.close();
+            
+
+                }
+            
+        
+         catch (Exception e) {
+            System.err.println(e.getMessage());
+            System.err.println("Exception:" + e.getMessage());
+            System.err.println("Exception:" + e.getStackTrace());
+        }
     }//GEN-LAST:event_postButtonActionPerformed
 
 
