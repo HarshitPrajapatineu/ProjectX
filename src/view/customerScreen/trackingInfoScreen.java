@@ -10,8 +10,6 @@ import javax.swing.table.DefaultTableModel;
 import DBConnection.DBConnect;
 import com.db4o.ObjectSet;
 import common.Enum.Status;
-import java.util.ArrayList;
-import model.PackageManagementEnterprise.Franchise;
 import model.PackageManagementEnterprise.Package;
 
 /**
@@ -21,12 +19,10 @@ import model.PackageManagementEnterprise.Package;
 public class trackingInfoScreen extends javax.swing.JPanel {
 
     JPanel userProcessPanel;
-    long trackingNumber;
     DBConnect dbConnect;
 
     public trackingInfoScreen(JPanel userProcessPanel, long trackingNumber) {
         this.userProcessPanel = userProcessPanel;
-        this.trackingNumber = trackingNumber;
         initComponents();
         dbConnect = new DBConnect();
         populalateTrackingTable(trackingNumber);
@@ -160,7 +156,7 @@ public class trackingInfoScreen extends javax.swing.JPanel {
             ObjectSet result = this.dbConnect.queryByExample(pkg);
             Package data = (Package) result.toArray()[0];
             dbConnect.close();
-            for (Status s : data.getStatusHistory()) {
+            for (Integer s : data.getStatusHistory()) {
                 // here
                 Object[] row = new Object[3];
                 row[0] = trackingNumber;

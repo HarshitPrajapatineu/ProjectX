@@ -5,8 +5,10 @@
 package view.adminScreen;
 
 import DBConnection.DBConnect;
+import com.db4o.ObjectSet;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import model.Employee;
+import model.PackageManagementEnterprise.Package;
 
 /**
  *
@@ -14,14 +16,13 @@ import model.Employee;
  */
 public class transportAdminScreen extends javax.swing.JPanel {
 
-    
     JPanel userProcessPanel;
-    
+    DBConnect dbConnect;
+
     public transportAdminScreen(JPanel userProcessPanel) {
         initComponents();
-        DBConnect dbConnect;
-        Employee sessionUser;
         populateStatus();
+        this.dbConnect = dbConnect;
     }
 
     /**
@@ -123,11 +124,23 @@ public class transportAdminScreen extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
-        String trackingId = trackingIdTextField1.getText();
-        String status = statusDropdown.getSelectedItem().toString();
+        try {
+            long trackingId = Long.parseLong(trackingIdTextField1.getText());
+            int status = statusDropdown.getSelectedIndex();
 
-        Employee emp = new Employee();
-
+            dbConnect.open();
+            Package protoPackage = new Package();
+            protoPackage.setPackageId(trackingId);
+            protoPackage.setTrackingId(trackingId);
+            ObjectSet result = dbConnect.queryByExample(protoPackage);
+            Package pkg = (Package) result.next();
+            pkg.getStatusHistory().add(pkg.getStatus());
+            pkg.setStatus(status);
+            dbConnect.setEntity(pkg);
+            dbConnect.close();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Tracking number incorrect", "STATUS NOT UPDATED", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_updateButtonActionPerformed
 
     private void trackingIdTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trackingIdTextField1ActionPerformed
@@ -145,7 +158,7 @@ public class transportAdminScreen extends javax.swing.JPanel {
     private javax.swing.JButton updateButton;
     // End of variables declaration//GEN-END:variables
 
-private void populateStatus() {
+    private void populateStatus() {
         for (Object status : common.Enum.Status.values()) {
             statusDropdown.addItem(status.toString());
 

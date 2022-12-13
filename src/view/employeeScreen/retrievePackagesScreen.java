@@ -59,7 +59,7 @@ public class retrievePackagesScreen extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Tracking ID", "From Name", "Location", "Provider"
+                "Tracking ID", "Sender Name", "Location", "Provider"
             }
         ) {
             Class[] types = new Class [] {

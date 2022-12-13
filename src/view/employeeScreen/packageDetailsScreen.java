@@ -534,7 +534,7 @@ public class packageDetailsScreen extends javax.swing.JPanel {
             newPackage.setProvider(packageProviderDropdown.getSelectedIndex());
             newPackage.setService(packageServiceDropdown.getSelectedIndex());
             newPackage.setWeight(Long.parseLong(weightTextField.getText()));
-            newPackage.setStatus(common.Enum.Status.APPROVED);
+            newPackage.setStatus(1);
             newPackage.setFromPhoneNumber(Long.valueOf(fromPhoneNumberTextField.getText()));
             newPackage.setFromEmail(fromEmailTextField.getText());
             newPackage.setPackageType(packageTypeDropdown.getSelectedIndex());
