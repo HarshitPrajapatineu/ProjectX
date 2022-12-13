@@ -58,6 +58,12 @@ public class customerSearchScreen extends javax.swing.JPanel {
         jLabel11.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel11.setText("Search nearby services");
 
+        cityDropdown.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cityDropdownActionPerformed(evt);
+            }
+        });
+
         jLabel10.setText("City:");
 
         nearbyServiesTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -170,6 +176,10 @@ public class customerSearchScreen extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) userProcessPanel.getLayout();
         layout.next(userProcessPanel);
     }//GEN-LAST:event_bookButtonActionPerformed
+
+    private void cityDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cityDropdownActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cityDropdownActionPerformed
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
