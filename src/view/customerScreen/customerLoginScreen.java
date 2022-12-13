@@ -135,12 +135,15 @@ public class customerLoginScreen extends javax.swing.JPanel {
 //        broken
         Customer proto = new Customer();
         proto.setCustomerId(customerId);
+        proto.setPersonId(customerId);
+        proto.setRole(6);
         dbConnect.open();
         ArrayList<Customer> lst = new ArrayList<>();
-        ObjectSet result = dbConnect.queryByExample(proto.getClass());
+        ObjectSet result = dbConnect.queryByExample(proto);
 //        ObjectSet result = dbConnect.queryByExample(proto);
         Object[] arr = result.toArray();
         Customer cust = (Customer) dbConnect.queryByExample(proto.getClass()).next();
+        Customer cust2 = (Customer) dbConnect.queryByExample(proto);
         //for (Object o : dbConnect.queryByExample(proto).toArray()) {
         for (Object o : arr) {
             lst.add((Customer) o);
