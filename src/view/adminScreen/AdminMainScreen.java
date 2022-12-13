@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import model.Employee;
 import common.Enum;
+import javax.swing.JOptionPane;
 import model.PackageManagementEnterprise.Franchise;
 
 /**
@@ -26,6 +27,8 @@ public class AdminMainScreen extends javax.swing.JPanel {
     JPanel userProcessPanel;
     Employee sessionUser;
     DBConnect dbConnect;
+    Employee selectedEmployee;
+    
     public AdminMainScreen(JPanel userProcessPanel, Employee sessionUser) {
         initComponents();
 
@@ -363,19 +366,51 @@ public class AdminMainScreen extends javax.swing.JPanel {
     }//GEN-LAST:event_searchButtonActionPerformed
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-        createUserRoleScreen createUserScreen = new createUserRoleScreen(userProcessPanel, this.sessionUser);
+        createUserRoleScreen createUserScreen = new createUserRoleScreen(userProcessPanel, this.sessionUser, 0);
         userProcessPanel.add("createUserRoleScreen", createUserScreen);
         CardLayout layout = (CardLayout) userProcessPanel.getLayout();
         layout.next(userProcessPanel);
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void viewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewButtonActionPerformed
+        try {
+            Employee emp = new Employee();
+            int selectedRow = employeeDetailsTable.getSelectedRow();
+            if (selectedRow < 0) {
+                JOptionPane.showMessageDialog(this, "Please select a row.");
+                return;
+            }
+            DefaultTableModel model = (DefaultTableModel) employeeDetailsTable.getModel();
+            long adminId = (long) model.getValueAt(selectedRow, 0);
+            dbConnect.open();
+            emp.setEmployeeId(adminId);
+            selectedEmployee = (Employee) dbConnect.queryByExample(emp).next();
 
+            getDataInForm();
+        }
+        catch (Exception e) {
+            System.err.println(e.getMessage());
+            System.err.println("Exception:" + e.getMessage());
+            System.err.println("Exception:" + e.getStackTrace());
+        }
 
     }//GEN-LAST:event_viewButtonActionPerformed
 
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
+//        fetch object go to update screen and populate data and save as it is
 
+        Employee emp = new Employee();
+        int selectedRow = employeeDetailsTable.getSelectedRow();
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(this, "Please select a row.");
+            return;
+        }
+        DefaultTableModel model = (DefaultTableModel) employeeDetailsTable.getModel();
+        long adminId = (long) model.getValueAt(selectedRow, 0);
+        createUserRoleScreen createUserScreen = new createUserRoleScreen(userProcessPanel, this.sessionUser, adminId);
+        userProcessPanel.add("createUserRoleScreen", createUserScreen);
+        CardLayout layout = (CardLayout) userProcessPanel.getLayout();
+        layout.next(userProcessPanel);
     }//GEN-LAST:event_editButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
@@ -383,7 +418,9 @@ public class AdminMainScreen extends javax.swing.JPanel {
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
-
+        userProcessPanel.remove(this);
+        CardLayout layout = (CardLayout) userProcessPanel.getLayout();
+        layout.previous(userProcessPanel);
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void idTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idTextFieldActionPerformed
@@ -406,6 +443,16 @@ public class AdminMainScreen extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_cityDropdownActionPerformed
 
+    private void getDataInForm() {
+
+        idTextField.setText(String.valueOf(selectedEmployee.getEmployeeId()));
+        firstNameTextField.setText(selectedEmployee.getFirstName());
+        lastNameTextField.setText(selectedEmployee.getLastName());
+        userRoleDropdown.setSelectedIndex(selectedEmployee.getRole());
+        cityDropdown.setSelectedIndex(selectedEmployee.getCity());
+        emailTextField.setText(selectedEmployee.getEmail());
+        
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButton;
@@ -457,11 +504,15 @@ public class AdminMainScreen extends javax.swing.JPanel {
         Employee emp = new Employee();
 //        emp.setRole(1);
         ArrayList<Employee> list = getAllRoleEmployee();
-        
+        ArrayList<String> userRoleList = new ArrayList<>();
+        for (Object role : common.Enum.UserRole.values())
+        {
+            userRoleList.add(role.toString());
+        }
         for (Employee empl : list) {
             Object[] row = new Object[4];
             row[0] = empl.getEmployeeId();
-            row[1] = userRoleDropdown.getSelectedItem();
+            row[1] = userRoleList.get(empl.getRole());
             row[2] = empl.getFirstName();
             row[3] = empl.getLastName();
             model.addRow(row);
@@ -476,7 +527,7 @@ public class AdminMainScreen extends javax.swing.JPanel {
         Object[] arr = result.toArray();
         for (Object o : arr) {
             Employee f = (Employee) o;
-            if(f.role != 1)
+//            if(f.role != 1)
             {
                 list.add(f);
             }

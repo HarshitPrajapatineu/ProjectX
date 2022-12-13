@@ -198,7 +198,6 @@ public class MainScreen extends javax.swing.JFrame {
         sysAdmin.setEmployeeId(1);
         sysAdmin.setFirstName("SYSTEM");
         sysAdmin.setLastName("ADMIN");
-        sysAdmin.setRole(1);
 
         try {
             dbConnect.open();
@@ -208,7 +207,8 @@ public class MainScreen extends javax.swing.JFrame {
                 for (Object o : arr) {
                     employee = (Employee) o;
                 }
-//            dbConnect.setEntity(employee);
+            employee.setRole(0);
+            dbConnect.setEntity(employee);
             dbConnect.close();
             if (employee == null) {
                 dbConnect.open();

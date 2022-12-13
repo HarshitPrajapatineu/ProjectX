@@ -4,6 +4,9 @@
  */
 package view.adminScreen;
 
+import DBConnection.DBConnect;
+import common.RandomGen;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import model.Employee;
 
@@ -18,13 +21,27 @@ public class createUserRoleScreen extends javax.swing.JPanel {
      */
     JPanel userProcessPanel;
     Employee sessionUser;
-    
-    public createUserRoleScreen(JPanel userProcessPanel, Employee sessionUser) {
+    long updateEmpId;
+    DBConnect dbConnect;
+    Employee updateEmployee;
+            
+    public createUserRoleScreen(JPanel userProcessPanel, Employee sessionUser, long empId) {
         initComponents();
+        dbConnect = new DBConnect();
         this.userProcessPanel = userProcessPanel;
         this.sessionUser = sessionUser;
+        this.updateEmpId = empId;
         populateUserRoleDropdown();
         populateCityDropdown();
+        if (updateEmpId != 0)
+        {
+            Employee emp = new Employee();
+            emp.setEmployeeId(updateEmpId);
+            dbConnect.open();
+            updateEmployee = (Employee) dbConnect.queryByExample(emp).next();
+            dbConnect.close();
+            getDataInForm();
+        }
     }
 
     /**
@@ -239,6 +256,17 @@ public class createUserRoleScreen extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_idTextFieldActionPerformed
 
+    private void getDataInForm() {
+
+        idTextField.setText(String.valueOf(updateEmployee.getEmployeeId()));
+        firstNameTextField.setText(updateEmployee.getFirstName());
+        lastNameTextField.setText(updateEmployee.getLastName());
+        userRoleDropdown.setSelectedIndex(updateEmployee.getRole());
+        cityDropdown.setSelectedIndex(updateEmployee.getCity());
+        emailTextField.setText(updateEmployee.getEmail());
+        
+    }
+
     private void lastNameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastNameTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_lastNameTextFieldActionPerformed
@@ -252,7 +280,10 @@ public class createUserRoleScreen extends javax.swing.JPanel {
     }//GEN-LAST:event_emailTextFieldActionPerformed
 
     private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed
-        // TODO add your handling code here:
+        boolean status = validateData();
+        if (status) {
+            saveData();
+        }
     }//GEN-LAST:event_createButtonActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
@@ -298,6 +329,46 @@ public class createUserRoleScreen extends javax.swing.JPanel {
             cityDropdown.addItem(city.toString());
 
         }
+    }
+
+    private boolean validateData() {
+//        {
+//            userRoleDropdown.getSelectedIndex();
+//        }
+        return true;
+    }
+
+    private void saveData() {
+        if (updateEmpId == 0) {
+            RandomGen rand = new RandomGen();
+            Employee newEmployee = new Employee();
+            newEmployee.setFirstName(firstNameTextField.getText());
+            newEmployee.setLastName(lastNameTextField.getText());
+            newEmployee.setEmployeeId(rand.getRandomEmployeeId());
+            newEmployee.setRole(userRoleDropdown.getSelectedIndex());
+            newEmployee.setCity(cityDropdown.getSelectedIndex());
+            newEmployee.setEmail(emailTextField.getText());
+
+            dbConnect.open();
+            dbConnect.setEntity(newEmployee);
+            dbConnect.close();
+            JOptionPane.showMessageDialog(this, "Data Saved!!");
+
+        } else 
+        {
+            updateEmployee.setFirstName(firstNameTextField.getText());
+            updateEmployee.setLastName(lastNameTextField.getText());
+            updateEmployee.setRole(userRoleDropdown.getSelectedIndex());
+            updateEmployee.setCity(cityDropdown.getSelectedIndex());
+            updateEmployee.setEmail(emailTextField.getText());
+
+            dbConnect.open();
+            dbConnect.setEntity(updateEmployee);
+            dbConnect.close();
+            JOptionPane.showMessageDialog(this, "Data Saved!!");
+        
+        }
+        
     }
 
     
