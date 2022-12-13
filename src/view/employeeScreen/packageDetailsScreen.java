@@ -4,6 +4,7 @@
  */
 package view.employeeScreen;
 
+import DBConnection.DBConnect;
 import common.Enum.PackageProvider;
 import common.Enum.PackageService;
 import common.Enum.PackageType;
@@ -23,12 +24,13 @@ public class packageDetailsScreen extends javax.swing.JPanel {
      * Creates new form pacakgeDetailsScreen
      */
     JPanel userProcessPanel;
-    
+    DBConnect dBConnect;
+
     public packageDetailsScreen(JPanel userProcessPanel) {
         initComponents();
         this.userProcessPanel = userProcessPanel;
         populateDropdowns();
-//        populateFieldsFromUser();
+        dBConnect = new DBConnect();
     }
 
     /**
@@ -501,42 +503,60 @@ public class packageDetailsScreen extends javax.swing.JPanel {
 
     private void approveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_approveButtonActionPerformed
         // TODO add your handling code here:
-        Package newPackage = new Package();
-        newPackage.setCost(Float.parseFloat(costField.getText()));
-        newPackage.setCurrentLocationCity(fromCityDropdown.getSelectedItem().toString());
-        Customer newCustomer = new Customer();
-        newCustomer.setCustomerId(new RandomGen().getRandomEmployeeId());
-//        newCustomer.set
-        // assign details to newly created cust and store in db4o
-        newPackage.setCustomer(newCustomer);
-//        newPackage.setFranchise();
-        newPackage.setPackageId(new RandomGen().getRandomEmployeeId());
-        newPackage.setFromAddressLine1(fromAddressL1TextField.getText());
-        newPackage.setFromAddressLine2(fromAddressL2TextField.getText());
-        newPackage.setFromCity(fromCityDropdown.getSelectedIndex());
-        newPackage.setFromName(fromFirstNameTextField.getText() + " " + fromLastNameTextField.getText());
-        newPackage.setFromPostalCode(fromPostalCodeTextField.getText());
-        newPackage.setProvider(packageProviderDropdown.getSelectedIndex());
-        newPackage.setService(packageServiceDropdown.getSelectedIndex());
-        //franchise ~customer 
-        newPackage.setWeight(Long.parseLong(weightTextField.getText()));
-        newPackage.setStatus(common.Enum.Status.APPROVED);
-        newPackage.setFromPhoneNumber(Long.valueOf(fromPhoneNumberTextField.getText()));
-        newPackage.setFromEmail(fromEmailTextField.getText());
-        newPackage.setPackageType(packageTypeDropdown.getSelectedIndex());
+        try {
 
-        // to labels here
-        newPackage.setToName(toFirstNameTextField.getText() + " " + toLastNameTextField.getText());
-        newPackage.setToAddressLine1(toAddressL1TextField.getText());
-        newPackage.setToAddressLine2(toAddressL2TextField.getText());
-        newPackage.setToPostalCode(toPostalCodeTextField.getText());
-        newPackage.setToCity(toCityDropdown.getSelectedIndex());
-        newPackage.setToPhoneNumber(Long.valueOf(toPhoneNumberTextField.getText()));
-        newPackage.setToEmail(toEmailTextField.getText());
-        
-//        ask for franchise, store customer into thisobj and store the newPackage into db4o object
-        
-        JOptionPane.showMessageDialog(this, "Your order was created successfully. The tracking number is:");
+            Package newPackage = new Package();
+            newPackage.setCost(Float.parseFloat(costField.getText()));
+            newPackage.setCurrentLocationCity(fromCityDropdown.getSelectedItem().toString());
+
+            Customer newCustomer = new Customer();
+            newCustomer.setCustomerId(new RandomGen().getRandomEmployeeId());
+
+            newCustomer.setAddress1(fromAddressL1TextField.getText());
+            newCustomer.setAddress2(fromAddressL2TextField.getText());
+            newCustomer.setCity(fromCityDropdown.getSelectedIndex());
+            newCustomer.setEmail(fromEmailTextField.getText());
+            newCustomer.setGender(3);
+            newCustomer.setFirstName(fromFirstNameTextField.getText());
+            newCustomer.setLastName(fromLastNameTextField.getText());
+            newCustomer.setPostalCode(fromPostalCodeTextField.getText());
+            newCustomer.setRole(6);
+
+            newPackage.setCustomer(newCustomer);
+//        newPackage.setFranchise();
+            newPackage.setPackageId(new RandomGen().getRandomEmployeeId());
+            newPackage.setTrackingId(newPackage.getPackageId());
+            newPackage.setFromAddressLine1(fromAddressL1TextField.getText());
+            newPackage.setFromAddressLine2(fromAddressL2TextField.getText());
+            newPackage.setFromCity(fromCityDropdown.getSelectedIndex());
+            newPackage.setFromName(fromFirstNameTextField.getText() + " " + fromLastNameTextField.getText());
+            newPackage.setFromPostalCode(fromPostalCodeTextField.getText());
+            newPackage.setProvider(packageProviderDropdown.getSelectedIndex());
+            newPackage.setService(packageServiceDropdown.getSelectedIndex());
+            newPackage.setWeight(Long.parseLong(weightTextField.getText()));
+            newPackage.setStatus(common.Enum.Status.APPROVED);
+            newPackage.setFromPhoneNumber(Long.valueOf(fromPhoneNumberTextField.getText()));
+            newPackage.setFromEmail(fromEmailTextField.getText());
+            newPackage.setPackageType(packageTypeDropdown.getSelectedIndex());
+
+            // to labels here
+            newPackage.setToName(toFirstNameTextField.getText() + " " + toLastNameTextField.getText());
+            newPackage.setToAddressLine1(toAddressL1TextField.getText());
+            newPackage.setToAddressLine2(toAddressL2TextField.getText());
+            newPackage.setToPostalCode(toPostalCodeTextField.getText());
+            newPackage.setToCity(toCityDropdown.getSelectedIndex());
+            newPackage.setToPhoneNumber(Long.valueOf(toPhoneNumberTextField.getText()));
+            newPackage.setToEmail(toEmailTextField.getText());
+
+//      store customer into thisobj and store the newPackage into db4o object
+            dBConnect.open();
+            dBConnect.setEntity(newPackage);
+            dBConnect.setEntity(newCustomer);
+            dBConnect.close();
+            JOptionPane.showMessageDialog(this, "Your order was created successfully. The tracking number is:" + newPackage.getPackageId().toString());
+            JOptionPane.showMessageDialog(this, "The newly created customer ID is:" + newCustomer.getCustomerId().toString());
+        } catch (Exception e) {
+        }
     }//GEN-LAST:event_approveButtonActionPerformed
 
 
