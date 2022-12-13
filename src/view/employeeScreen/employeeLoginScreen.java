@@ -113,8 +113,8 @@ public class employeeLoginScreen extends javax.swing.JPanel {
             switch (role) {
                 case 0:
 //                    showSysAdminScreen();
-                    showTAdminScreen();
-
+                    //showTAdminScreen();
+                    showCSAdminScreen();
                     break;
                 case 1:
                     showEMSAdminScreen();
@@ -134,7 +134,8 @@ public class employeeLoginScreen extends javax.swing.JPanel {
                 default:
 //                    showEmpScreen();
                     //showSysAdminScreen();
-                    showTAdminScreen();
+                    //showTAdminScreen();
+                    showCSAdminScreen();
 //                    JOptionPane.showMessageDialog(userProcessPanel, "Please try logging with correct credentials", "Error while logging", 0);
             }
 

@@ -281,15 +281,19 @@ public class customerServiceScreen extends javax.swing.JPanel {
             CustomerService custServiceUpdated1 = new CustomerService();
             custServiceUpdated1 = (CustomerService)resultUp.next();
             String q = custServiceUpdated1.getQuestion();
-            custServiceUpdated1.setQuestion(query);
+            //custServiceUpdated1.setQuestion(query);
             custServiceUpdated1.setAnswer(answer);
+            dbConnect.setEntity(custServiceUpdated1);
             dbConnect.close();
+            
+            int i = queriesTable.getSelectedRow();
+            model.removeRow(i);
             
             
             //UPDATE BACK TO DB
-            dbConnect.open();
-            dbConnect.setEntity(custServiceUpdated1);
-            dbConnect.close();
+            //dbConnect.open();
+            //dbConnect.setEntity(custServiceUpdated1);
+            //dbConnect.close();
             
             //populateTable();
         
