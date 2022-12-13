@@ -9,6 +9,7 @@ import common.Enum.PackageService;
 import common.Enum.PackageType;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import model.PackageManagementEnterprise.Package;
 
 /**
  *
@@ -20,11 +21,12 @@ public class packageDetailsScreen extends javax.swing.JPanel {
      * Creates new form pacakgeDetailsScreen
      */
     JPanel userProcessPanel;
-
+    
     public packageDetailsScreen(JPanel userProcessPanel) {
         initComponents();
         this.userProcessPanel = userProcessPanel;
         populateDropdowns();
+//        populateFieldsFromUser();
     }
 
     /**
@@ -85,6 +87,8 @@ public class packageDetailsScreen extends javax.swing.JPanel {
         packageProviderDropdown = new javax.swing.JComboBox<>();
         franchiseLabel = new javax.swing.JLabel();
         franchiseField = new javax.swing.JTextField();
+        costLabel = new javax.swing.JLabel();
+        costField = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         approveButton = new javax.swing.JButton();
         refuseButton = new javax.swing.JButton();
@@ -202,10 +206,6 @@ public class packageDetailsScreen extends javax.swing.JPanel {
 
         jLabel12.setText("First Name:");
 
-        toAddressL1TextField.setEditable(false);
-
-        toAddressL2TextField.setEditable(false);
-
         jLabel17.setText("Address line 2:");
 
         jLabel19.setText("City:");
@@ -218,8 +218,6 @@ public class packageDetailsScreen extends javax.swing.JPanel {
                 toCityDropdownActionPerformed(evt);
             }
         });
-
-        toPostalCodeTextField.setEditable(false);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -328,6 +326,8 @@ public class packageDetailsScreen extends javax.swing.JPanel {
 
         franchiseLabel.setText("Franchise");
 
+        costLabel.setText("Cost");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -346,7 +346,6 @@ public class packageDetailsScreen extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(weightTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(franchiseLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -357,9 +356,15 @@ public class packageDetailsScreen extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(packageServiceDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(66, 66, 66)
-                        .addComponent(jLabel24)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(packageProviderDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel24)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(packageProviderDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addComponent(costLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(costField, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -382,7 +387,10 @@ public class packageDetailsScreen extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(franchiseLabel)
-                    .addComponent(franchiseField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(franchiseField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(costLabel)
+                        .addComponent(costField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
@@ -490,12 +498,45 @@ public class packageDetailsScreen extends javax.swing.JPanel {
 
     private void approveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_approveButtonActionPerformed
         // TODO add your handling code here:
+        Package newPackage = new Package();
+        newPackage.setCost(Float.parseFloat(costField.getText()));
+        newPackage.setCurrentLocationCity(fromCityDropdown.getSelectedItem().toString());
+//        newPackage.setCustomer();
+//        newPackage.setFranchise();
+//        newPackage.setPackageId(Long.MAX_VALUE);
+        newPackage.setFromAddressLine1(fromAddressL1TextField.getText());
+        newPackage.setFromAddressLine2(fromAddressL2TextField.getText());
+        newPackage.setFromCity(fromCityDropdown.getSelectedIndex());
+        newPackage.setFromName(fromFirstNameTextField.getText() + " " + fromLastNameTextField.getText());
+        newPackage.setFromPostalCode(fromPostalCodeTextField.getText());
+        newPackage.setProvider(packageProviderDropdown.getSelectedIndex());
+        newPackage.setService(packageServiceDropdown.getSelectedIndex());
+        //franchise customer packageId 
+        newPackage.setWeight(Long.parseLong(weightTextField.getText()));
+        newPackage.setStatus(common.Enum.Status.APPROVED);
+        newPackage.setFromPhoneNumber(Long.valueOf(fromPhoneNumberTextField.getText()));
+        newPackage.setFromEmail(fromEmailTextField.getText());
+        newPackage.setPackageType(packageTypeDropdown.getSelectedIndex());
+
+        // to labels here
+        newPackage.setToName(toFirstNameTextField.getText() + " " + toLastNameTextField.getText());
+        newPackage.setToAddressLine1(toAddressL1TextField.getText());
+        newPackage.setToAddressLine2(toAddressL2TextField.getText());
+        newPackage.setToPostalCode(toPostalCodeTextField.getText());
+        newPackage.setToCity(toCityDropdown.getSelectedIndex());
+        newPackage.setToPhoneNumber(Long.valueOf(toPhoneNumberTextField.getText()));
+        newPackage.setToEmail(toEmailTextField.getText());
+        
+//        ask for franchise, store customer into thisobj and store the newPackage into db4o object
+        
         JOptionPane.showMessageDialog(this, "Your order was created successfully. The tracking number is:");
     }//GEN-LAST:event_approveButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton approveButton;
+    private javax.swing.JTextField costField;
+    private javax.swing.JLabel costLabel;
     private javax.swing.JTextField franchiseField;
     private javax.swing.JLabel franchiseLabel;
     private javax.swing.JTextField fromAddressL1TextField;

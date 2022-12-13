@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import view.packageCreationScreen;
 import DBConnection.DBConnect;
+import model.Customer;
 
 /**
  *
@@ -21,11 +22,13 @@ public class customerSearchScreen extends javax.swing.JPanel {
 
     JPanel userProcessPanel;
     DBConnect dbConnect;
+    Customer sessionUser;
 
-    public customerSearchScreen(JPanel userProcessPanel) {
+    public customerSearchScreen(JPanel userProcessPanel, Customer sessionUser) {
         initComponents();
         this.userProcessPanel = userProcessPanel;
         dbConnect = new DBConnect();
+        this.sessionUser=sessionUser;
         populateCityDropdown();
         populateFranchiseTable();
 
@@ -183,13 +186,13 @@ public class customerSearchScreen extends javax.swing.JPanel {
     }//GEN-LAST:event_searchButtonActionPerformed
 
     private void bookButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookButtonActionPerformed
-        packageCreationScreen packCreateScreenScreen = new packageCreationScreen(userProcessPanel);
+        packageCreationScreen packCreateScreenScreen = new packageCreationScreen(userProcessPanel,sessionUser);
         userProcessPanel.add("packageCreationScreen", packCreateScreenScreen);
         CardLayout layout = (CardLayout) userProcessPanel.getLayout();
         layout.next(userProcessPanel);
     }//GEN-LAST:event_bookButtonActionPerformed
 
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bookButton;
     private javax.swing.JComboBox<String> cityDropdown;

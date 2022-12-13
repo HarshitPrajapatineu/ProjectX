@@ -17,8 +17,42 @@ public class Package {
     public Package() {
     }
 
-    private String toAddress;
-    private String fromAddress;
+    private String toAddressLine1;
+    private String toAddressLine2;
+    private String fromAddressLine1;
+    private String fromAddressLine2;
+
+    public String getToAddressLine1() {
+        return toAddressLine1;
+    }
+
+    public void setToAddressLine1(String toAddressLine1) {
+        this.toAddressLine1 = toAddressLine1;
+    }
+
+    public String getToAddressLine2() {
+        return toAddressLine2;
+    }
+
+    public void setToAddressLine2(String toAddressLine2) {
+        this.toAddressLine2 = toAddressLine2;
+    }
+
+    public String getFromAddressLine1() {
+        return fromAddressLine1;
+    }
+
+    public void setFromAddressLine1(String fromAddressLine1) {
+        this.fromAddressLine1 = fromAddressLine1;
+    }
+
+    public String getFromAddressLine2() {
+        return fromAddressLine2;
+    }
+
+    public void setFromAddressLine2(String fromAddressLine2) {
+        this.fromAddressLine2 = fromAddressLine2;
+    }
     private String toName;
     private String fromName;
     private int type;
@@ -36,6 +70,51 @@ public class Package {
     private Customer customer;
     private String franchise;
     private String currentLocationCity;
+    private Long fromPhoneNumber;
+    private Long toPhoneNumber;
+
+    public Long getToPhoneNumber() {
+        return toPhoneNumber;
+    }
+
+    public void setToPhoneNumber(Long toPhoneNumber) {
+        this.toPhoneNumber = toPhoneNumber;
+    }
+    private String fromEmail;
+    private String toEmail;
+
+    public String getToEmail() {
+        return toEmail;
+    }
+
+    public void setToEmail(String toEmail) {
+        this.toEmail = toEmail;
+    }
+    private int packageType;
+
+    public int getPackageType() {
+        return packageType;
+    }
+
+    public void setPackageType(int packageType) {
+        this.packageType = packageType;
+    }
+
+    public Long getFromPhoneNumber() {
+        return fromPhoneNumber;
+    }
+
+    public void setFromPhoneNumber(Long fromPhoneNumber) {
+        this.fromPhoneNumber = fromPhoneNumber;
+    }
+
+    public String getFromEmail() {
+        return fromEmail;
+    }
+
+    public void setFromEmail(String fromEmail) {
+        this.fromEmail = fromEmail;
+    }
 
     public String getCurrentLocationCity() {
         return currentLocationCity;
@@ -76,22 +155,6 @@ public class Package {
 
     public void setProvider(int provider) {
         this.provider = provider;
-    }
-
-    public String getToAddress() {
-        return toAddress;
-    }
-
-    public void setToAddress(String toAddress) {
-        this.toAddress = toAddress;
-    }
-
-    public String getFromAddress() {
-        return fromAddress;
-    }
-
-    public void setFromAddress(String fromAddress) {
-        this.fromAddress = fromAddress;
     }
 
     public String getToName() {

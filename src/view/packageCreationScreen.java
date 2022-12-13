@@ -6,6 +6,7 @@ package view;
 
 import java.awt.CardLayout;
 import javax.swing.JPanel;
+import model.Customer;
 
 /**
  *
@@ -14,10 +15,12 @@ import javax.swing.JPanel;
 public class packageCreationScreen extends javax.swing.JPanel {
 
     JPanel userProcessPanel;
-    
-    public packageCreationScreen(JPanel userProcessPanel) {
+    Customer sessionUser;
+
+    public packageCreationScreen(JPanel userProcessPanel, Customer sessionUser) {
         initComponents();
         this.userProcessPanel = userProcessPanel;
+        this.sessionUser = sessionUser;
     }
 
     /**

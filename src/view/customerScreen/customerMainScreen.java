@@ -6,6 +6,7 @@ package view.customerScreen;
 
 import java.awt.CardLayout;
 import javax.swing.JPanel;
+import model.Customer;
 
 /**
  *
@@ -14,10 +15,12 @@ import javax.swing.JPanel;
 public class customerMainScreen extends javax.swing.JPanel {
 
     JPanel userProcessPanel;
+    Customer sessionUser;
 
-    public customerMainScreen(JPanel userProcessPanel) {
+    public customerMainScreen(JPanel userProcessPanel, Customer sessionUser) {
         initComponents();
         this.userProcessPanel = userProcessPanel;
+        this.sessionUser = sessionUser;
     }
 
     /**
@@ -134,7 +137,7 @@ public class customerMainScreen extends javax.swing.JPanel {
     }//GEN-LAST:event_contactUsButtonActionPerformed
 
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
-        customerSearchScreen custSearchScreen = new customerSearchScreen(userProcessPanel);
+        customerSearchScreen custSearchScreen = new customerSearchScreen(userProcessPanel,sessionUser);
         jSplitPane1.setRightComponent(custSearchScreen);
 //        userProcessPanel.add("customerSearchScreen", custSearchScreen);
 //        CardLayout layout = (CardLayout) userProcessPanel.getLayout();

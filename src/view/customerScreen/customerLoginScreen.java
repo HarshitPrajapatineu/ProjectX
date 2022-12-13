@@ -4,8 +4,11 @@
  */
 package view.customerScreen;
 
+import DBConnection.DBConnect;
 import java.awt.CardLayout;
+import java.util.ArrayList;
 import javax.swing.JPanel;
+import model.Customer;
 
 /**
  *
@@ -13,12 +16,15 @@ import javax.swing.JPanel;
  */
 public class customerLoginScreen extends javax.swing.JPanel {
 
-    
     JPanel userProcessPanel;
-    
+    Customer sessionUser;
+    DBConnect dbConnect;
+
     public customerLoginScreen(JPanel userProcessPanel) {
         initComponents();
         this.userProcessPanel = userProcessPanel;
+        this.dbConnect = new DBConnect();
+
     }
 
     /**
@@ -96,13 +102,19 @@ public class customerLoginScreen extends javax.swing.JPanel {
     }//GEN-LAST:event_customerIDTextFieldActionPerformed
 
     private void customerLoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerLoginButtonActionPerformed
-        customerMainScreen custMainScreen = new customerMainScreen(userProcessPanel);
-        userProcessPanel.add("customerMainScreen", custMainScreen);
-        CardLayout layout = (CardLayout) userProcessPanel.getLayout();
-        layout.next(userProcessPanel);
-        
-        
-        
+
+        try {
+            int customerId = Integer.parseInt(customerIDTextField.getText());
+            sessionUser = getCustomerDetailById(customerId);
+            customerMainScreen custMainScreen = new customerMainScreen(userProcessPanel,sessionUser);
+            userProcessPanel.add("customerMainScreen", custMainScreen);
+            CardLayout layout = (CardLayout) userProcessPanel.getLayout();
+            layout.next(userProcessPanel);
+        } catch (Exception e) {
+
+        }
+
+
     }//GEN-LAST:event_customerLoginButtonActionPerformed
 
 
@@ -112,4 +124,13 @@ public class customerLoginScreen extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
+
+    private Customer getCustomerDetailById(int customerId) {
+        Customer proto = new Customer();
+        proto.setCustomerId((long) customerId);
+        dbConnect.open();
+        ArrayList<Customer> lst = dbConnect.getListOf(proto);
+        dbConnect.close();
+        return lst.isEmpty() ? new Customer() : lst.get(0);
+    }
 }
