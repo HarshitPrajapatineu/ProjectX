@@ -7,6 +7,7 @@ package view.adminScreen;
 import DBConnection.DBConnect;
 import common.RandomGen;
 import java.awt.CardLayout;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import model.Employee;
@@ -264,8 +265,32 @@ public class createUserRoleScreen extends javax.swing.JPanel {
 
     private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed
         boolean status = validateUserRole();
+        String email = emailTextField.getText();
+            
+            String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+ 
+                            "[a-zA-Z0-9_+&*-]+)*@" + 
+                            "(?:[a-zA-Z0-9-]+\\.)+[a-z" + 
+                            "A-Z]{2,7}$"; 
+                              
+            Pattern pat = Pattern.compile(emailRegex);
+            boolean Valid = pat.matcher(email).matches();  
         if (status) {
-            saveData();
+            if(firstNameTextField.getText().equals("")){
+              JOptionPane.showMessageDialog(this, "First name is empty");  
+            }
+            else if(lastNameTextField.getText().equals("")) {
+              JOptionPane.showMessageDialog(this, "Last name is empty");    
+            }
+            else if(emailTextField.getText().equals("")) {
+              JOptionPane.showMessageDialog(this, "email is empty");    
+            }
+            else if(Valid == false){
+            JOptionPane.showMessageDialog(this, "Email invalid");
+            }
+            else{
+                saveData();
+            }
+            
         }
     }//GEN-LAST:event_createButtonActionPerformed
 

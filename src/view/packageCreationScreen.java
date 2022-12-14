@@ -5,11 +5,15 @@
 package view;
 
 import DBConnection.DBConnect;
+import com.db4o.ObjectSet;
 import common.RandomGen;
 import java.awt.CardLayout;
+import java.util.ArrayList;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import model.Customer;
+import model.PackageManagementEnterprise.Franchise;
 import model.PackageManagementEnterprise.Package;
 
 /**
@@ -546,6 +550,84 @@ public class packageCreationScreen extends javax.swing.JPanel {
 
     private void createPackageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createPackageButtonActionPerformed
         try {
+            
+            String email1 = fromEmailTextField.getText();
+            String email2 = toEmailTextField.getText();
+            String franchise = franchiseField.getText();
+            
+            
+            Franchise fran = new Franchise();
+            fran.setName(franchise);
+            ArrayList<Franchise> lst = new ArrayList<>();
+            dBConnect.open();
+            ObjectSet result = dBConnect.queryByExample(fran);
+            dBConnect.close();
+            Object[] arr = result.toArray();
+            for (Object o : arr) {
+                lst.add((Franchise) o);
+            }
+            
+            
+            String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+ 
+                            "[a-zA-Z0-9_+&*-]+)*@" + 
+                            "(?:[a-zA-Z0-9-]+\\.)+[a-z" + 
+                            "A-Z]{2,7}$"; 
+                              
+            Pattern pat = Pattern.compile(emailRegex);
+            boolean Valid1 = pat.matcher(email1).matches();  
+            boolean Valid2 = pat.matcher(email2).matches();  
+            
+            if(fromFirstNameTextField.getText().equals("")){
+              JOptionPane.showMessageDialog(this, "First name is empty");  
+            }
+            else if(fromLastNameTextField.getText().equals("")) {
+              JOptionPane.showMessageDialog(this, "Last name is empty");    
+            }
+            
+            else if(fromAddressL1TextField.getText().equals("")) {
+              JOptionPane.showMessageDialog(this, "Address line 1 is empty");    
+            }
+            
+            else if(fromPostalCodeTextField.getText().equals("")) {
+              JOptionPane.showMessageDialog(this, "Postal Code is empty");    
+            }
+            else if(fromPhoneNumberTextField.getText().equals("")) {
+              JOptionPane.showMessageDialog(this, "Phone Number is empty");    
+            }
+            else if(fromEmailTextField.getText().equals("")) {
+              JOptionPane.showMessageDialog(this, "email is empty");    
+            }
+            else if(Valid1 == false){
+            JOptionPane.showMessageDialog(this, "Email invalid");
+            }
+            if(toFirstNameTextField.getText().equals("")){
+              JOptionPane.showMessageDialog(this, "First name is empty");  
+            }
+            else if(toLastNameTextField.getText().equals("")) {
+              JOptionPane.showMessageDialog(this, "Last name is empty");    
+            }
+            
+            else if(toAddressL1TextField.getText().equals("")) {
+              JOptionPane.showMessageDialog(this, "Address line 1 is empty");    
+            }
+            
+            else if(toPostalCodeTextField.getText().equals("")) {
+              JOptionPane.showMessageDialog(this, "Postal Code is empty");    
+            }
+            else if(toPhoneNumberTextField.getText().equals("")) {
+              JOptionPane.showMessageDialog(this, "Phone Number is empty");    
+            }
+            else if(toEmailTextField.getText().equals("")) {
+              JOptionPane.showMessageDialog(this, "email is empty");    
+            }
+            else if(Valid2 == false){
+            JOptionPane.showMessageDialog(this, "Email invalid");
+            }
+            else if(lst.size() == 0){
+            JOptionPane.showMessageDialog(this, "Enter a valid franchise");
+            }
+            
+            else{
 
             Package newPackage = new Package();
             newPackage.setCost(Float.parseFloat(costField.getText()));
@@ -580,8 +662,11 @@ public class packageCreationScreen extends javax.swing.JPanel {
             dBConnect.setEntity(newPackage);
             dBConnect.close();
             JOptionPane.showMessageDialog(this, "Your order was created successfully. The tracking number is:" + newPackage.getPackageId().toString());
-        } catch (Exception e) {
+        
+            }
+        }catch (Exception e) {
         }
+        
     }//GEN-LAST:event_createPackageButtonActionPerformed
 
 
