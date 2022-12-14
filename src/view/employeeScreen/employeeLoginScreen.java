@@ -113,6 +113,7 @@ public class employeeLoginScreen extends javax.swing.JPanel {
             switch (role) {
                 case 0:
                     showSysAdminScreen();
+//                    showTAdminScreen();
                     break;
                 case 1:
                     showEMSAdminScreen();

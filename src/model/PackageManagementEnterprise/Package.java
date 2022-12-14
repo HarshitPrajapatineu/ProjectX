@@ -201,6 +201,11 @@ public class Package {
         return toPostalCode;
     }
 
+    @Override
+    public String toString() {
+        return trackingId.toString();
+    }
+
     public void setToPostalCode(String toPostalCode) {
         this.toPostalCode = toPostalCode;
     }

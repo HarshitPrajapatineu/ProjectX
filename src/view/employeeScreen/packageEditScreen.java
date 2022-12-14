@@ -2,32 +2,29 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package view;
+package view.employeeScreen;
 
-import DBConnection.DBConnect;
-import common.RandomGen;
 import java.awt.CardLayout;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import model.Customer;
 import model.PackageManagementEnterprise.Package;
+import DBConnection.DBConnect;
 
 /**
  *
  * @author akshb
  */
-public class packageCreationScreen extends javax.swing.JPanel {
+public class packageEditScreen extends javax.swing.JPanel {
 
     JPanel userProcessPanel;
-    Customer sessionUser;
+    Package selectedPkg;
     DBConnect dBConnect;
 
-    public packageCreationScreen(JPanel userProcessPanel, Customer sessionUser) {
+    public packageEditScreen(JPanel userProcessPanel, Package selectedPkg) {
         initComponents();
         this.userProcessPanel = userProcessPanel;
-        this.sessionUser = sessionUser;
-        dBConnect = new DBConnect();
-
+        this.selectedPkg = selectedPkg;
+        this.dBConnect = new DBConnect();
+        populateFields();
     }
 
     /**
@@ -78,30 +75,21 @@ public class packageCreationScreen extends javax.swing.JPanel {
         jLabel17 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         backButton = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        weightTextField = new javax.swing.JTextField();
+        jLabel20 = new javax.swing.JLabel();
+        packageTypeDropdown = new javax.swing.JComboBox<>();
         jPanel5 = new javax.swing.JPanel();
-        jPanel6 = new javax.swing.JPanel();
-        weightTextField1 = new javax.swing.JTextField();
-        jLabel23 = new javax.swing.JLabel();
-        packageTypeDropdown1 = new javax.swing.JComboBox<>();
-        jLabel24 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
-        packageServiceDropdown = new javax.swing.JComboBox<>();
-        jLabel27 = new javax.swing.JLabel();
-        packageProviderDropdown = new javax.swing.JComboBox<>();
-        franchiseLabel = new javax.swing.JLabel();
-        franchiseField = new javax.swing.JTextField();
-        costLabel = new javax.swing.JLabel();
-        costField = new javax.swing.JTextField();
-        createPackageButton = new javax.swing.JButton();
+        updatePackageButton = new javax.swing.JButton();
 
-        setMaximumSize(new java.awt.Dimension(860, 540));
-        setMinimumSize(new java.awt.Dimension(860, 540));
-        setPreferredSize(new java.awt.Dimension(860, 540));
+        setMaximumSize(new java.awt.Dimension(866, 510));
+        setMinimumSize(new java.awt.Dimension(866, 510));
 
         jLabel11.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("Package Creation");
+        jLabel11.setText("Package Updation");
 
         jLabel3.setText("Last Name:");
 
@@ -339,130 +327,72 @@ public class packageCreationScreen extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
+        jLabel22.setText("Weight(in lb):");
+
+        jLabel21.setText("Package Type:");
+
+        jLabel20.setText("OTHER DETAILS:");
+
+        packageTypeDropdown.setEditable(true);
+        packageTypeDropdown.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                packageTypeDropdownActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel21)
+                    .addComponent(jLabel20))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(packageTypeDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel22)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(weightTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel20)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel21)
+                    .addComponent(packageTypeDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel22)
+                    .addComponent(weightTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
+        updatePackageButton.setText("Edit Package");
+        updatePackageButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updatePackageButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 124, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(updatePackageButton)
+                .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 35, Short.MAX_VALUE)
-        );
-
-        jLabel23.setText("OTHER DETAILS:");
-
-        packageTypeDropdown1.setEditable(true);
-        packageTypeDropdown1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                packageTypeDropdown1ActionPerformed(evt);
-            }
-        });
-
-        jLabel24.setText("Package Type:");
-
-        jLabel25.setText("Weight(in lb):");
-
-        jLabel26.setText("Package Service:");
-
-        packageServiceDropdown.setEditable(true);
-        packageServiceDropdown.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                packageServiceDropdownActionPerformed(evt);
-            }
-        });
-
-        jLabel27.setText("Package Provider:");
-
-        packageProviderDropdown.setEditable(true);
-        packageProviderDropdown.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                packageProviderDropdownActionPerformed(evt);
-            }
-        });
-
-        franchiseLabel.setText("Franchise");
-
-        costLabel.setText("Cost");
-
-        createPackageButton.setText("Create Package");
-        createPackageButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                createPackageButtonActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
+            .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel24)
-                            .addComponent(jLabel23))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(packageTypeDropdown1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel25)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(weightTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addComponent(franchiseLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(franchiseField, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addComponent(jLabel26)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(packageServiceDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(66, 66, 66)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addComponent(jLabel27)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(packageProviderDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                                .addComponent(costLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(costField, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addComponent(updatePackageButton)
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(createPackageButton)
-                .addGap(273, 273, 273))
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel23)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel24)
-                    .addComponent(packageTypeDropdown1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel25)
-                    .addComponent(weightTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel26)
-                    .addComponent(packageServiceDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel27)
-                    .addComponent(packageProviderDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(costLabel)
-                        .addComponent(costField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(franchiseLabel)
-                        .addComponent(franchiseField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(createPackageButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -473,15 +403,15 @@ public class packageCreationScreen extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(113, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -500,13 +430,9 @@ public class packageCreationScreen extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 37, Short.MAX_VALUE)))
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -522,76 +448,54 @@ public class packageCreationScreen extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_fromCityDropdownActionPerformed
 
+    private void packageTypeDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_packageTypeDropdownActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_packageTypeDropdownActionPerformed
+
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         userProcessPanel.remove(this);
         CardLayout layout = (CardLayout) userProcessPanel.getLayout();
         layout.previous(userProcessPanel);
     }//GEN-LAST:event_backButtonActionPerformed
 
+    private void updatePackageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatePackageButtonActionPerformed
+        selectedPkg.setCurrentLocationCity(fromCityDropdown.getSelectedItem().toString());
+        selectedPkg.setFromAddressLine1(fromAddressL1TextField.getText());
+        selectedPkg.setFromAddressLine2(fromAddressL2TextField.getText());
+        selectedPkg.setFromCity(fromCityDropdown.getSelectedIndex());
+        selectedPkg.setFromName(fromFirstNameTextField.getText() + " " + fromLastNameTextField.getText());
+        selectedPkg.setFromPostalCode(fromPostalCodeTextField.getText());
+        selectedPkg.setWeight(Long.parseLong(weightTextField.getText()));
+        selectedPkg.setStatus(1);
+        selectedPkg.setFromPhoneNumber(Long.valueOf(fromPhoneNumberTextField.getText()));
+        selectedPkg.setFromEmail(fromEmailTextField.getText());
+        selectedPkg.setPackageType(packageTypeDropdown.getSelectedIndex());
+
+        // to labels here
+        selectedPkg.setToName(toFirstNameTextField.getText() + " " + toLastNameTextField.getText());
+        selectedPkg.setToAddressLine1(toAddressL1TextField.getText());
+        selectedPkg.setToAddressLine2(toAddressL2TextField.getText());
+        selectedPkg.setToPostalCode(toPostalCodeTextField.getText());
+        selectedPkg.setToCity(toCity_Dropdown.getSelectedIndex());
+        selectedPkg.setToPhoneNumber(Long.valueOf(toPhoneNumberTextField.getText()));
+        selectedPkg.setToEmail(toEmailTextField.getText());
+
+        //add to db4o
+        dBConnect.open();
+        dBConnect.setEntity(selectedPkg);
+        dBConnect.close();
+        userProcessPanel.remove(this);
+        CardLayout layout = (CardLayout) userProcessPanel.getLayout();
+        layout.previous(userProcessPanel);
+    }//GEN-LAST:event_updatePackageButtonActionPerformed
+
     private void toEmailTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_toEmailTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_toEmailTextFieldActionPerformed
 
-    private void packageTypeDropdown1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_packageTypeDropdown1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_packageTypeDropdown1ActionPerformed
-
-    private void packageServiceDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_packageServiceDropdownActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_packageServiceDropdownActionPerformed
-
-    private void packageProviderDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_packageProviderDropdownActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_packageProviderDropdownActionPerformed
-
-    private void createPackageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createPackageButtonActionPerformed
-        try {
-
-            Package newPackage = new Package();
-            newPackage.setCost(Float.parseFloat(costField.getText()));
-            newPackage.setCurrentLocationCity(fromCityDropdown.getSelectedItem().toString());
-            newPackage.setCustomer(sessionUser);
-            newPackage.setFranchise(franchiseField.getText());
-            newPackage.setPackageId(new RandomGen().getRandomEmployeeId());
-            newPackage.setTrackingId(newPackage.getPackageId());
-            newPackage.setFromAddressLine1(fromAddressL1TextField.getText());
-            newPackage.setFromAddressLine2(fromAddressL2TextField.getText());
-            newPackage.setFromCity(fromCityDropdown.getSelectedIndex());
-            newPackage.setFromName(fromFirstNameTextField.getText() + " " + fromLastNameTextField.getText());
-            newPackage.setFromPostalCode(fromPostalCodeTextField.getText());
-            newPackage.setProvider(packageProviderDropdown.getSelectedIndex());
-            newPackage.setService(packageServiceDropdown.getSelectedIndex());
-            newPackage.setWeight(Long.parseLong(weightTextField1.getText()));
-            newPackage.setStatus(1);
-            newPackage.setFromPhoneNumber(Long.valueOf(fromPhoneNumberTextField.getText()));
-            newPackage.setFromEmail(fromEmailTextField.getText());
-            newPackage.setPackageType(packageTypeDropdown1.getSelectedIndex());
-            // to labels here
-            newPackage.setToName(toFirstNameTextField.getText() + " " + toLastNameTextField.getText());
-            newPackage.setToAddressLine1(toAddressL1TextField.getText());
-            newPackage.setToAddressLine2(toAddressL2TextField.getText());
-            newPackage.setToPostalCode(toPostalCodeTextField.getText());
-            newPackage.setToCity(toCity_Dropdown.getSelectedIndex());
-            newPackage.setToPhoneNumber(Long.valueOf(toPhoneNumberTextField.getText()));
-            newPackage.setToEmail(toEmailTextField.getText());
-
-//      store customer into thisobj and store the newPackage into db4o object
-            dBConnect.open();
-            dBConnect.setEntity(newPackage);
-            dBConnect.close();
-            JOptionPane.showMessageDialog(this, "Your order was created successfully. The tracking number is:" + newPackage.getPackageId().toString());
-        } catch (Exception e) {
-        }
-    }//GEN-LAST:event_createPackageButtonActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
-    private javax.swing.JTextField costField;
-    private javax.swing.JLabel costLabel;
-    private javax.swing.JButton createPackageButton;
-    private javax.swing.JTextField franchiseField;
-    private javax.swing.JLabel franchiseLabel;
     private javax.swing.JTextField fromAddressL1TextField;
     private javax.swing.JTextField fromAddressL2TextField;
     private javax.swing.JComboBox<String> fromCityDropdown;
@@ -612,11 +516,9 @@ public class packageCreationScreen extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -627,11 +529,9 @@ public class packageCreationScreen extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JComboBox<String> packageProviderDropdown;
-    private javax.swing.JComboBox<String> packageServiceDropdown;
-    private javax.swing.JComboBox<String> packageTypeDropdown1;
+    private javax.swing.JComboBox<String> packageTypeDropdown;
     private javax.swing.JTextField toAddressL1TextField;
     private javax.swing.JTextField toAddressL2TextField;
     private javax.swing.JComboBox<String> toCity_Dropdown;
@@ -640,6 +540,11 @@ public class packageCreationScreen extends javax.swing.JPanel {
     private javax.swing.JTextField toLastNameTextField;
     private javax.swing.JTextField toPhoneNumberTextField;
     private javax.swing.JTextField toPostalCodeTextField;
-    private javax.swing.JTextField weightTextField1;
+    private javax.swing.JButton updatePackageButton;
+    private javax.swing.JTextField weightTextField;
     // End of variables declaration//GEN-END:variables
+
+    private void populateFields() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

@@ -135,7 +135,7 @@ public class employeeMainScreen extends javax.swing.JPanel {
 
     private void retrievePackageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_retrievePackageButtonActionPerformed
         // TODO add your handling code here:
-        retrievePackagesScreen packageRetrievalScreen = new retrievePackagesScreen();
+        retrievePackagesScreen packageRetrievalScreen = new retrievePackagesScreen(userProcessPanel);
         jSplitPane1.setRightComponent(packageRetrievalScreen);
 
     }//GEN-LAST:event_retrievePackageButtonActionPerformed
