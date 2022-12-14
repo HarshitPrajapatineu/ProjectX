@@ -70,6 +70,12 @@ public class trackShipmentScreen extends javax.swing.JPanel {
 
         enterLabel.setText("Enter Tracking ID:");
 
+        shipmentIdTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                shipmentIdTextFieldActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -136,6 +142,10 @@ public class trackShipmentScreen extends javax.swing.JPanel {
         }
 
     }//GEN-LAST:event_trackButtonActionPerformed
+
+    private void shipmentIdTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shipmentIdTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_shipmentIdTextFieldActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

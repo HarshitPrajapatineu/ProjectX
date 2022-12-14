@@ -10,6 +10,7 @@ import java.awt.CardLayout;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
 import javax.swing.table.DefaultTableModel;
@@ -142,6 +143,11 @@ public class postQueryScreen extends javax.swing.JPanel {
         //DefaultTableModel model = (DefaultTableModel) queriesTable.getModel();
         
         try {
+            
+            if(queryTextArea.getText().equals("")){
+              JOptionPane.showMessageDialog(this, "Query field is empty");  
+            }
+            else{
             dbConnect.open();
             CustomerService CS = new CustomerService();
             ObjectSet result = dbConnect.queryByExample(CS.getClass());
@@ -172,7 +178,7 @@ public class postQueryScreen extends javax.swing.JPanel {
             
 
                 }
-            
+        }
         
          catch (Exception e) {
             System.err.println(e.getMessage());
