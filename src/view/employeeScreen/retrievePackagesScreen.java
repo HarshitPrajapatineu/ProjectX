@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import model.PackageManagementEnterprise.Package;
-import view.packageEditScreen;
 
 /**
  *
