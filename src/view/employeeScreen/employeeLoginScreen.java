@@ -5,6 +5,7 @@
 package view.employeeScreen;
 
 import DBConnection.DBConnect;
+import com.db4o.ObjectSet;
 import common.Enum.UserRole;
 import java.awt.CardLayout;
 import java.util.ArrayList;
@@ -12,6 +13,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import model.Employee;
 import view.adminScreen.AdminMainScreen;
+import view.adminScreen.EMSMainScreen;
+import view.adminScreen.RMMainScreen;
 import view.adminScreen.transportAdminScreen;
 
 /**
@@ -143,13 +146,21 @@ public class employeeLoginScreen extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_loginButtonActionPerformed
 
-    public Employee getEmployeeDetailById(int empId) {
+    public Employee getEmployeeDetailById(long empId) {
         Employee proto = new Employee();
         proto.setEmployeeId(empId);
         dbConnect.open();
-        ArrayList<Employee> empList = dbConnect.getListOf(proto);
+        ObjectSet empList = dbConnect.queryByExample(proto.getClass());
+        for(Object emp : empList) {
+            Employee e = (Employee) emp;
+            if(e.getEmployeeId() == empId)
+            {
+                sessionUser = e;
+                break;
+            }
+        }
         dbConnect.close();
-        return empList.size() == 0 ? new Employee() : empList.get(0);
+        return sessionUser;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -181,15 +192,15 @@ public class employeeLoginScreen extends javax.swing.JPanel {
     }
 
     private void showEMSAdminScreen() {
-        employeeMainScreen empMainScreen = new employeeMainScreen(userProcessPanel);
-        userProcessPanel.add("empMainScreen", empMainScreen);
+        AdminMainScreen adminMainScreen = new AdminMainScreen(userProcessPanel, sessionUser);
+        userProcessPanel.add("AdminMainScreen", adminMainScreen);
         CardLayout layout = (CardLayout) userProcessPanel.getLayout();
         layout.next(userProcessPanel);
     }
 
     private void showRMScreen() {
-        employeeMainScreen empMainScreen = new employeeMainScreen(userProcessPanel);
-        userProcessPanel.add("empMainScreen", empMainScreen);
+        AdminMainScreen adminMainScreen = new AdminMainScreen(userProcessPanel, sessionUser);
+        userProcessPanel.add("AdminMainScreen", adminMainScreen);
         CardLayout layout = (CardLayout) userProcessPanel.getLayout();
         layout.next(userProcessPanel);
     }

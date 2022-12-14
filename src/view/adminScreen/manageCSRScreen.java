@@ -19,7 +19,7 @@ import model.PackageManagementEnterprise.Franchise;
  *
  * @author aishwaryanagaraj
  */
-public class AdminMainScreen extends javax.swing.JPanel {
+public class manageCSRScreen extends javax.swing.JPanel {
 
     /**
      * Creates new form systemAdminMainScreen
@@ -29,7 +29,7 @@ public class AdminMainScreen extends javax.swing.JPanel {
     DBConnect dbConnect;
     Employee selectedEmployee;
     
-    public AdminMainScreen(JPanel userProcessPanel, Employee sessionUser) {
+    public manageCSRScreen(JPanel userProcessPanel, Employee sessionUser) {
         initComponents();
 
         this.userProcessPanel = userProcessPanel;
@@ -541,20 +541,10 @@ public class AdminMainScreen extends javax.swing.JPanel {
         Object[] arr = result.toArray();
         for (Object o : arr) {
             Employee f = (Employee) o;
-            
-            if (sessionUser.getRole() == 1 && (f.role == 4))
+//            if(f.role != 1)
             {
                 list.add(f);
             }
-            if (sessionUser.getRole() == 4 && (f.role == 5))
-            {
-                list.add(f);
-            }
-            if (sessionUser.getRole() == 0 && f.role != 0)
-            {
-                list.add(f);
-            }
-            
         }
         dbConnect.close();
         return list;
