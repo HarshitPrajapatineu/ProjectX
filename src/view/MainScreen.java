@@ -29,6 +29,10 @@ public class MainScreen extends javax.swing.JFrame {
     public MainScreen() {
         this.dbConnect = new DBConnect();
         initComponents();
+        homeScreen homeScreen = new homeScreen(userProcessPanel);
+        userProcessPanel.add("homeScreen", homeScreen);
+        CardLayout layout = (CardLayout)userProcessPanel.getLayout();
+        layout.next(userProcessPanel);
         setSystemAdmin();
 
     }
