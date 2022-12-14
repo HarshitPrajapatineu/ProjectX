@@ -41,6 +41,7 @@ public class AdminMainScreen extends javax.swing.JPanel {
         populateCityDropdown();
         populateUserRoleDropdown();
         populateTable();
+        changeLabel();
     }
 
     /**
@@ -62,7 +63,7 @@ public class AdminMainScreen extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         searchButton = new javax.swing.JButton();
         searchTextField = new javax.swing.JTextField();
-        heading_LB = new javax.swing.JLabel();
+        headingLabel = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         backButton = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
@@ -194,8 +195,8 @@ public class AdminMainScreen extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        heading_LB.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        heading_LB.setText("ADMIN CONSOLE");
+        headingLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        headingLabel.setText("ADMIN CONSOLE");
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -355,7 +356,7 @@ public class AdminMainScreen extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(197, 197, 197)
-                        .addComponent(heading_LB))))
+                        .addComponent(headingLabel))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -363,7 +364,7 @@ public class AdminMainScreen extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(heading_LB))
+                        .addComponent(headingLabel))
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -503,7 +504,7 @@ public class AdminMainScreen extends javax.swing.JPanel {
     private javax.swing.JTextField emailTextField;
     private javax.swing.JTable employeeDetailsTable;
     private javax.swing.JTextField firstNameTextField;
-    private javax.swing.JLabel heading_LB;
+    private javax.swing.JLabel headingLabel;
     private javax.swing.JTextField idTextField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -584,5 +585,25 @@ public class AdminMainScreen extends javax.swing.JPanel {
         }
         dbConnect.close();
         return list;
+    }
+
+    private void changeLabel() {
+        if(sessionUser.getRole() == 0)
+        {
+            headingLabel.setText("SYSTEM ADMIN CONSOLE");
+        }
+        if(sessionUser.getRole() == 1)
+        {
+            headingLabel.setText("EMS ADMIN CONSOLE");
+        }
+        if(sessionUser.getRole() == 4)
+        {
+            headingLabel.setText("REGIONAL MANAGER CONSOLE");
+        }
+        if(sessionUser.getRole() == 0)
+        {
+            headingLabel.setText("SYSTEM ADMIN CONSOLE");
+        }
+        
     }
 }

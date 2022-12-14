@@ -48,7 +48,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="197" max="-2" attributes="0"/>
-                      <Component id="heading_LB" min="-2" max="-2" attributes="0"/>
+                      <Component id="headingLabel" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -60,7 +60,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="heading_LB" min="-2" max="-2" attributes="0"/>
+                      <Component id="headingLabel" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jPanel3" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -280,7 +280,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JLabel" name="heading_LB">
+    <Component class="javax.swing.JLabel" name="headingLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial" size="18" style="1"/>

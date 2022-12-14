@@ -65,6 +65,7 @@ public class MainScreen extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
+        employeeButton.setBackground(new java.awt.Color(255, 204, 204));
         employeeButton.setText("Employee");
         employeeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,6 +73,7 @@ public class MainScreen extends javax.swing.JFrame {
             }
         });
 
+        customerButton.setBackground(new java.awt.Color(255, 204, 204));
         customerButton.setText("Customer");
         customerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -122,6 +122,9 @@
               <SubComponents>
                 <Component class="javax.swing.JButton" name="employeeButton">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="cc" green="cc" red="ff" type="rgb"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Employee"/>
                   </Properties>
                   <Events>
@@ -130,6 +133,9 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="customerButton">
                   <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="cc" green="cc" red="ff" type="rgb"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Customer"/>
                   </Properties>
                   <Events>
