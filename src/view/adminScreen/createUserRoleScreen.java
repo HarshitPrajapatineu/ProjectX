@@ -289,6 +289,7 @@ public class createUserRoleScreen extends javax.swing.JPanel {
             }
             else{
                 saveData();
+                clearData();
             }
             
         }
@@ -386,6 +387,14 @@ public class createUserRoleScreen extends javax.swing.JPanel {
         
         }
         
+    }
+
+    private void clearData() {
+            firstNameTextField.setText("");
+            lastNameTextField.setText("");
+            userRoleDropdown.setSelectedIndex(0);
+            cityDropdown.setSelectedIndex(0);
+            emailTextField.setText("");
     }
 
     

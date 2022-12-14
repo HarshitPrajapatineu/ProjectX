@@ -5,6 +5,8 @@
 package view.employeeScreen;
 
 import DBConnection.DBConnect;
+import java.util.regex.Pattern;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import model.Employee;
 import model.PackageManagementEnterprise.Franchise;
@@ -19,7 +21,7 @@ public class createFranchiseScreen extends javax.swing.JPanel {
     private static final String EMPTY_STRING = "";
     DBConnect dbConnect;
     Employee sessionUser;
-    
+
     public createFranchiseScreen(JPanel userProcessPanel, Employee sessionUser) {
         initComponents();
         this.sessionUser = sessionUser;
@@ -132,17 +134,27 @@ public class createFranchiseScreen extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed
-        Franchise franchise = new Franchise();
-        franchise.setCity(cityDropdown.getSelectedIndex());
-        franchise.setName(nameTextField.getText());
-        //franchise.setAddress(addressTextField.getText());
-        franchise.setPhoneNumber(Long.parseLong(phoneNumberTextField.getText()));
-        franchise.setPostalCode(postalCodeTextField.getText());
-        
-        dbConnect.open();
-        dbConnect.setEntity(franchise);
-        dbConnect.close();
-        
+        String email = emailTextField.getText();
+
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."
+                + "[a-zA-Z0-9_+&*-]+)*@"
+                + "(?:[a-zA-Z0-9-]+\\.)+[a-z"
+                + "A-Z]{2,7}$";
+
+        Pattern pat = Pattern.compile(emailRegex);
+        boolean Valid = pat.matcher(email).matches();
+        if (nameTextField.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Name is empty");
+        } else if (postalCodeTextField.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Postal code is empty");
+        } else if (emailTextField.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "email is empty");
+        } else if (Valid == false) {
+            JOptionPane.showMessageDialog(this, "Email invalid");
+        } else {
+            saveData();
+            clearData();
+        }
     }//GEN-LAST:event_createButtonActionPerformed
 
 
@@ -161,12 +173,32 @@ public class createFranchiseScreen extends javax.swing.JPanel {
     private javax.swing.JTextField postalCodeTextField;
     // End of variables declaration//GEN-END:variables
 
-private void populateCityDropdown() {
+    private void populateCityDropdown() {
         for (Object city : common.Enum.City.values()) {
             cityDropdown.addItem(city.toString());
 
         }
     }
 
+    private void clearData() {
+        nameTextField.setText("");
+        phoneNumberTextField.setText("");
+        postalCodeTextField.setText("");
+        cityDropdown.setSelectedIndex(0);
+        emailTextField.setText("");
+    }
+
+    private void saveData() {
+        Franchise franchise = new Franchise();
+        franchise.setCity(cityDropdown.getSelectedIndex());
+        franchise.setName(nameTextField.getText());
+        //franchise.setAddress(addressTextField.getText());
+        franchise.setPhoneNumber(Long.parseLong(phoneNumberTextField.getText()));
+        franchise.setPostalCode(postalCodeTextField.getText());
+
+        dbConnect.open();
+        dbConnect.setEntity(franchise);
+        dbConnect.close();
+    }
 
 }
