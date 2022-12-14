@@ -25,6 +25,7 @@ public class packageCreationScreen extends javax.swing.JPanel {
     JPanel userProcessPanel;
     Customer sessionUser;
     DBConnect dBConnect;
+    private static final String EMPTY_STRING = "";
 
     public packageCreationScreen(JPanel userProcessPanel, Customer sessionUser) {
         initComponents();
@@ -662,7 +663,23 @@ public class packageCreationScreen extends javax.swing.JPanel {
             dBConnect.setEntity(newPackage);
             dBConnect.close();
             JOptionPane.showMessageDialog(this, "Your order was created successfully. The tracking number is:" + newPackage.getPackageId().toString());
-        
+            
+            fromFirstNameTextField.setText(EMPTY_STRING);
+            fromLastNameTextField.setText(EMPTY_STRING);
+            fromAddressL1TextField.setText(EMPTY_STRING);
+            fromAddressL2TextField.setText(EMPTY_STRING);
+            fromPostalCodeTextField.setText(EMPTY_STRING);
+            fromPhoneNumberTextField.setText(EMPTY_STRING);
+            fromEmailTextField.setText(EMPTY_STRING);
+            
+            toFirstNameTextField.setText(EMPTY_STRING);
+            toLastNameTextField.setText(EMPTY_STRING);
+            toAddressL1TextField.setText(EMPTY_STRING);
+            toAddressL2TextField.setText(EMPTY_STRING);
+            toPostalCodeTextField.setText(EMPTY_STRING);
+            toPhoneNumberTextField.setText(EMPTY_STRING);
+            toEmailTextField.setText(EMPTY_STRING);
+            
             }
         }catch (Exception e) {
         }
