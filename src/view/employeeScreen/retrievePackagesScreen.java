@@ -5,9 +5,12 @@
 package view.employeeScreen;
 
 import DBConnection.DBConnect;
+import java.awt.CardLayout;
 import java.util.ArrayList;
+import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import model.PackageManagementEnterprise.Package;
+import view.packageEditScreen;
 
 /**
  *
@@ -19,11 +22,13 @@ public class retrievePackagesScreen extends javax.swing.JPanel {
      * Creates new form existingPackageApprovalScreen
      */
     DBConnection.DBConnect dbConnect;
+    JPanel userProcessPanel;
 
-    public retrievePackagesScreen() {
+    public retrievePackagesScreen(JPanel userProcessPanel) {
         initComponents();
         populatePackageTable();
         dbConnect = new DBConnect();
+        this.userProcessPanel = userProcessPanel;
     }
 
     /**
@@ -147,12 +152,32 @@ public class retrievePackagesScreen extends javax.swing.JPanel {
 
     private void cancelPackageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelPackageButtonActionPerformed
         // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) packagesTable.getModel();
+        int selectedRow = packagesTable.getSelectedRow();
+        Package selectedPkg;
+        if (selectedRow != -1) {
+            selectedPkg = (Package) model.getValueAt(selectedRow, 0);
+            if (selectedPkg != null) {
+                selectedPkg.getStatusHistory().add(selectedPkg.getStatus());
+                selectedPkg.setStatus(4);
+            }
+        }
     }//GEN-LAST:event_cancelPackageButtonActionPerformed
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
         // TODO add your handling code here:
         DefaultTableModel model = (DefaultTableModel) packagesTable.getModel();
-//        model.getValueAt(ERROR, WIDTH)
+        int selectedRow = packagesTable.getSelectedRow();
+        Package selectedPkg;
+        if (selectedRow != -1) {
+            selectedPkg = (Package) model.getValueAt(selectedRow, 0);
+            if (selectedPkg != null) {
+                packageEditScreen packageEditScreen = new packageEditScreen(userProcessPanel, selectedPkg);
+                userProcessPanel.add("packageEditScreen", packageEditScreen);
+                CardLayout layout = (CardLayout) userProcessPanel.getLayout();
+                layout.next(userProcessPanel);
+            }
+        }
     }//GEN-LAST:event_updateButtonActionPerformed
 
 
