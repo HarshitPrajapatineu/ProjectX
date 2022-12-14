@@ -28,10 +28,10 @@ public class packageCreationScreen extends javax.swing.JPanel {
 
     public packageCreationScreen(JPanel userProcessPanel, Customer sessionUser) {
         initComponents();
+        populateDropdowns();
         this.userProcessPanel = userProcessPanel;
         this.sessionUser = sessionUser;
         dBConnect = new DBConnect();
-        populateDropdowns();
 
     }
 
@@ -561,11 +561,12 @@ public class packageCreationScreen extends javax.swing.JPanel {
             ArrayList<Franchise> lst = new ArrayList<>();
             dBConnect.open();
             ObjectSet result = dBConnect.queryByExample(fran);
-            dBConnect.close();
             Object[] arr = result.toArray();
             for (Object o : arr) {
                 lst.add((Franchise) o);
             }
+            
+            dBConnect.close();
 
             String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."
                     + "[a-zA-Z0-9_+&*-]+)*@"
@@ -625,6 +626,7 @@ public class packageCreationScreen extends javax.swing.JPanel {
                 newPackage.setService(packageServiceDropdown.getSelectedIndex());
                 newPackage.setWeight(Long.parseLong(weightTextField1.getText()));
                 newPackage.setStatus(1);
+                newPackage.statusHistory.add(1);
                 newPackage.setFromPhoneNumber(Long.valueOf(fromPhoneNumberTextField.getText()));
                 newPackage.setFromEmail(fromEmailTextField.getText());
                 newPackage.setPackageType(packageTypeDropdown1.getSelectedIndex());
@@ -645,6 +647,8 @@ public class packageCreationScreen extends javax.swing.JPanel {
 
             }
         } catch (Exception e) {
+            System.err.println("Exception:" + e.getMessage());
+            System.err.println("Exception:" + e.getStackTrace());
         }
 
     }//GEN-LAST:event_createPackageButtonActionPerformed

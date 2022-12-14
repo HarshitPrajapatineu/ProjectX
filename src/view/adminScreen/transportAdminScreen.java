@@ -6,6 +6,8 @@ package view.adminScreen;
 
 import DBConnection.DBConnect;
 import com.db4o.ObjectSet;
+import java.util.ArrayList;
+import java.lang.Integer;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import model.PackageManagementEnterprise.Package;
@@ -22,7 +24,7 @@ public class transportAdminScreen extends javax.swing.JPanel {
     public transportAdminScreen(JPanel userProcessPanel) {
         initComponents();
         populateStatus();
-        this.dbConnect = dbConnect;
+        this.dbConnect = new DBConnect();
     }
 
     /**
@@ -134,7 +136,8 @@ public class transportAdminScreen extends javax.swing.JPanel {
             protoPackage.setTrackingId(trackingId);
             ObjectSet result = dbConnect.queryByExample(protoPackage);
             Package pkg = (Package) result.next();
-            pkg.getStatusHistory().add(pkg.getStatus());
+            pkg.statusHistory = pkg.statusHistory == null ? new ArrayList<Integer>() : pkg.statusHistory;
+            pkg.statusHistory.add(pkg.getStatus());
             pkg.setStatus(status);
             dbConnect.setEntity(pkg);
             dbConnect.close();

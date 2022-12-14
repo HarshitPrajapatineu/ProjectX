@@ -15,6 +15,8 @@ import java.util.ArrayList;
 public class Package {
 
     public Package() {
+        
+        statusHistory = new ArrayList<Integer>();
     }
 
     private String toAddressLine1;
@@ -72,7 +74,7 @@ public class Package {
     private String currentLocationCity;
     private Long fromPhoneNumber;
     private Long toPhoneNumber;
-    private ArrayList<Integer> statusHistory;
+    public ArrayList<Integer> statusHistory = new ArrayList<>();
 
     public Long getToPhoneNumber() {
         return toPhoneNumber;
