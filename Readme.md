@@ -74,4 +74,8 @@ A package can be created by either a Customer or an Employee. Each package has a
 
 **Sequence Diagram:**
 
-![](RackMultipart20221214-1-4sbcy3_html_f703c10eee7ad787.jpg)
+
+![Pack-man-3-Sequence Diagram](https://user-images.githubusercontent.com/114259220/207509032-f2b61337-a853-4408-9c00-23e60b29dd27.jpg)
+
+
+A customer Service Associate can create packages and also update the status of an existing packing using the Tracking ID.
