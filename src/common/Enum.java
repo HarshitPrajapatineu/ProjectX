@@ -11,13 +11,13 @@ package common;
 public class Enum {
 
     public enum UserRole {
-        SYSADMIN,
-        EMSADMIN,
-        CSADMIN,
-        TRANSPORTADMIN,
-        REGIONALMANAGER,
-        CSASSOCIATE,
-        CUSTOMER,
+        SYSADMIN, //0
+        EMSADMIN, //1
+        CSADMIN, //2
+        TRANSPORTADMIN, //3
+        REGIONALMANAGER, //4
+        CSASSOCIATE, //5
+        CUSTOMER, //6
 
     };
 

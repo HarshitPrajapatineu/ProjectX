@@ -56,17 +56,15 @@ public class createUserRoleScreen extends javax.swing.JPanel {
         heading_LB = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         cityDropdown = new javax.swing.JComboBox<>();
-        idTextField = new javax.swing.JTextField();
         lastNameTextField = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         firstNameTextField = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         userRoleDropdown = new javax.swing.JComboBox<>();
-        jLabel6 = new javax.swing.JLabel();
         emailTextField = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
         createButton = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         backButton = new javax.swing.JButton();
@@ -78,12 +76,6 @@ public class createUserRoleScreen extends javax.swing.JPanel {
         heading_LB.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         heading_LB.setText("New User Role");
 
-        idTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                idTextFieldActionPerformed(evt);
-            }
-        });
-
         lastNameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lastNameTextFieldActionPerformed(evt);
@@ -91,8 +83,7 @@ public class createUserRoleScreen extends javax.swing.JPanel {
         });
 
         jLabel5.setText("City:");
-
-        jLabel3.setText("ID:");
+        jLabel5.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
         firstNameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,10 +92,13 @@ public class createUserRoleScreen extends javax.swing.JPanel {
         });
 
         jLabel2.setText("Last Name:");
+        jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
         jLabel4.setText("User Role:");
+        jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
         jLabel1.setText("First Name:");
+        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
         userRoleDropdown.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,50 +106,54 @@ public class createUserRoleScreen extends javax.swing.JPanel {
             }
         });
 
+        emailTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                emailTextFieldActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setText("Email:");
+        jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel3)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(2, 2, 2)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jLabel5))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(idTextField)
-                            .addComponent(firstNameTextField)
-                            .addComponent(cityDropdown, 0, 193, Short.MAX_VALUE)
-                            .addComponent(lastNameTextField)))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel4)
-                        .addGap(18, 18, 18)
-                        .addComponent(userRoleDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                        .addGap(24, 24, 24)
+                        .addComponent(userRoleDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel1)
+                                .addComponent(jLabel5))
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(emailTextField, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(cityDropdown, javax.swing.GroupLayout.Alignment.TRAILING, 0, 193, Short.MAX_VALUE)
+                                .addComponent(lastNameTextField, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(firstNameTextField, javax.swing.GroupLayout.Alignment.TRAILING)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel4Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {cityDropdown, firstNameTextField, idTextField, lastNameTextField, userRoleDropdown});
+        jPanel4Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {cityDropdown, emailTextField, firstNameTextField, jLabel1, jLabel2, jLabel4, jLabel5, jLabel6, lastNameTextField, userRoleDropdown});
 
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(idTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(userRoleDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel1)
                     .addComponent(firstNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
@@ -166,16 +164,14 @@ public class createUserRoleScreen extends javax.swing.JPanel {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(cityDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
                 .addContainerGap())
         );
 
-        jLabel6.setText("email:");
-
-        emailTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emailTextFieldActionPerformed(evt);
-            }
-        });
+        jPanel4Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {cityDropdown, emailTextField, firstNameTextField, jLabel1, jLabel2, jLabel4, jLabel5, jLabel6, lastNameTextField, userRoleDropdown});
 
         createButton.setText("Create User Role");
         createButton.addActionListener(new java.awt.event.ActionListener() {
@@ -213,23 +209,19 @@ public class createUserRoleScreen extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(245, 245, 245)
-                        .addComponent(heading_LB))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(68, 68, 68)
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(254, Short.MAX_VALUE))
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(245, 245, 245)
+                .addComponent(heading_LB)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(createButton, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(366, 366, 366))
+                .addGap(0, 234, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(createButton, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(366, 366, 366))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(186, 186, 186))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -237,28 +229,18 @@ public class createUserRoleScreen extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(heading_LB)
-                        .addGap(157, 157, 157)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(5, 5, 5)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(40, 40, 40)
+                        .addComponent(heading_LB))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
                 .addComponent(createButton)
-                .addContainerGap(212, Short.MAX_VALUE))
+                .addContainerGap(197, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void idTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_idTextFieldActionPerformed
-
     private void getDataInForm() {
 
-        idTextField.setText(String.valueOf(updateEmployee.getEmployeeId()));
         firstNameTextField.setText(updateEmployee.getFirstName());
         lastNameTextField.setText(updateEmployee.getLastName());
         userRoleDropdown.setSelectedIndex(updateEmployee.getRole());
@@ -280,7 +262,7 @@ public class createUserRoleScreen extends javax.swing.JPanel {
     }//GEN-LAST:event_emailTextFieldActionPerformed
 
     private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createButtonActionPerformed
-        boolean status = validateData();
+        boolean status = validateUserRole();
         if (status) {
             saveData();
         }
@@ -304,10 +286,8 @@ public class createUserRoleScreen extends javax.swing.JPanel {
     private javax.swing.JTextField emailTextField;
     private javax.swing.JTextField firstNameTextField;
     private javax.swing.JLabel heading_LB;
-    private javax.swing.JTextField idTextField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -331,11 +311,22 @@ public class createUserRoleScreen extends javax.swing.JPanel {
         }
     }
 
-    private boolean validateData() {
-//        {
-//            userRoleDropdown.getSelectedIndex();
-//        }
-        return true;
+    private boolean validateUserRole() {
+
+        boolean status = false;
+        if(sessionUser.getRole() == 1) {
+            status  = userRoleDropdown.getSelectedIndex() == 4;
+        }
+        if(sessionUser.getRole() == 4) {
+            status  = userRoleDropdown.getSelectedIndex() == 5;
+        }
+        if (sessionUser.getRole() == 0) {
+            status = true;
+        }
+        if (!status) {
+            JOptionPane.showMessageDialog(this, "Please select Valid Role", "Error", 2);
+        }
+        return status;
     }
 
     private void saveData() {
