@@ -8,6 +8,7 @@ import view.customerScreen.*;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 import model.Employee;
+import view.employeeScreen.manageFranchiseScreen;
 
 /**
  *
@@ -94,8 +95,8 @@ public class RMMainScreen extends javax.swing.JPanel {
 
     private void franchiseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_franchiseButtonActionPerformed
         // TODO add your handling code here:
-        newCustomerScreen newCustScreen = new newCustomerScreen(userProcessPanel);
-        userProcessPanel.add("custRegScreen", newCustScreen);
+        manageFranchiseScreen manageFranchiseScreen = new manageFranchiseScreen(userProcessPanel, sessionUser);
+        userProcessPanel.add("manageFranchiseScreen", manageFranchiseScreen);
         CardLayout layout = (CardLayout) userProcessPanel.getLayout();
         layout.next(userProcessPanel);
     }//GEN-LAST:event_franchiseButtonActionPerformed

@@ -13,6 +13,9 @@ import javax.swing.table.DefaultTableModel;
 import model.Employee;
 import common.Enum;
 import javax.swing.JOptionPane;
+import javax.swing.RowFilter;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 import model.PackageManagementEnterprise.Franchise;
 
 /**
@@ -362,7 +365,14 @@ public class AdminMainScreen extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
-
+        TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(employeeDetailsTable.getModel());
+        employeeDetailsTable.setRowSorter(sorter);
+        String text = searchTextField.getText();
+        if (text.length() == 0) {
+            sorter.setRowFilter(null);
+        } else {
+            sorter.setRowFilter(RowFilter.regexFilter(text));
+        }
     }//GEN-LAST:event_searchButtonActionPerformed
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed

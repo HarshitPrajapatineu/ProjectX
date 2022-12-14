@@ -6,6 +6,7 @@ package view.adminScreen;
 
 import DBConnection.DBConnect;
 import common.RandomGen;
+import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import model.Employee;
@@ -269,9 +270,9 @@ public class createUserRoleScreen extends javax.swing.JPanel {
     }//GEN-LAST:event_createButtonActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
-        //userProcessPanel.remove(this);
-        //CardLayout layout = (CardLayout) userProcessPanel.getLayout();
-        //layout.previous(userProcessPanel);
+        userProcessPanel.remove(this);
+        CardLayout layout = (CardLayout) userProcessPanel.getLayout();
+        layout.previous(userProcessPanel);
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void userRoleDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userRoleDropdownActionPerformed

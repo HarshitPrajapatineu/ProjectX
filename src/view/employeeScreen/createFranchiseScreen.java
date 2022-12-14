@@ -6,6 +6,7 @@ package view.employeeScreen;
 
 import DBConnection.DBConnect;
 import javax.swing.JPanel;
+import model.Employee;
 import model.PackageManagementEnterprise.Franchise;
 
 /**
@@ -17,9 +18,11 @@ public class createFranchiseScreen extends javax.swing.JPanel {
     JPanel userProcessPanel;
     private static final String EMPTY_STRING = "";
     DBConnect dbConnect;
+    Employee sessionUser;
     
-    public createFranchiseScreen(JPanel userProcessPanel) {
+    public createFranchiseScreen(JPanel userProcessPanel, Employee sessionUser) {
         initComponents();
+        this.sessionUser = sessionUser;
         this.userProcessPanel = userProcessPanel;
         populateCityDropdown();
         dbConnect = new DBConnect();
