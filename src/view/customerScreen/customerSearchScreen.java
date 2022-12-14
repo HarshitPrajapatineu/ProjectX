@@ -51,6 +51,7 @@ public class customerSearchScreen extends javax.swing.JPanel {
         searchButton = new javax.swing.JButton();
         bookButton = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(866, 510));
         setMinimumSize(new java.awt.Dimension(866, 510));
         setPreferredSize(new java.awt.Dimension(866, 510));
@@ -82,8 +83,10 @@ public class customerSearchScreen extends javax.swing.JPanel {
                 return types [columnIndex];
             }
         });
+        nearbyServiesTable.setSelectionBackground(new java.awt.Color(255, 204, 204));
         jScrollPane1.setViewportView(nearbyServiesTable);
 
+        searchButton.setBackground(new java.awt.Color(255, 204, 204));
         searchButton.setText("Search");
         searchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,6 +94,7 @@ public class customerSearchScreen extends javax.swing.JPanel {
             }
         });
 
+        bookButton.setBackground(new java.awt.Color(255, 204, 204));
         bookButton.setText("Book");
         bookButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

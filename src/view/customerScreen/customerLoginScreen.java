@@ -43,6 +43,7 @@ public class customerLoginScreen extends javax.swing.JPanel {
         customerIDTextField = new javax.swing.JTextField();
         customerLoginButton = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(866, 510));
         setMinimumSize(new java.awt.Dimension(866, 510));
         setPreferredSize(new java.awt.Dimension(860, 540));
@@ -58,6 +59,7 @@ public class customerLoginScreen extends javax.swing.JPanel {
             }
         });
 
+        customerLoginButton.setBackground(new java.awt.Color(255, 204, 204));
         customerLoginButton.setText("Login");
         customerLoginButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

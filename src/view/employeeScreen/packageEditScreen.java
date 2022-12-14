@@ -84,12 +84,15 @@ public class packageEditScreen extends javax.swing.JPanel {
         jPanel5 = new javax.swing.JPanel();
         updatePackageButton = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(866, 510));
         setMinimumSize(new java.awt.Dimension(866, 510));
 
         jLabel11.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText("Package Updation");
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel3.setText("Last Name:");
 
@@ -198,6 +201,8 @@ public class packageEditScreen extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
         toCity_Dropdown.setEditable(true);
         toCity_Dropdown.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -303,6 +308,9 @@ public class packageEditScreen extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
+        backButton.setBackground(new java.awt.Color(255, 204, 204));
         backButton.setText("<< Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -326,6 +334,8 @@ public class packageEditScreen extends javax.swing.JPanel {
                 .addComponent(backButton)
                 .addContainerGap())
         );
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel22.setText("Weight(in lb):");
 
@@ -371,6 +381,9 @@ public class packageEditScreen extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+
+        updatePackageButton.setBackground(new java.awt.Color(255, 204, 204));
         updatePackageButton.setText("Edit Package");
         updatePackageButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

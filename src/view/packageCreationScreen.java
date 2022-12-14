@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 import model.Customer;
 import model.PackageManagementEnterprise.Franchise;
 import model.PackageManagementEnterprise.Package;
+import model.TransportServiceEnterprise.packageHistory;
 
 /**
  *
@@ -83,7 +84,6 @@ public class packageCreationScreen extends javax.swing.JPanel {
         jLabel17 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         backButton = new javax.swing.JButton();
-        jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         weightTextField1 = new javax.swing.JTextField();
         jLabel23 = new javax.swing.JLabel();
@@ -100,6 +100,7 @@ public class packageCreationScreen extends javax.swing.JPanel {
         costField = new javax.swing.JTextField();
         createPackageButton = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(860, 540));
         setMinimumSize(new java.awt.Dimension(860, 540));
         setPreferredSize(new java.awt.Dimension(860, 540));
@@ -107,6 +108,8 @@ public class packageCreationScreen extends javax.swing.JPanel {
         jLabel11.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText("Package Creation");
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel3.setText("Last Name:");
 
@@ -215,6 +218,8 @@ public class packageCreationScreen extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
         toCity_Dropdown.setEditable(true);
         toCity_Dropdown.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -320,6 +325,8 @@ public class packageCreationScreen extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
         backButton.setText("<< Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -344,16 +351,7 @@ public class packageCreationScreen extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 124, Short.MAX_VALUE)
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 35, Short.MAX_VALUE)
-        );
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel23.setText("OTHER DETAILS:");
 
@@ -479,15 +477,12 @@ public class packageCreationScreen extends javax.swing.JPanel {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(99, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jPanel1, jPanel2});
@@ -505,14 +500,8 @@ public class packageCreationScreen extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 37, Short.MAX_VALUE)))
-                .addContainerGap())
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(61, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jPanel1, jPanel2});
@@ -639,12 +628,16 @@ public class packageCreationScreen extends javax.swing.JPanel {
                 newPackage.setToPhoneNumber(Long.valueOf(toPhoneNumberTextField.getText()));
                 newPackage.setToEmail(toEmailTextField.getText());
 
+                packageHistory pkgHistory = new packageHistory(newPackage.getTrackingId(), newPackage.getStatus(), newPackage.getFromCity());
 //      store customer into thisobj and store the newPackage into db4o object
                 dBConnect.open();
                 dBConnect.setEntity(newPackage);
+                dBConnect.setEntity(pkgHistory);
                 dBConnect.close();
                 JOptionPane.showMessageDialog(this, "Your order was created successfully. The tracking number is:" + newPackage.getPackageId().toString());
-
+                userProcessPanel.remove(this);
+                CardLayout layout = (CardLayout) userProcessPanel.getLayout();
+                layout.previous(userProcessPanel);
             }
         } catch (Exception e) {
             System.err.println("Exception:" + e.getMessage());
@@ -696,7 +689,6 @@ public class packageCreationScreen extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JComboBox<String> packageProviderDropdown;
     private javax.swing.JComboBox<String> packageServiceDropdown;

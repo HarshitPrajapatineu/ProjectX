@@ -52,6 +52,7 @@ public class createFranchiseScreen extends javax.swing.JPanel {
         emailTextField = new javax.swing.JTextField();
         postalCodeTextField = new javax.swing.JTextField();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(860, 540));
 
         jLabel11.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -67,6 +68,7 @@ public class createFranchiseScreen extends javax.swing.JPanel {
 
         jLabel6.setText("Postal Code:");
 
+        createButton.setBackground(new java.awt.Color(255, 255, 255));
         createButton.setText("Create");
         createButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

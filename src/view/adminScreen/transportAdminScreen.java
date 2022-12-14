@@ -11,6 +11,7 @@ import java.lang.Integer;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import model.PackageManagementEnterprise.Package;
+import model.TransportServiceEnterprise.packageHistory;
 
 /**
  *
@@ -46,6 +47,7 @@ public class transportAdminScreen extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(866, 510));
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(866, 510));
 
         jLabel12.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -59,6 +61,7 @@ public class transportAdminScreen extends javax.swing.JPanel {
             }
         });
 
+        updateButton.setBackground(new java.awt.Color(255, 204, 204));
         updateButton.setText("Update");
         updateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,12 +76,9 @@ public class transportAdminScreen extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(updateButton)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(317, 317, 317)
-                            .addComponent(jLabel12))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(updateButton)
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGap(82, 82, 82)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -87,14 +87,19 @@ public class transportAdminScreen extends javax.swing.JPanel {
                             .addGap(78, 78, 78)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(trackingIdTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)
-                                .addComponent(statusDropdown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addContainerGap(399, Short.MAX_VALUE))
+                                .addComponent(statusDropdown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGap(15, 15, 15)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(358, 358, 358)
+                        .addComponent(jLabel12)))
+                .addContainerGap(358, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel12)
-                .addGap(52, 52, 52)
+                .addGap(42, 42, 42)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(trackingIdTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -104,7 +109,7 @@ public class transportAdminScreen extends javax.swing.JPanel {
                     .addComponent(statusDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(63, 63, 63)
                 .addComponent(updateButton)
-                .addGap(0, 281, Short.MAX_VALUE))
+                .addGap(0, 287, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -135,11 +140,16 @@ public class transportAdminScreen extends javax.swing.JPanel {
             protoPackage.setPackageId(trackingId);
             protoPackage.setTrackingId(trackingId);
             ObjectSet result = dbConnect.queryByExample(protoPackage);
+            ObjectSet result2 = dbConnect.queryByExample(protoPackage.getClass());
             Package pkg = (Package) result.next();
+            packageHistory pkgHistory = new packageHistory(pkg.getTrackingId(), status, pkg.getFromCity());
             pkg.statusHistory = pkg.statusHistory == null ? new ArrayList<Integer>() : pkg.statusHistory;
-            pkg.statusHistory.add(pkg.getStatus());
+            pkg.statusHistory.add(status);
             pkg.setStatus(status);
+            JOptionPane.showMessageDialog(this, "Package status updated", "STATUS UPDATED", JOptionPane.INFORMATION_MESSAGE);
+
             dbConnect.setEntity(pkg);
+            dbConnect.setEntity(pkgHistory);
             dbConnect.close();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Tracking number incorrect", "STATUS NOT UPDATED", JOptionPane.ERROR_MESSAGE);

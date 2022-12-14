@@ -38,9 +38,11 @@ public class RMMainScreen extends javax.swing.JPanel {
         franchiseButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(866, 510));
         setMinimumSize(new java.awt.Dimension(866, 510));
 
+        csrButton.setBackground(new java.awt.Color(255, 204, 204));
         csrButton.setText("Manage CSR");
         csrButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -48,6 +50,7 @@ public class RMMainScreen extends javax.swing.JPanel {
             }
         });
 
+        franchiseButton.setBackground(new java.awt.Color(255, 204, 204));
         franchiseButton.setText("Manage Franchise");
         franchiseButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

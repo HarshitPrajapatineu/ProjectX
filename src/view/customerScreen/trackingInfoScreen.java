@@ -10,7 +10,9 @@ import javax.swing.table.DefaultTableModel;
 import DBConnection.DBConnect;
 import com.db4o.ObjectSet;
 import common.Enum.Status;
+import java.util.ArrayList;
 import model.PackageManagementEnterprise.Package;
+import model.TransportServiceEnterprise.packageHistory;
 
 /**
  *
@@ -43,6 +45,7 @@ public class trackingInfoScreen extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         backButton = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(860, 540));
 
         jLabel11.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -71,6 +74,7 @@ public class trackingInfoScreen extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        shipmentDetailsTable.setSelectionBackground(new java.awt.Color(255, 204, 204));
         jScrollPane1.setViewportView(shipmentDetailsTable);
         if (shipmentDetailsTable.getColumnModel().getColumnCount() > 0) {
             shipmentDetailsTable.getColumnModel().getColumn(0).setResizable(false);
@@ -78,6 +82,9 @@ public class trackingInfoScreen extends javax.swing.JPanel {
             shipmentDetailsTable.getColumnModel().getColumn(2).setResizable(false);
         }
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        backButton.setBackground(new java.awt.Color(255, 204, 204));
         backButton.setText("<< Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -149,21 +156,25 @@ public class trackingInfoScreen extends javax.swing.JPanel {
     private void populalateTrackingTable(long trackingNumber) {
         DefaultTableModel model = (DefaultTableModel) shipmentDetailsTable.getModel();
         model.setRowCount(0);
-        Package pkg = new Package();
+        packageHistory pkg = new packageHistory(trackingNumber, 0, 0);
         pkg.setTrackingId(trackingNumber);
         try {
             dbConnect.open();
-            ObjectSet result = this.dbConnect.queryByExample(pkg);
-            Package data = (Package) result.toArray()[0];
-            dbConnect.close();
-            for (Integer s : data.getStatusHistory()) {
+            ObjectSet result = this.dbConnect.queryByExample(pkg.getClass());
+            packageHistory data = new packageHistory();
+            for (Object o : result) {
                 // here
-                Object[] row = new Object[3];
-                row[0] = trackingNumber;
-                row[1] = s.toString();
-                row[2] = data.getCurrentLocationCity();
-                model.addRow(row);
+                data = (packageHistory) o;
+                if (data.getTrackingId() == trackingNumber) {
+                    Object[] row = new Object[3];
+                    row[0] = data.trackingId;
+                    row[1] = common.Enum.Status.values()[data.status];
+                    row[2] = common.Enum.City.values()[data.Location];
+                    model.addRow(row);
+                }
             }
+            
+            dbConnect.close();
         } catch (Exception e) {
         }
     }

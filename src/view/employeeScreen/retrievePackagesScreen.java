@@ -46,6 +46,7 @@ public class retrievePackagesScreen extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         packagesTable = new javax.swing.JTable();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(866, 510));
         setMinimumSize(new java.awt.Dimension(866, 510));
         setPreferredSize(new java.awt.Dimension(860, 540));
@@ -53,6 +54,7 @@ public class retrievePackagesScreen extends javax.swing.JPanel {
         jLabel11.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel11.setText("Retrieve Packages");
 
+        cancelPackageButton.setBackground(new java.awt.Color(255, 204, 204));
         cancelPackageButton.setText("Cancel Package");
         cancelPackageButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -60,12 +62,15 @@ public class retrievePackagesScreen extends javax.swing.JPanel {
             }
         });
 
+        updateButton.setBackground(new java.awt.Color(255, 204, 204));
         updateButton.setText("Update Package");
         updateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 updateButtonActionPerformed(evt);
             }
         });
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         packagesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -90,6 +95,7 @@ public class retrievePackagesScreen extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        packagesTable.setSelectionForeground(new java.awt.Color(255, 204, 204));
         jScrollPane1.setViewportView(packagesTable);
         if (packagesTable.getColumnModel().getColumnCount() > 0) {
             packagesTable.getColumnModel().getColumn(0).setResizable(false);
@@ -126,7 +132,7 @@ public class retrievePackagesScreen extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(updateButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(cancelPackageButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))

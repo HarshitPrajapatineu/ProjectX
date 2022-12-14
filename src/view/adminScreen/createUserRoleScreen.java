@@ -71,12 +71,15 @@ public class createUserRoleScreen extends javax.swing.JPanel {
         jPanel3 = new javax.swing.JPanel();
         backButton = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(866, 510));
         setMinimumSize(new java.awt.Dimension(866, 510));
         setPreferredSize(new java.awt.Dimension(866, 510));
 
         heading_LB.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         heading_LB.setText("New User Role");
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
         lastNameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -175,6 +178,7 @@ public class createUserRoleScreen extends javax.swing.JPanel {
 
         jPanel4Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {cityDropdown, emailTextField, firstNameTextField, jLabel1, jLabel2, jLabel4, jLabel5, jLabel6, lastNameTextField, userRoleDropdown});
 
+        createButton.setBackground(new java.awt.Color(255, 204, 204));
         createButton.setText("Create User Role");
         createButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -182,6 +186,9 @@ public class createUserRoleScreen extends javax.swing.JPanel {
             }
         });
 
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
+        backButton.setBackground(new java.awt.Color(255, 204, 204));
         backButton.setText("<< Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

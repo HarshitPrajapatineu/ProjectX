@@ -66,6 +66,7 @@ public class newCustomerScreen extends javax.swing.JPanel {
         jLabel10 = new javax.swing.JLabel();
         cityDropdown = new javax.swing.JComboBox<>();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(866, 510));
         setMinimumSize(new java.awt.Dimension(866, 510));
 
@@ -103,6 +104,7 @@ public class newCustomerScreen extends javax.swing.JPanel {
             }
         });
 
+        createAccountButton.setBackground(new java.awt.Color(255, 204, 204));
         createAccountButton.setText("Create account");
         createAccountButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

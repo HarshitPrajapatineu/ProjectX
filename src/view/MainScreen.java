@@ -58,7 +58,12 @@ public class MainScreen extends javax.swing.JFrame {
         setMaximumSize(new java.awt.Dimension(888, 595));
         setMinimumSize(new java.awt.Dimension(888, 595));
 
+        jSplitPane1.setDividerSize(2);
         jSplitPane1.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
         employeeButton.setText("Employee");
         employeeButton.addActionListener(new java.awt.event.ActionListener() {
@@ -114,6 +119,7 @@ public class MainScreen extends javax.swing.JFrame {
 
         jSplitPane1.setTopComponent(jPanel1);
 
+        userProcessPanel.setBackground(new java.awt.Color(255, 255, 255));
         userProcessPanel.setLayout(new java.awt.CardLayout());
         jSplitPane1.setRightComponent(userProcessPanel);
 

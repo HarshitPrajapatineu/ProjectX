@@ -76,6 +76,7 @@ public class EMSMainScreen extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         userRoleDropdown = new javax.swing.JComboBox<>();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(866, 510));
         setMinimumSize(new java.awt.Dimension(866, 510));
         setPreferredSize(new java.awt.Dimension(866, 510));
@@ -90,6 +91,9 @@ public class EMSMainScreen extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(employeeDetailsTable);
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        addButton.setBackground(new java.awt.Color(255, 204, 204));
         addButton.setText("Add Details");
         addButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,6 +101,7 @@ public class EMSMainScreen extends javax.swing.JPanel {
             }
         });
 
+        viewButton.setBackground(new java.awt.Color(255, 204, 204));
         viewButton.setText("View Details");
         viewButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,6 +109,7 @@ public class EMSMainScreen extends javax.swing.JPanel {
             }
         });
 
+        editButton.setBackground(new java.awt.Color(255, 204, 204));
         editButton.setText("Edit Details");
         editButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,6 +117,7 @@ public class EMSMainScreen extends javax.swing.JPanel {
             }
         });
 
+        deleteButton.setBackground(new java.awt.Color(255, 204, 204));
         deleteButton.setText("Delete");
         deleteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,6 +155,9 @@ public class EMSMainScreen extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
+        searchButton.setBackground(new java.awt.Color(255, 204, 204));
         searchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/asset/search.png"))); // NOI18N
         searchButton.setText(" Search");
         searchButton.setMaximumSize(new java.awt.Dimension(53, 25));
@@ -183,6 +193,9 @@ public class EMSMainScreen extends javax.swing.JPanel {
         heading_LB.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         heading_LB.setText("ADMIN CONSOLE");
 
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
+        backButton.setBackground(new java.awt.Color(255, 204, 204));
         backButton.setText("Go Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -206,6 +219,8 @@ public class EMSMainScreen extends javax.swing.JPanel {
                 .addComponent(backButton)
                 .addContainerGap())
         );
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
         idTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

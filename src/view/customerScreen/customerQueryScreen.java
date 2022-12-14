@@ -56,6 +56,7 @@ public class customerQueryScreen extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         viewButton = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(866, 510));
         setMinimumSize(new java.awt.Dimension(866, 510));
         setPreferredSize(new java.awt.Dimension(866, 510));
@@ -63,6 +64,7 @@ public class customerQueryScreen extends javax.swing.JPanel {
         jLabel11.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel11.setText("Contact Us");
 
+        postQuery_BT.setBackground(new java.awt.Color(255, 204, 204));
         postQuery_BT.setText("Post Query");
         postQuery_BT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,6 +97,7 @@ public class customerQueryScreen extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        queriesTable.setSelectionBackground(new java.awt.Color(255, 204, 204));
         jScrollPane3.setViewportView(queriesTable);
 
         searchTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -103,6 +106,7 @@ public class customerQueryScreen extends javax.swing.JPanel {
             }
         });
 
+        searchButton.setBackground(new java.awt.Color(255, 204, 204));
         searchButton.setText("Search");
         searchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,6 +116,7 @@ public class customerQueryScreen extends javax.swing.JPanel {
 
         jLabel2.setText("Query still not answered?");
 
+        viewButton.setBackground(new java.awt.Color(255, 204, 204));
         viewButton.setText("View");
         viewButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

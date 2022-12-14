@@ -50,6 +50,7 @@ public class postQueryScreen extends javax.swing.JPanel {
         queryTextArea = new javax.swing.JTextArea();
         postButton = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(866, 510));
         setMinimumSize(new java.awt.Dimension(866, 510));
         setPreferredSize(new java.awt.Dimension(866, 510));
@@ -57,6 +58,9 @@ public class postQueryScreen extends javax.swing.JPanel {
         jLabel11.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel11.setText("Post Query");
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        backButton.setBackground(new java.awt.Color(255, 204, 204));
         backButton.setText("<< Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,6 +91,7 @@ public class postQueryScreen extends javax.swing.JPanel {
         queryTextArea.setRows(5);
         jScrollPane1.setViewportView(queryTextArea);
 
+        postButton.setBackground(new java.awt.Color(255, 204, 204));
         postButton.setText("Post");
         postButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

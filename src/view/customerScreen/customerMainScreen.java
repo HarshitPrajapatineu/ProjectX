@@ -41,10 +41,16 @@ public class customerMainScreen extends javax.swing.JPanel {
         contactUsButton = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(866, 510));
         setMinimumSize(new java.awt.Dimension(866, 510));
         setPreferredSize(new java.awt.Dimension(860, 540));
 
+        jSplitPane1.setDividerSize(2);
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        searchButton.setBackground(new java.awt.Color(255, 204, 204));
         searchButton.setText("Search");
         searchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -52,6 +58,7 @@ public class customerMainScreen extends javax.swing.JPanel {
             }
         });
 
+        trackShipmentButton.setBackground(new java.awt.Color(255, 204, 204));
         trackShipmentButton.setText("Track shipment");
         trackShipmentButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -59,6 +66,7 @@ public class customerMainScreen extends javax.swing.JPanel {
             }
         });
 
+        contactUsButton.setBackground(new java.awt.Color(255, 204, 204));
         contactUsButton.setText("Contact Us");
         contactUsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,20 +101,22 @@ public class customerMainScreen extends javax.swing.JPanel {
                 .addComponent(trackShipmentButton)
                 .addGap(18, 18, 18)
                 .addComponent(contactUsButton)
-                .addContainerGap(173, Short.MAX_VALUE))
+                .addContainerGap(213, Short.MAX_VALUE))
         );
 
         jSplitPane1.setLeftComponent(jPanel1);
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 717, Short.MAX_VALUE)
+            .addGap(0, 730, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 498, Short.MAX_VALUE)
+            .addGap(0, 538, Short.MAX_VALUE)
         );
 
         jSplitPane1.setRightComponent(jPanel2);
@@ -115,15 +125,11 @@ public class customerMainScreen extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jSplitPane1)
-                .addContainerGap())
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 866, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jSplitPane1)
-                .addContainerGap())
+            .addComponent(jSplitPane1)
         );
     }// </editor-fold>//GEN-END:initComponents
 

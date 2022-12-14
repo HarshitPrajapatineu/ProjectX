@@ -33,9 +33,11 @@ public class customerRegisterScreen extends javax.swing.JPanel {
         newCustomerButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(866, 510));
         setMinimumSize(new java.awt.Dimension(866, 510));
 
+        existingCustomerButton.setBackground(new java.awt.Color(255, 204, 204));
         existingCustomerButton.setText("Existing Customer");
         existingCustomerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -43,6 +45,7 @@ public class customerRegisterScreen extends javax.swing.JPanel {
             }
         });
 
+        newCustomerButton.setBackground(new java.awt.Color(255, 204, 204));
         newCustomerButton.setText("New Customer");
         newCustomerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
