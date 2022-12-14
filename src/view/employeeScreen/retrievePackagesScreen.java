@@ -37,9 +37,11 @@ public class retrievePackagesScreen extends javax.swing.JPanel {
         setMinimumSize(new java.awt.Dimension(866, 510));
         setPreferredSize(new java.awt.Dimension(860, 540));
 
+        jLabel11.setBackground(new java.awt.Color(255, 153, 102));
         jLabel11.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel11.setText("Retrieve Packages");
 
+        cancelPackageButton.setBackground(new java.awt.Color(255, 153, 102));
         cancelPackageButton.setText("Cancel Package");
         cancelPackageButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -47,6 +49,7 @@ public class retrievePackagesScreen extends javax.swing.JPanel {
             }
         });
 
+        updateButton.setBackground(new java.awt.Color(255, 153, 102));
         updateButton.setText("Update Package");
         updateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -59,7 +62,7 @@ public class retrievePackagesScreen extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Tracking ID", "Sender Name", "Location", "Provider"
+                "Tracking ID", "From Name", "Location", "Provider"
             }
         ) {
             Class[] types = new Class [] {
@@ -113,7 +116,7 @@ public class retrievePackagesScreen extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(updateButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(cancelPackageButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))

@@ -59,9 +59,11 @@ public class customerServiceScreen extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(866, 510));
 
+        heading_LB.setBackground(new java.awt.Color(255, 153, 102));
         heading_LB.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         heading_LB.setText("Customer Service");
 
+        backButton.setBackground(new java.awt.Color(255, 153, 102));
         backButton.setText("Go Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,18 +106,21 @@ public class customerServiceScreen extends javax.swing.JPanel {
             .addGap(0, 37, Short.MAX_VALUE)
         );
 
+        jLabel1.setBackground(new java.awt.Color(255, 153, 102));
         jLabel1.setText("Query:");
 
         resolutionTextArea.setColumns(20);
         resolutionTextArea.setRows(5);
         jScrollPane2.setViewportView(resolutionTextArea);
 
+        jLabel2.setBackground(new java.awt.Color(255, 153, 102));
         jLabel2.setText("Resolution:");
 
         queryTextArea.setColumns(20);
         queryTextArea.setRows(5);
         jScrollPane3.setViewportView(queryTextArea);
 
+        resolveButton.setBackground(new java.awt.Color(255, 153, 102));
         resolveButton.setText("Resolve");
         resolveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -123,6 +128,7 @@ public class customerServiceScreen extends javax.swing.JPanel {
             }
         });
 
+        answerQueryButton.setBackground(new java.awt.Color(255, 153, 102));
         answerQueryButton.setText("Answer Query");
         answerQueryButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -281,19 +287,15 @@ public class customerServiceScreen extends javax.swing.JPanel {
             CustomerService custServiceUpdated1 = new CustomerService();
             custServiceUpdated1 = (CustomerService)resultUp.next();
             String q = custServiceUpdated1.getQuestion();
-            //custServiceUpdated1.setQuestion(query);
+            custServiceUpdated1.setQuestion(query);
             custServiceUpdated1.setAnswer(answer);
-            dbConnect.setEntity(custServiceUpdated1);
             dbConnect.close();
-            
-            int i = queriesTable.getSelectedRow();
-            model.removeRow(i);
             
             
             //UPDATE BACK TO DB
-            //dbConnect.open();
-            //dbConnect.setEntity(custServiceUpdated1);
-            //dbConnect.close();
+            dbConnect.open();
+            dbConnect.setEntity(custServiceUpdated1);
+            dbConnect.close();
             
             //populateTable();
         

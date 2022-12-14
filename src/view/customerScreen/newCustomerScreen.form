@@ -128,6 +128,9 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="66" green="99" red="ff" type="rgb"/>
+        </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial" size="18" style="1"/>
         </Property>
@@ -136,41 +139,65 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="66" green="99" red="ff" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="First Name:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="66" green="99" red="ff" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Last Name:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="phoneNumberLabel">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="66" green="99" red="ff" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Phone Number:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="66" green="99" red="ff" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Email Address: "/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="66" green="99" red="ff" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Address line 1:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="66" green="99" red="ff" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Address line 2:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel8">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="66" green="99" red="ff" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Postal Code:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel9">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="66" green="99" red="ff" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="DOB:"/>
       </Properties>
     </Component>
@@ -197,6 +224,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="createAccountButton">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="66" green="99" red="ff" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Create account"/>
       </Properties>
       <Events>
@@ -207,6 +237,9 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel10">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="66" green="99" red="ff" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="City:"/>
       </Properties>
     </Component>

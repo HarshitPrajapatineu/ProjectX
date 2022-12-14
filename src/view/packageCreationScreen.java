@@ -83,14 +83,18 @@ public class packageCreationScreen extends javax.swing.JPanel {
         setMaximumSize(new java.awt.Dimension(866, 510));
         setMinimumSize(new java.awt.Dimension(866, 510));
 
+        jLabel11.setBackground(new java.awt.Color(255, 153, 102));
         jLabel11.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText("Package Creation");
 
+        jLabel3.setBackground(new java.awt.Color(255, 153, 102));
         jLabel3.setText("Last Name:");
 
+        jLabel4.setBackground(new java.awt.Color(255, 153, 102));
         jLabel4.setText("Address line 1:");
 
+        jLabel7.setBackground(new java.awt.Color(255, 153, 102));
         jLabel7.setText("Phone Number:");
 
         fromCityDropdown.setEditable(true);
@@ -100,16 +104,21 @@ public class packageCreationScreen extends javax.swing.JPanel {
             }
         });
 
+        jLabel6.setBackground(new java.awt.Color(255, 153, 102));
         jLabel6.setText("Postal Code:");
 
         jLabel1.setText("FROM:");
 
+        jLabel9.setBackground(new java.awt.Color(255, 153, 102));
         jLabel9.setText("Email Address:");
 
+        jLabel2.setBackground(new java.awt.Color(255, 153, 102));
         jLabel2.setText("First Name:");
 
+        jLabel8.setBackground(new java.awt.Color(255, 153, 102));
         jLabel8.setText("City:");
 
+        jLabel5.setBackground(new java.awt.Color(255, 153, 102));
         jLabel5.setText("Address line 2:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -147,7 +156,7 @@ public class packageCreationScreen extends javax.swing.JPanel {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(fromPostalCodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(fromPhoneNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel8)
@@ -201,10 +210,13 @@ public class packageCreationScreen extends javax.swing.JPanel {
             }
         });
 
+        jLabel14.setBackground(new java.awt.Color(255, 153, 102));
         jLabel14.setText("Address line 1:");
 
+        jLabel18.setBackground(new java.awt.Color(255, 153, 102));
         jLabel18.setText("Phone Number:");
 
+        jLabel15.setBackground(new java.awt.Color(255, 153, 102));
         jLabel15.setText("Postal Code:");
 
         toEmailTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -213,16 +225,21 @@ public class packageCreationScreen extends javax.swing.JPanel {
             }
         });
 
+        jLabel12.setBackground(new java.awt.Color(255, 153, 102));
         jLabel12.setText("First Name:");
 
         jLabel10.setText("TO:");
 
+        jLabel19.setBackground(new java.awt.Color(255, 153, 102));
         jLabel19.setText("City:");
 
+        jLabel13.setBackground(new java.awt.Color(255, 153, 102));
         jLabel13.setText("Last Name:");
 
+        jLabel16.setBackground(new java.awt.Color(255, 153, 102));
         jLabel16.setText("Email Address:");
 
+        jLabel17.setBackground(new java.awt.Color(255, 153, 102));
         jLabel17.setText("Address line 2:");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -323,8 +340,10 @@ public class packageCreationScreen extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
+        jLabel22.setBackground(new java.awt.Color(255, 153, 102));
         jLabel22.setText("Weight(in lb):");
 
+        jLabel21.setBackground(new java.awt.Color(255, 153, 102));
         jLabel21.setText("Package Type:");
 
         jLabel20.setText("OTHER DETAILS:");
@@ -367,6 +386,7 @@ public class packageCreationScreen extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
+        createPackageButton.setBackground(new java.awt.Color(255, 153, 102));
         createPackageButton.setText("Create Package");
         createPackageButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

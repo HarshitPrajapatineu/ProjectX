@@ -65,14 +65,13 @@ public class Package {
     private Long packageId;
     private Long trackingId;
     private float weight;
-    private int status;
+    private Status status;
     private float cost;
     private Customer customer;
     private String franchise;
     private String currentLocationCity;
     private Long fromPhoneNumber;
     private Long toPhoneNumber;
-    private ArrayList<Integer> statusHistory;
 
     public Long getToPhoneNumber() {
         return toPhoneNumber;
@@ -124,12 +123,13 @@ public class Package {
     public void setCurrentLocationCity(String currentLocationCity) {
         this.currentLocationCity = currentLocationCity;
     }
+    private ArrayList<Status> statusHistory;
 
-    public ArrayList<Integer> getStatusHistory() {
+    public ArrayList<Status> getStatusHistory() {
         return statusHistory;
     }
 
-    public void setStatusHistory(ArrayList<Integer> statusHistory) {
+    public void setStatusHistory(ArrayList<Status> statusHistory) {
         this.statusHistory = statusHistory;
     }
 
@@ -237,11 +237,11 @@ public class Package {
         this.weight = weight;
     }
 
-    public int getStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 

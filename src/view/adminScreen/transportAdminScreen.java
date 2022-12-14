@@ -5,10 +5,8 @@
 package view.adminScreen;
 
 import DBConnection.DBConnect;
-import com.db4o.ObjectSet;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import model.PackageManagementEnterprise.Package;
+import model.Employee;
 
 /**
  *
@@ -16,13 +14,14 @@ import model.PackageManagementEnterprise.Package;
  */
 public class transportAdminScreen extends javax.swing.JPanel {
 
+    
     JPanel userProcessPanel;
-    DBConnect dbConnect;
-
+    
     public transportAdminScreen(JPanel userProcessPanel) {
         initComponents();
+        DBConnect dbConnect;
+        Employee sessionUser;
         populateStatus();
-        this.dbConnect = dbConnect;
     }
 
     /**
@@ -46,9 +45,11 @@ public class transportAdminScreen extends javax.swing.JPanel {
 
         jPanel1.setPreferredSize(new java.awt.Dimension(866, 510));
 
+        jLabel12.setBackground(new java.awt.Color(255, 153, 102));
         jLabel12.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel12.setText("Transport Admin");
 
+        jLabel2.setBackground(new java.awt.Color(255, 153, 102));
         jLabel2.setText("Enter Tracking ID:");
 
         trackingIdTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -57,6 +58,7 @@ public class transportAdminScreen extends javax.swing.JPanel {
             }
         });
 
+        updateButton.setBackground(new java.awt.Color(255, 153, 102));
         updateButton.setText("Update");
         updateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -64,6 +66,7 @@ public class transportAdminScreen extends javax.swing.JPanel {
             }
         });
 
+        jLabel3.setBackground(new java.awt.Color(255, 153, 102));
         jLabel3.setText("Status:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -102,7 +105,7 @@ public class transportAdminScreen extends javax.swing.JPanel {
                     .addComponent(statusDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(63, 63, 63)
                 .addComponent(updateButton)
-                .addGap(0, 281, Short.MAX_VALUE))
+                .addGap(0, 287, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -124,23 +127,11 @@ public class transportAdminScreen extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
-        try {
-            long trackingId = Long.parseLong(trackingIdTextField1.getText());
-            int status = statusDropdown.getSelectedIndex();
+        String trackingId = trackingIdTextField1.getText();
+        String status = statusDropdown.getSelectedItem().toString();
 
-            dbConnect.open();
-            Package protoPackage = new Package();
-            protoPackage.setPackageId(trackingId);
-            protoPackage.setTrackingId(trackingId);
-            ObjectSet result = dbConnect.queryByExample(protoPackage);
-            Package pkg = (Package) result.next();
-            pkg.getStatusHistory().add(pkg.getStatus());
-            pkg.setStatus(status);
-            dbConnect.setEntity(pkg);
-            dbConnect.close();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Tracking number incorrect", "STATUS NOT UPDATED", JOptionPane.ERROR_MESSAGE);
-        }
+        Employee emp = new Employee();
+
     }//GEN-LAST:event_updateButtonActionPerformed
 
     private void trackingIdTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trackingIdTextField1ActionPerformed
@@ -158,7 +149,7 @@ public class transportAdminScreen extends javax.swing.JPanel {
     private javax.swing.JButton updateButton;
     // End of variables declaration//GEN-END:variables
 
-    private void populateStatus() {
+private void populateStatus() {
         for (Object status : common.Enum.Status.values()) {
             statusDropdown.addItem(status.toString());
 

@@ -89,6 +89,9 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabel11">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="66" green="99" red="ff" type="rgb"/>
+        </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Arial" size="18" style="1"/>
         </Property>
@@ -105,6 +108,9 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="66" green="99" red="ff" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="FAQs"/>
       </Properties>
     </Component>
@@ -151,6 +157,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="searchButton">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="66" green="99" red="ff" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Search"/>
       </Properties>
       <Events>
@@ -164,6 +173,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="viewButton">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="66" green="99" red="ff" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="View"/>
       </Properties>
       <Events>

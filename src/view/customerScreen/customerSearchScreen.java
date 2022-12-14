@@ -55,6 +55,7 @@ public class customerSearchScreen extends javax.swing.JPanel {
         setMinimumSize(new java.awt.Dimension(866, 510));
         setPreferredSize(new java.awt.Dimension(866, 510));
 
+        jLabel11.setBackground(new java.awt.Color(255, 153, 102));
         jLabel11.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel11.setText("Search nearby services");
 
@@ -64,6 +65,7 @@ public class customerSearchScreen extends javax.swing.JPanel {
             }
         });
 
+        jLabel10.setBackground(new java.awt.Color(255, 153, 102));
         jLabel10.setText("City:");
 
         nearbyServiesTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -84,6 +86,7 @@ public class customerSearchScreen extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(nearbyServiesTable);
 
+        searchButton.setBackground(new java.awt.Color(255, 153, 102));
         searchButton.setText("Search");
         searchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,6 +94,7 @@ public class customerSearchScreen extends javax.swing.JPanel {
             }
         });
 
+        bookButton.setBackground(new java.awt.Color(255, 153, 102));
         bookButton.setText("Book");
         bookButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

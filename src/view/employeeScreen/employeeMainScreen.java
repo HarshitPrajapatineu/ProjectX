@@ -44,6 +44,7 @@ public class employeeMainScreen extends javax.swing.JPanel {
         setMinimumSize(new java.awt.Dimension(866, 510));
         setPreferredSize(new java.awt.Dimension(866, 510));
 
+        createPackageButton.setBackground(new java.awt.Color(255, 153, 102));
         createPackageButton.setText("Create package");
         createPackageButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -51,6 +52,7 @@ public class employeeMainScreen extends javax.swing.JPanel {
             }
         });
 
+        retrievePackageButton.setBackground(new java.awt.Color(255, 153, 102));
         retrievePackageButton.setText("Retrieve package");
         retrievePackageButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

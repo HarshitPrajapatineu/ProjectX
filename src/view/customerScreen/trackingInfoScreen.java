@@ -10,6 +10,8 @@ import javax.swing.table.DefaultTableModel;
 import DBConnection.DBConnect;
 import com.db4o.ObjectSet;
 import common.Enum.Status;
+import java.util.ArrayList;
+import model.PackageManagementEnterprise.Franchise;
 import model.PackageManagementEnterprise.Package;
 
 /**
@@ -19,10 +21,12 @@ import model.PackageManagementEnterprise.Package;
 public class trackingInfoScreen extends javax.swing.JPanel {
 
     JPanel userProcessPanel;
+    long trackingNumber;
     DBConnect dbConnect;
 
     public trackingInfoScreen(JPanel userProcessPanel, long trackingNumber) {
         this.userProcessPanel = userProcessPanel;
+        this.trackingNumber = trackingNumber;
         initComponents();
         dbConnect = new DBConnect();
         populalateTrackingTable(trackingNumber);
@@ -45,6 +49,7 @@ public class trackingInfoScreen extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(860, 540));
 
+        jLabel11.setBackground(new java.awt.Color(255, 153, 102));
         jLabel11.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel11.setText("Shipment Details");
 
@@ -78,6 +83,7 @@ public class trackingInfoScreen extends javax.swing.JPanel {
             shipmentDetailsTable.getColumnModel().getColumn(2).setResizable(false);
         }
 
+        backButton.setBackground(new java.awt.Color(255, 153, 102));
         backButton.setText("<< Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -156,7 +162,7 @@ public class trackingInfoScreen extends javax.swing.JPanel {
             ObjectSet result = this.dbConnect.queryByExample(pkg);
             Package data = (Package) result.toArray()[0];
             dbConnect.close();
-            for (Integer s : data.getStatusHistory()) {
+            for (Status s : data.getStatusHistory()) {
                 // here
                 Object[] row = new Object[3];
                 row[0] = trackingNumber;

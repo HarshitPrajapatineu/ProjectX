@@ -95,6 +95,9 @@
           <SubComponents>
             <Component class="javax.swing.JButton" name="searchButton">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="66" green="99" red="ff" type="rgb"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Search"/>
               </Properties>
               <Events>
@@ -103,6 +106,9 @@
             </Component>
             <Component class="javax.swing.JButton" name="trackShipmentButton">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="66" green="99" red="ff" type="rgb"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Track shipment"/>
               </Properties>
               <Events>
@@ -111,6 +117,9 @@
             </Component>
             <Component class="javax.swing.JButton" name="contactUsButton">
               <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="66" green="99" red="ff" type="rgb"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Contact Us"/>
               </Properties>
               <Events>
