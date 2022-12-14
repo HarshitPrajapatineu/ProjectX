@@ -200,8 +200,8 @@ public class employeeLoginScreen extends javax.swing.JPanel {
     }
 
     private void showRMScreen() {
-        AdminMainScreen adminMainScreen = new AdminMainScreen(userProcessPanel, sessionUser);
-        userProcessPanel.add("AdminMainScreen", adminMainScreen);
+        RMMainScreen rmMainScreen = new RMMainScreen(userProcessPanel, sessionUser);
+        userProcessPanel.add("RMMainScreen", rmMainScreen);
         CardLayout layout = (CardLayout) userProcessPanel.getLayout();
         layout.next(userProcessPanel);
     }

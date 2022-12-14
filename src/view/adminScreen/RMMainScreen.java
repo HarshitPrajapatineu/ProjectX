@@ -87,8 +87,8 @@ public class RMMainScreen extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void csrButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_csrButtonActionPerformed
-        customerLoginScreen custLoginScreen = new customerLoginScreen(userProcessPanel);
-        userProcessPanel.add("customerLoginScreen", custLoginScreen);
+        AdminMainScreen adminMainScreen = new AdminMainScreen(userProcessPanel, sessionUser);
+        userProcessPanel.add("AdminMainScreen", adminMainScreen);
         CardLayout layout = (CardLayout) userProcessPanel.getLayout();
         layout.next(userProcessPanel);
     }//GEN-LAST:event_csrButtonActionPerformed
