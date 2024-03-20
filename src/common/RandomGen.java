@@ -6,7 +6,7 @@ package common;
 
 import DBConnection.DBConnect;
 import com.db4o.ObjectSet;
-import java.util.Random;
+import java.util.Random; 
 import model.Employee;
 
 /**
